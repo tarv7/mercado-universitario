@@ -9,8 +9,12 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :reviews
-  has_many :sellers
+  has_one :seller
 
   validates :name, presence: true
   validates :semester, presence: true, numericality: { only_integer: true }
+
+  def is_seller?
+    seller.present?
+  end
 end

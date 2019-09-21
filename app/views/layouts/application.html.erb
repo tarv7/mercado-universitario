@@ -10,7 +10,13 @@
   </head>
 
   <body>
-    <%= render 'layouts/nav/public' %>
+    <% if user_signed_in? && current_actor.is_a?(Seller) %>
+      <%= render 'layouts/nav/seller' %>
+    <% elsif user_signed_in? %>
+      <%= render 'layouts/nav/user' %>
+    <% else %>
+      <%= render 'layouts/nav/public' %>
+    <% end %>
     <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>

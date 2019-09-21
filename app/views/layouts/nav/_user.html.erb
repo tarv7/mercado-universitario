@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">Mercado Universitário</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="textoNavbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to 'Vendedores', root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Categorias', root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Produtos', root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Configurações', root_path, class: 'nav-link' %>
+        </li>
+      </ul>
+
+      <% if current_user.is_seller? %>
+        <%= link_to 'Área restrita', restricted_area_path, class: 'navbar-text nav-link' %>
+      <% else %>
+        <%= link_to 'Seja um vendedor', restricted_area_path, class: 'navbar-text nav-link' %>
+      <% end %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'navbar-text nav-link' %>
+    </div>
+  </div>
+</nav>
