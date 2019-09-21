@@ -4,4 +4,6 @@ class Seller < ApplicationRecord
 
   has_many :orders
   has_many :reviews
+
+  validates :user, uniqueness: true
 end
