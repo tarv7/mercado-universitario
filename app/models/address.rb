@@ -5,6 +5,6 @@ class Address < ApplicationRecord
   has_many :colleges
 
   validates :street, presence: true
-  validates :neigborhood, presence: true
+  validates :neighborhood, presence: true
   validates :number, numericality: { only_integer: true }
 end
