@@ -39,6 +39,15 @@ gem 'devise'
 # A modern, simple and very fast Mysql library for Ruby - binding to libmysql
 gem 'mysql2'
 
+# Forms made easy for Rails!
+gem 'simple_form'
+
+# Seedbank gives your seed data a little structure
+gem 'seedbank'
+
+# FFaker
+gem 'ffaker'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
