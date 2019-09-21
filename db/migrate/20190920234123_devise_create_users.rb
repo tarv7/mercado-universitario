@@ -34,8 +34,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name,         null: false
       t.integer :semester,    null: false
-      t.references :course,   null: false, dependent: :destroy
-      t.references :address,  null: false, dependent: :destroy, unique: true
+      t.references :course,   null: false, dependent: :destroy,
+                              foreign_key: true
+      t.references :address,  null: false, dependent: :destroy, unique: true,
+                              foreign_key: true
 
       t.timestamps null: false
     end

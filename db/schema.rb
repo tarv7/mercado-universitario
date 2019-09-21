@@ -158,4 +158,6 @@ ActiveRecord::Schema.define(version: 2019_09_20_234715) do
   add_foreign_key "reviews", "users"
   add_foreign_key "sellers", "categories"
   add_foreign_key "sellers", "users"
+  add_foreign_key "users", "addresses"
+  add_foreign_key "users", "courses"
 end
