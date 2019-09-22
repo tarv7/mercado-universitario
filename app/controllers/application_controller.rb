@@ -4,8 +4,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters    
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :course_id,
-                                                       :semester, :address_id])
+    devise_parameter_sanitizer
+      .permit(:sign_up,
+              keys: [:name, :course_id, :semester, :address_id,
+                     address_attributes: %i[street neighborhood complement
+                                            number city_id]])
   end
 
   def current_actor

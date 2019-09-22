@@ -14,6 +14,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :semester, presence: true, numericality: { only_integer: true }
 
+  accepts_nested_attributes_for :address, allow_destroy: false
+
   def is_seller?
     seller.present?
   end
