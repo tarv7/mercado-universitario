@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-    has_many :sellers
+  has_many :sellers
 
-    validates :name, presence: true
+  validates :name, presence: true
 end

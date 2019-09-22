@@ -1,0 +1,16 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false

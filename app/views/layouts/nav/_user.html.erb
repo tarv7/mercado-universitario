@@ -20,7 +20,7 @@
         </li>
       </ul>
 
-      <% if current_user.is_seller? %>
+      <% if current_user.seller? %>
         <%= link_to 'Área restrita', restricted_area_path, class: 'navbar-text nav-link' %>
       <% else %>
         <%= link_to 'Seja um vendedor', restricted_area_path, class: 'navbar-text nav-link' %>

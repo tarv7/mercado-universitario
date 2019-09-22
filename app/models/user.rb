@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :address, allow_destroy: false
 
-  def is_seller?
+  def seller?
     seller.present?
   end
 end
