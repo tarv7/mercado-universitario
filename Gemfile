@@ -71,6 +71,9 @@ group :development, :test do
   # A Ruby static code analyzer and formatter, based on the community Ruby
   # style guide
   gem 'rubocop'
+
+  # Factory Bot <3 Rails
+  gem 'factory_bot_rails'
 end
 
 group :development do

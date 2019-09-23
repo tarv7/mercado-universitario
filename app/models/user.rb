@@ -12,7 +12,9 @@ class User < ApplicationRecord
   has_one :seller
 
   validates :name, presence: true
-  validates :semester, presence: true, numericality: { only_integer: true }
+  validates :semester, presence: true,
+                       numericality: { greater_than_or_equal_to: 1,
+                                       only_integer: true }
 
   accepts_nested_attributes_for :address, allow_destroy: false
 

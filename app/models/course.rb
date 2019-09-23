@@ -3,7 +3,9 @@ class Course < ApplicationRecord
 
   has_many :users
 
+  enum shift: %i[morning evening integral]
+
   validates :name, presence: true
-  validates :shift, presence: true, numericality: { only_integer: true }
+  validates :shift, presence: true
   validates :university, uniqueness: { scope: %i[name shift] }
 end

@@ -6,5 +6,6 @@ class Address < ApplicationRecord
 
   validates :street, presence: true
   validates :neighborhood, presence: true
-  validates :number, numericality: { only_integer: true }
+  validates :number, numericality: { greater_than_or_equal_to: 1,
+                                     only_integer: true }
 end
