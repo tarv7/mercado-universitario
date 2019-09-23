@@ -49,7 +49,7 @@ gem 'seedbank'
 # FFaker
 gem 'ffaker'
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.0'
 
 gem 'jquery-rails'
 
