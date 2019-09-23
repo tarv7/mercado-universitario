@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
   end
 
   def permission_write
-    return if current_actor.is_a?(Seller)
+    return if restricted_area?
   end
 
   def permission_delete

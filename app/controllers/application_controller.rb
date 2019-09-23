@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
   def current_actor
     session[:restricted_area] ? current_user.seller : current_user
   end
-  helper_method :current_actor
+
+  def restricted_area?
+    current_actor.is_a?(Seller)
+  end
+  helper_method :current_actor, :restricted_area?
 end

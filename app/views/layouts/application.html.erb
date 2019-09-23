@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <% if user_signed_in? && current_actor.is_a?(Seller) %>
+    <% if user_signed_in? && restricted_area? %>
       <%= render 'layouts/nav/seller' %>
     <% elsif user_signed_in? %>
       <%= render 'layouts/nav/user' %>

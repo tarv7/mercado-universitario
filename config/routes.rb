@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   get 'restricted_area', to: 'restricted_area#change'
 
   resources :products
+  resources :sellers
+
+  resources :orders
+  resources :reviews
+  resources :categories
 end
