@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :seller
 
-  has_many :order_products
+  has_many :order_products, dependent: :destroy
 
   validates :name, presence: true
   validates :price, presence: true,

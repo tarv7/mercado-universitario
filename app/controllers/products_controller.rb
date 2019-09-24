@@ -1,11 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
-  # before_action :permission_read, only: %i[index show]
-  before_action :permission_write, only: %i[new create edit update destroy]
-  before_action :permission_delete, only: %i[destroy]
+  before_action :policy_show, only: %i[show]
+  before_action :policy_write, only: %i[new create edit update destroy]
+  before_action :policy_update_delete, only: %i[edit update destroy]
 
   def index
-    @products = Product.all
+    @products = if restricted_area?
+                  current_actor.products
+                else
+                  Product.all
+                end
   end
 
   def show; end
@@ -51,11 +55,22 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :price, :description)
   end
 
-  def permission_write
-    return if restricted_area?
+  def policy_show
+    return if !restricted_area? ||
+              @product.seller == current_actor
+
+    redirect_to root_path
   end
 
-  def permission_delete
+  def policy_write
+    return if restricted_area?
+
+    redirect_to root_path
+  end
+
+  def policy_update_delete
     return if @product.seller == current_actor
+
+    redirect_to root_path
   end
 end

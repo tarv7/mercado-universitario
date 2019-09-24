@@ -7,9 +7,9 @@ class User < ApplicationRecord
   belongs_to :course
   belongs_to :address
 
-  has_many :orders
-  has_many :reviews
-  has_one :seller
+  has_many :orders, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_one :seller, dependent: :destroy
 
   validates :name, presence: true
   validates :semester, presence: true,

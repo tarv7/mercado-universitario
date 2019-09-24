@@ -34,27 +34,21 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Flexible authentication solution for Rails with Warden.
-gem 'devise'
-
-# A modern, simple and very fast Mysql library for Ruby - binding to libmysql
-gem 'mysql2'
-
-# Forms made easy for Rails!
-gem 'simple_form'
-
-# Seedbank gives your seed data a little structure
-gem 'seedbank'
-
-# FFaker
-gem 'ffaker'
-
-gem 'bootstrap', '~> 4.0'
-
-gem 'jquery-rails'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
+# A modern, simple and very fast Mysql library for Ruby - binding to libmysql
+gem 'mysql2'
+# Forms made easy for Rails!
+gem 'simple_form'
+# Seedbank gives your seed data a little structure
+gem 'seedbank'
+# FFaker
+gem 'ffaker'
+gem 'bootstrap', '~> 4.0'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
@@ -63,15 +57,12 @@ group :development, :test do
 
   # Scripts that verify your application code.
   gem 'rspec-rails'
-
   # interactive Ruby
   gem 'irb'
   gem 'pry-rails'
-
   # A Ruby static code analyzer and formatter, based on the community Ruby
   # style guide
   gem 'rubocop'
-
   # Factory Bot <3 Rails
   gem 'factory_bot_rails'
 end

@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
   belongs_to :university
 
-  has_many :users
+  has_many :users, dependent: :destroy
 
   enum shift: %i[morning evening integral]
 

@@ -1,3 +1,5 @@
 <% @products.each do |p| %>
-  <p><%= "#{p.name} - #{p.price} - #{p.description}" %></p>
+  <p><%= link_to(p.name, p) + " - #{p.price}" %></p>
 <% end %>
+
+<%= link_to 'Cadastrar novo produto', new_product_path if restricted_area? %>

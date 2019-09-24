@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :seller
   belongs_to :user
 
-  has_many :order_products
+  has_many :order_products, dependent: :destroy
 
   enum status: %i[not_seen preparing on_the_way delivered canceled]
 

@@ -1,0 +1,8 @@
+<p><%= "#{@product.name} - #{@product.price}" %></p>
+<p><%= "#{@product.description}" %></p>
+
+<%= link_to 'Todos produtos', products_path %> | 
+<% if restricted_area? %>
+  <%= link_to 'Deletar', @product, method: :delete %> | 
+  <%= link_to 'Editar', edit_product_path(@product) %>
+<% end %>
