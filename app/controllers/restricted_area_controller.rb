@@ -1,7 +1,9 @@
 class RestrictedAreaController < ApplicationController
   def change
+    # Usando operador xor para inveter boolean
     session[:restricted_area] ^= true
 
+    # Caso não seja um vendedor, levará para form que cria um
     if current_user.seller?
       redirect_to root_path
     else

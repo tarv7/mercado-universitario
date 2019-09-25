@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
   before_action :policy_update_delete, only: %i[edit update destroy]
 
   def index
+    # Devolve lista de produtos de acordo com o escopo de permissões
+    # Todos produtos para usuários comuns, apenas produtos que sou dono
+    # para o vendedor logado
     @products = if restricted_area?
                   current_actor.products
                 else
@@ -19,6 +22,8 @@ class ProductsController < ApplicationController
   end
 
   def create
+    # Cria um novo produto ainda não persistido dos parâmetros que
+    # veio do form
     @product = current_actor.products.new(product_params)
 
     if @product.save
@@ -45,16 +50,19 @@ class ProductsController < ApplicationController
 
   private
 
+  # Seta o produto de acordo com o id que veio na URL
   def set_product
     @product = Product.find(params[:id])
   rescue StandardError
     nil
   end
 
+  # Permite apenas os parâmetros necessários para produto
   def product_params
     params.require(:product).permit(:name, :price, :description)
   end
 
+  # Só visualiza o produto se for dono dele ou se for um usuário comum
   def policy_show
     return if !restricted_area? ||
               @product.seller == current_actor
@@ -62,12 +70,14 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  # Só cria um novo produto se estiver logado como vendedor
   def policy_write
     return if restricted_area?
 
     redirect_to root_path
   end
 
+  # Só pode atualizar o produto se for dono dele
   def policy_update_delete
     return if @product.seller == current_actor
 

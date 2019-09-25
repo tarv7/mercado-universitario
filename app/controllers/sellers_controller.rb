@@ -15,6 +15,8 @@ class SellersController < ApplicationController
   end
 
   def create
+    # Cria um novo vendedor sem persisti-lo no banco, e já associa
+    # ele a um usuário
     @seller = Seller.new(seller_params.merge(user_id: current_user.id))
 
     if @seller.save
@@ -38,6 +40,7 @@ class SellersController < ApplicationController
   def destroy
     @seller.destroy
 
+    # Como o usuário não é mais um vendedor, sai da área restrita
     session[:restricted_area] = false
     redirect_to root_path
   end
@@ -50,22 +53,27 @@ class SellersController < ApplicationController
     nil
   end
 
+  # Permite apenas os parâmetros de seller
   def seller_params
     params.require(:seller).permit(:name, :category_id)
   end
 
+  # Só pode ver todos os vendedores se não estiver na área restrita
   def policy_index
     return unless restricted_area?
 
     redirect_to root_path
   end
 
+  # Só pode criar uma conta de vendedor se o usuário ainda não for um vendedor
   def policy_create
     return unless current_user.seller?
 
     redirect_to root_path
   end
 
+  # Só pode atualizar o vendedor em questão se o vendedor em questão(setado
+  # via parâmetro) for o mesmo do usuário logado e se estiver na área restrita
   def policy_update_destroy
     return if current_user.seller == @seller && restricted_area?
 
