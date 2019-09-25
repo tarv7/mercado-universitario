@@ -47,7 +47,9 @@ gem 'simple_form'
 gem 'seedbank'
 # FFaker
 gem 'ffaker'
+# Bootstrap 4 rubygem for Rails
 gem 'bootstrap', '~> 4.0'
+# A gem to automate using jQuery with Rails
 gem 'jquery-rails'
 
 group :development, :test do

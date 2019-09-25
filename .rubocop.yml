@@ -14,3 +14,6 @@ Style/Documentation:
 
 Style/BlockComments:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
