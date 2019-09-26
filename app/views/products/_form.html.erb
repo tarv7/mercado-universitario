@@ -8,6 +8,10 @@
   </div>
 
   <div class="field">
+    <%= f.association :category, include_blank: false, autocomplete: "category" %>
+  </div>
+
+  <div class="field">
     <%= f.input :description, autocomplete: "description" %>
   </div>
   

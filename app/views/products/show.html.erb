@@ -1,5 +1,6 @@
 <p><%= "#{@product.name} - #{@product.price}" %></p>
 <p><%= "#{@product.description}" %></p>
+<p><%= "#{@product.category}" %></p>
 
 <%= link_to 'Todos produtos', products_path %> | 
 <% if restricted_area? %>

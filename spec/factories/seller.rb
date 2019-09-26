@@ -5,6 +5,5 @@ FactoryBot.define do
     name { FFaker::Company.name }
 
     association :user
-    association :category
   end
 end

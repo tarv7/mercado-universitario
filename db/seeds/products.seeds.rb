@@ -1,21 +1,30 @@
-after :sellers do
+after :sellers, :categories do
   Product.find_or_create_by(name: 'Pizza grande de frango', price: 22.5,
-                            description: FFaker::Lorem.phrase, seller: Seller.first)
+                            category: Category.first, seller: Seller.first,
+                            description: FFaker::Lorem.phrase)
   Product.find_or_create_by(name: 'Lasanha', price: 15,
-                            description: FFaker::Lorem.phrase, seller: Seller.first)
+                            category: Category.first, seller: Seller.first,
+                            description: FFaker::Lorem.phrase)
   Product.find_or_create_by(name: 'Bolinhos', price: 2,
-                            description: FFaker::Lorem.phrase, seller: Seller.first)
+                            category: Category.first, seller: Seller.first,
+                            description: FFaker::Lorem.phrase)
   Product.find_or_create_by(name: 'Churros do chaves', price: 3,
-                            description: FFaker::Lorem.phrase, seller: Seller.first)
+                            category: Category.second, seller: Seller.first,
+                            description: FFaker::Lorem.phrase)
   Product.find_or_create_by(name: 'Brigadeiro', price: 1.5,
-                            description: FFaker::Lorem.phrase, seller: Seller.first)
+                            category: Category.second, seller: Seller.first,
+                            description: FFaker::Lorem.phrase)
 
   Product.find_or_create_by(name: 'Pulseiras', price: 2,
-                            description: FFaker::Lorem.phrase, seller: Seller.second)
+                            category: Category.second, seller: Seller.second,
+                            description: FFaker::Lorem.phrase)
   Product.find_or_create_by(name: 'Camisa do curso', price: 14,
-                            description: FFaker::Lorem.phrase, seller: Seller.second)
+                            category: Category.second, seller: Seller.second,
+                            description: FFaker::Lorem.phrase)
   Product.find_or_create_by(name: 'Capa para celular', price: 5,
-                            description: FFaker::Lorem.phrase, seller: Seller.second)
+                            category: Category.last, seller: Seller.second,
+                            description: FFaker::Lorem.phrase)
   Product.find_or_create_by(name: 'Limpa vidros', price: 1,
-                            description: FFaker::Lorem.phrase, seller: Seller.second)
+                            category: Category.third, seller: Seller.second,
+                            description: FFaker::Lorem.phrase)
 end

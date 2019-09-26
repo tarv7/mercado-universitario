@@ -1,6 +1,5 @@
 class Seller < ApplicationRecord
   belongs_to :user
-  belongs_to :category
 
   has_many :orders, dependent: :destroy
   has_many :reviews, dependent: :destroy

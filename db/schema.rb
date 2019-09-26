@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_000225) do
+ActiveRecord::Schema.define(version: 2019_09_26_005204) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "street", null: false
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 2019_09_23_000225) do
     t.bigint "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["seller_id"], name: "index_products_on_seller_id"
   end
 
@@ -105,11 +107,9 @@ ActiveRecord::Schema.define(version: 2019_09_23_000225) do
 
   create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
-    t.index ["category_id"], name: "index_sellers_on_category_id"
     t.index ["name"], name: "index_sellers_on_name"
     t.index ["user_id"], name: "index_sellers_on_user_id"
   end
@@ -155,10 +155,10 @@ ActiveRecord::Schema.define(version: 2019_09_23_000225) do
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "sellers"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "sellers"
   add_foreign_key "reviews", "sellers"
   add_foreign_key "reviews", "users"
-  add_foreign_key "sellers", "categories"
   add_foreign_key "sellers", "users"
   add_foreign_key "users", "addresses"
   add_foreign_key "users", "courses"

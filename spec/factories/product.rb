@@ -7,5 +7,6 @@ FactoryBot.define do
     description { FFaker::Lorem.paragraph }
 
     association :seller
+    association :category
   end
 end
