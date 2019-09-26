@@ -7,6 +7,7 @@ class User < ApplicationRecord
   belongs_to :course
   belongs_to :address
 
+  has_many :order_products, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_one :seller, dependent: :destroy

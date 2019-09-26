@@ -1,0 +1,5 @@
+<h2>Compras realizadas</h2>
+
+<% @orders.each do |order| %>
+  <p><%= "#{order.order_products.first.product.seller.name} ---> #{order.status} ---> R$#{order.price}" %></p>
+<% end %>

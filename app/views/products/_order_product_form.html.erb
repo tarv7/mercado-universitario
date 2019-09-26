@@ -1,0 +1,10 @@
+<%= simple_form_for @order_product do |f| %>
+  <%= f.hidden_field :product_id, value: params[:id] %>
+  <div class="field">
+    <%= f.input :quantity, autocomplete: "quantity", input_html: { value: f.object.quantity || '1' } %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

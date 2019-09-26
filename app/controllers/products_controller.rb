@@ -13,9 +13,19 @@ class ProductsController < ApplicationController
                 else
                   Product.all
                 end
+
+    if params[:category_id]
+      @products = @products.where(category_id: params[:category_id])
+    elsif params[:seller_id]
+      @products = @products.where(seller_id: params[:seller_id])
+    end
   end
 
-  def show; end
+  def show
+    @order_product = OrderProduct.find_or_initialize_by(product_id: params[:id],
+                                                        order_id: nil,
+                                                        user_id: current_user.id)
+  end
 
   def new
     @product = Product.new

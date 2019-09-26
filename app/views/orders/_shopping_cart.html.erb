@@ -1,0 +1,9 @@
+<h2>Compras pendentes</h2>
+
+<% @shopping_cart.each do |seller, order_products| %>
+  <h3><%= seller.name %></h3>
+
+  <% order_products.each do |order| %>
+    <p><%= "#{order.product.name} ---> #{order.quantity}" %></p>
+  <% end %>
+<% end %>

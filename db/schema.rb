@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_005204) do
+ActiveRecord::Schema.define(version: 2019_09_26_031023) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "street", null: false
@@ -66,19 +66,18 @@ ActiveRecord::Schema.define(version: 2019_09_26_005204) do
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["order_id"], name: "index_order_products_on_order_id"
     t.index ["product_id"], name: "index_order_products_on_product_id"
+    t.index ["user_id"], name: "index_order_products_on_user_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "note", null: false
     t.integer "status", null: false
-    t.bigint "seller_id", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["seller_id"], name: "index_orders_on_seller_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.float "price", null: false
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -153,8 +152,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_005204) do
   add_foreign_key "courses", "universities"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
-  add_foreign_key "orders", "sellers"
-  add_foreign_key "orders", "users"
+  add_foreign_key "order_products", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "sellers"
   add_foreign_key "reviews", "sellers"
