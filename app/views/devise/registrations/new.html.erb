@@ -27,7 +27,7 @@
     <%= f.input :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <%= f.fields_for :address, Address.new do |a| %>
+  <%= f.fields_for :address, f.object.address || Address.new do |a| %>
     <%= render 'layouts/shared/form_address', a: a %>
   <% end %>
 
