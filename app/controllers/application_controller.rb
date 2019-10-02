@@ -1,7 +1,16 @@
 class ApplicationController < ActionController::Base
+  layout :layout_by_resource
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :user && action_name == 'new'
+      'login'
+    else
+      'application'
+    end
+  end
 
   # Permite que alguns parâmetros extras sejam enviados para o controller
   # do devise

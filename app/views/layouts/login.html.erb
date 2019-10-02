@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MercadoUniversitario</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/nav/public' %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <div class="row">
+        <div class="col-6 welcome">
+          <%= image_tag('logo-colorfull.svg') %>
+
+          <h3>Mercado Universitário</h3>
+
+          <p>
+            O mercado universitário veio com o intuito de melhorar o 
+            fluxo de mercância nas universidades do Brasil
+          </p>
+        </div>
+        <div class="col-6">
+          <div class="box-rounded">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= render 'footer' %>
+  </body>
+</html>

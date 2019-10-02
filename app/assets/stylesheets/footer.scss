@@ -1,0 +1,17 @@
+.footer{
+  position: relative;
+  bottom: 0px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  #left{
+    display: flex;
+    justify-content: space-between;
+  }
+  #right{
+    display: inline-grid;
+    justify-items: end;
+  }
+  span{
+    font-weight: bold;
+  }
+}
