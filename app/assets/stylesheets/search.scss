@@ -1,0 +1,18 @@
+.field-search{
+  width: max-content;
+  margin: 0 auto 30px auto;
+  > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #label{
+    color: #999;
+    font-size: 28px;
+  }
+  #field{
+    .form-group{
+      margin: 0;
+    }
+  }
+}

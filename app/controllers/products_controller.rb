@@ -19,6 +19,8 @@ class ProductsController < ApplicationController
     elsif params[:seller_id]
       @products = @products.where(seller_id: params[:seller_id])
     end
+
+    @products = @products.page(params[:page]).per(8)
   end
 
   def show

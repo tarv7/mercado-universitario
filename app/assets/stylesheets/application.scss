@@ -16,6 +16,15 @@
 
  @import "bootstrap";
 
- body{
-   background-color: #eee;
- }
+body{
+  background-color: #eee;
+}
+
+.main{
+  background: #FFFFFF;
+  border: 0px solid #AEAEAE;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0px 0px 5px #999;
+}

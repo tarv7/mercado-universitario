@@ -1,3 +1,11 @@
-<% @sellers.each do |seller| %>
-  <h3><%= link_to seller.name, seller_products_path(seller) %></h3>
-<% end %>
+<%= render 'layouts/shared/search', label: 'Vendedores' %>
+
+<div class="row">
+  <% @sellers.each do |seller| %>
+    <div class="col-3">
+      <%= render 'layouts/shared/card', label: seller.name, url_path: seller_products_path(seller) %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @sellers %>

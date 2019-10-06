@@ -1,3 +1,11 @@
-<% @categories.each do |category| %>
-  <h3><%= link_to  category.name, category_products_path(category) %></h3>
-<% end %>
+<%= render 'layouts/shared/search', label: 'Categoria' %>
+
+<div class="row">
+  <% @categories.each do |category| %>
+    <div class="col-3">
+      <%= render 'layouts/shared/card', label: category.name, url_path: category_products_path(category) %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @categories %>

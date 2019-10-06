@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   layout :layout_by_resource
+  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

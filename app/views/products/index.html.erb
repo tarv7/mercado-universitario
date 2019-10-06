@@ -1,5 +1,13 @@
-<% @products.each do |p| %>
-  <p><%= link_to(p.name, p) + " - #{p.price}" %></p>
-<% end %>
+<%= render 'layouts/shared/search', label: 'Produtos' %>
 
 <%= link_to 'Cadastrar novo produto', new_product_path if restricted_area? %>
+
+<div class="row">
+  <% @products.each do |p| %>
+    <div class="col-3">
+      <%= render 'layouts/shared/card', label: "R$#{p.price} - #{p.name}", url_path: product_path(p) %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @products %>

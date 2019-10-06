@@ -10,6 +10,8 @@ class SellersController < ApplicationController
                else
                  Seller.all
                end
+
+    @sellers = @sellers.page(params[:page]).per(8)
   end
 
   def show; end

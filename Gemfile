@@ -51,6 +51,8 @@ gem 'ffaker'
 gem 'bootstrap', '~> 4.0'
 # A gem to automate using jQuery with Rails
 gem 'jquery-rails'
+# Clean, powerful, customizable and sophisticated paginator
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a

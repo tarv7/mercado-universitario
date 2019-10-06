@@ -1,0 +1,13 @@
+.page-link, .page-link:hover{
+  color: #81259D;
+}
+
+.page-item.active .page-link{
+  background-color: #81259D;
+  border-color: #81259D;
+}
+.page-item.active .page-link:hover{
+  color: white;
+  background-color: rgb(107, 30, 131);
+  border-color: rgb(107, 30, 131);
+}

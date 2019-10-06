@@ -1,0 +1,11 @@
+<%= simple_form_for :search do |f| %>
+  <div class="row field-search">
+    <div class="col-md-auto" id="label">
+      <%= label %>
+    </div>
+    <div class="col-md-auto" id="field">
+      <%= f.input :word, label: false %>
+      <%= f.button :submit, value: 'search' %>
+    </div>
+  </div>
+<% end %>

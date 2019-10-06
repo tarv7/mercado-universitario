@@ -1,0 +1,30 @@
+.card-large{
+  margin-bottom: 30px;
+
+  #image{
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 5px 5px 0px 0px;
+    background-image: url('https://www.drdavidludwig.com/wp-content/uploads/2017/01/1-RIS_6IbCLYv1X3bzYW1lmA.jpeg');
+  }
+  #footer{
+    height: 30px;
+    background: #81259D;
+    border-radius: 0px 0px 5px 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    span{
+      padding: 0px 20px;
+      margin: auto;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  a{
+    color: white;
+  }
+}
