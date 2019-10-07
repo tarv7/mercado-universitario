@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :course
-  belongs_to :address
 
   has_many :order_products, dependent: :destroy
   has_many :orders, dependent: :destroy
@@ -13,11 +12,8 @@ class User < ApplicationRecord
   has_one :seller, dependent: :destroy
 
   validates :name, presence: true
-  validates :semester, presence: true,
-                       numericality: { greater_than_or_equal_to: 1,
+  validates :semester, numericality: { greater_than_or_equal_to: 1,
                                        only_integer: true }
-
-  accepts_nested_attributes_for :address, allow_destroy: false
 
   def seller?
     seller.present?

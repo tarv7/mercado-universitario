@@ -4,18 +4,6 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.input :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.association :course, autocomplete: "course" %>
-  </div>
-
-  <div class="field">
-    <%= f.input :semester, autocomplete: "semester" %>
-  </div>
-
-  <div class="field">
     <%= f.input :email, autocomplete: "email" %>
   </div>
 
@@ -27,9 +15,21 @@
     <%= f.input :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <%= f.fields_for :address, f.object.address || Address.new do |a| %>
-    <%= render 'layouts/shared/form_address', a: a %>
-  <% end %>
+  <div class="field">
+    <%= f.input :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.association :course, autocomplete: "course" %>
+  </div>
+
+  <div class="field">
+    <%= f.input :semester, autocomplete: "semester" %>
+  </div>
+
+  <%#= f.fields_for :address, f.object.address || Address.new do |a| %>
+    <%#= render 'layouts/shared/form_address', a: a %>
+  <%# end %>
 
   <div class="actions">
     <%= f.button :submit, 'Sign up' %>

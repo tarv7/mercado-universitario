@@ -1,0 +1,21 @@
+.col-image{
+  img{
+    width: inherit;
+  }
+}
+
+.title-product{
+  margin-bottom: 50px;
+  h2{
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.info-product p, .order-product{
+  font-weight: bold;
+}
+
+.description-product{
+  margin-top: 30px;
+}

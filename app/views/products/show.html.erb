@@ -1,11 +1,28 @@
-<p><%= "#{@product.name} - #{@product.price}" %></p>
-<p><%= "#{@product.description}" %></p>
-<p><%= "#{@product.category.name}" %></p>
+<div class="row">
+  <div class="col-5 col-image">
+    <%= image_tag 'https://www.drdavidludwig.com/wp-content/uploads/2017/01/1-RIS_6IbCLYv1X3bzYW1lmA.jpeg' %>
+  </div>
 
-<% if restricted_area? %>
-  <%= link_to 'Deletar', @product, method: :delete %> | 
-  <%= link_to 'Editar', edit_product_path(@product) %>
-<% else %>
-  <%= render 'order_product_form' %>
-<% end %>
-<%= link_to 'Todos produtos', products_path %> | 
+  <div class="col-7">
+    <div class="col title-product"><h2><%= @product.name %></h2></div>
+    <div class="row">
+      <div class="col info-product">
+        <p>Preço: R$<%= @product.price %></p>
+        <p>Categoria: <%= @product.category.name %></p>
+        <p>Vendedor: <%= @product.seller.name %></p>
+      </div>
+      <div class="col order-product">
+        <% if restricted_area? %>
+          <%= link_to 'Deletar', @product, method: :delete %> | 
+          <%= link_to 'Editar', edit_product_path(@product) %>
+        <% else %>
+          <%= render 'order_product_form' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row description-product">
+  <p><%= @product.description %></p>
+</div>

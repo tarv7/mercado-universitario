@@ -14,6 +14,7 @@ class OrderProductsController < ApplicationController
   def update
     set_product
     set_order_product
+    binding.pry
     if @order_product.update(order_product_params)
       redirect_to @product
     else
