@@ -14,7 +14,6 @@ class OrderProductsController < ApplicationController
   def update
     set_product
     set_order_product
-    binding.pry
     if @order_product.update(order_product_params)
       redirect_to @product
     else
@@ -26,7 +25,8 @@ class OrderProductsController < ApplicationController
 
   def set_order_product
     @order_product = OrderProduct.find_by(
-      product_id: order_product_params[:product_id], user_id: current_user.id
+      product_id: order_product_params[:product_id], user_id: current_user.id,
+      order_id: nil
     )
   end
 

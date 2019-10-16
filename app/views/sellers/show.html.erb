@@ -1,4 +1,47 @@
-<%= "Olá, #{@seller.name}" %><br>
+<div class="row">
+  <div class="col-5 col-image">
+    <%= image_tag 'https://www.drdavidludwig.com/wp-content/uploads/2017/01/1-RIS_6IbCLYv1X3bzYW1lmA.jpeg' %>
+  </div>
 
-<%= link_to 'Deletar', seller_path(@seller), method: :delete %> |
-<%= link_to 'Editar', edit_seller_path(@seller) %>
+  <div class="col-7">
+    <div class="col title-seller"><h2><%= @seller.name %></h2></div>
+    <div class="row">
+      <div class="col info-seller">
+        <p><%= link_to 'Produtos', products_path %></p>
+      </div>
+      <div class="col rating">
+        <%= image_tag('star.svg', class: 'icon-star') %>
+        <span>4.9 estrelas</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-auto">
+        <%= link_to image_tag('whatsapp.svg', class: 'icon-social'), url_whatsapp_path(@seller) %>
+      </div>
+      <div class="col-md-auto">
+        <%= link_to image_tag('instagram.svg', class: 'icon-social'), url_instagram_path(@seller) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="description-seller">
+  <div class="row">
+    <div class="col align-self-end new_or_edit_link">
+      <%= link_to 'Deixe sua opnião também!', new_seller_review_path(@seller) %>
+    </div>
+  </div>
+
+  <div class="row card-review">
+    <%= render 'card_review', reviews: @seller.reviews %>
+  </div>
+</div>
+
+
+
+
+<%#= link_to 'Deletar', seller_path(@seller), method: :delete %>
+<%#= link_to 'Editar', edit_seller_path(@seller) %>

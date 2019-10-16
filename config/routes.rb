@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :products
   resources :sellers do
     resources :products, only: %i[index show]
+    resources :reviews, only: %i[new create edit update]
   end
 
   resources :orders

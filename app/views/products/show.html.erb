@@ -9,7 +9,7 @@
       <div class="col info-product">
         <p>Preço: R$<%= @product.price %></p>
         <p>Categoria: <%= @product.category.name %></p>
-        <p>Vendedor: <%= @product.seller.name %></p>
+        <p>Vendedor: <%= link_to @product.seller.name, @product.seller %></p>
       </div>
       <div class="col order-product">
         <% if restricted_area? %>
