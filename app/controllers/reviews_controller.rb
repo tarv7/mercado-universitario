@@ -2,6 +2,10 @@ class ReviewsController < ApplicationController
   before_action :set_seller, only: %i[new create edit update destroy]
   before_action :set_review, only: %i[edit update destroy]
   before_action :review_params, only: %i[create update]
+
+  def index
+  end
+
   def new
     @review = Review.new
   end

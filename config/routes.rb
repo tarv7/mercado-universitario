@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   end
 
   resources :orders
-  # resources :reviews
+  resources :reviews, only: %i[index show]
   resources :categories
 end

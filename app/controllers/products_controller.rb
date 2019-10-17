@@ -71,7 +71,7 @@ class ProductsController < ApplicationController
 
   # Permite apenas os parâmetros necessários para produto
   def product_params
-    params.require(:product).permit(:name, :price, :description)
+    params.require(:product).permit(:name, :price, :description, :category_id)
   end
 
   # Só visualiza o produto se for dono dele ou se for um usuário comum
