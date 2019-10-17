@@ -1,6 +1,10 @@
-<h2>Compras realizadas</h2>
-
+<h2 class="title_orders">Compras realizadas</h2>
+<hr>
 <% @orders.each do |order| %>
-  <p><%= "#{order.order_products.first.product.seller.name} ---> #{order.status} ---> R$#{order.price}" %></p>
-  <% binding.pry %>
+  <%= render 'card_order', order: order %>
 <% end %>
+
+<%# @orders.each do |order| %>
+  <p><%#= "#{order.order_products.first.product.seller.name} ---> #{order.status} ---> R$#{order.price}" %></p>
+  <%# binding.pry %>
+<%# end %>

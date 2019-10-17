@@ -1,0 +1,29 @@
+<div class="row card_order">
+    <div class="col-2">
+        <%= image_tag 'http://thalesaugusto.com.br/food.jpg', class: 'profile-pic-rounded' %>
+    </div>
+  
+    <div class="col-4" id="second">
+      <% seller = order.order_products.first.product.seller %>
+      <h3><%= link_to seller.name, seller %></h3>
+      <% order.order_products.each do |order_product| %>
+        <p>
+          <%= info_product_order(order_product) %>
+        </p>
+      <% end %>
+    </div>
+  
+    <div class="col-2" id="third">
+      <h4>Total</h4> 
+      <h4><%= "R$#{order.price}" %></h4> 
+    </div>
+  
+    <div class="col-2" id="third">
+      <h4>Status</h4> 
+      <h4><%= order.status %></h4> 
+    </div>
+  
+    <div class="col-2">
+      <p><%= order.note %></p> 
+    </div>
+  </div>

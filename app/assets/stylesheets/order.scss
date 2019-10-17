@@ -1,0 +1,24 @@
+.card_order + .card_order{
+  margin-top: 30px;
+}
+
+.card_order{
+  #second{
+    h3{
+      font-weight: bold;
+    }
+    p{
+      margin-bottom: 0.1rem;
+    }
+  }
+  #third{
+    h4{
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+.title_orders{
+  margin-top: 40px;
+}

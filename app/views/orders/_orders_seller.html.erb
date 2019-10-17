@@ -1,0 +1,5 @@
+<h2>Compras realizadas</h2>
+<hr>
+<% @orders.each do |order| %>
+  <%= render 'card_order_seller', order: order %>
+<% end %>

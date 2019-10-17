@@ -1,0 +1,28 @@
+<div class="row card_order">
+  <div class="col-2">
+      <%= image_tag 'http://thalesaugusto.com.br/food.jpg', class: 'profile-pic-rounded' %>
+  </div>
+
+  <div class="col-5" id="second">
+    <h3><%= link_to seller.name, seller %></h3>
+    <% order_products.each do |order| %>
+      <p>
+        <%= info_product_order(order) %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="col-2" id="third">
+    <h4>Total</h4> 
+    <h4><%= "R$#{info_total_order(order_products)}" %></h4> 
+  </div>
+
+  <div class="col-3">
+    <%= simple_form_for Order.new do |f| %>
+      <%= f.input :note, label: false, placeholder: 'Escreva aqui algum recado para o vendedor' %>
+      <%= f.hidden_field :seller_id, value: seller.id %>
+
+      <%= f.button :submit, 'Realizar pedido' %>
+    <% end %>
+  </div>
+</div>

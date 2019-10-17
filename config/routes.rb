@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
 
+  resources :users, only: %i[index show]
+
   get 'restricted_area', to: 'restricted_area#change'
 
   resources :categories, only: %i[index] do
