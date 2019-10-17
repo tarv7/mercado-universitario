@@ -4,7 +4,15 @@
     </div>
   
     <div class="col-7">
-      <div class="col title-seller"><h2><%= '@seller.name' %></h2></div>
-      <p>Continuar daq o form</p>
+      <div class="col title-seller"><h2><%= @seller.name %></h2></div>
+      <div class="col link_delete_review">
+        <%= link_to 'Excluir opnião', seller_review_path(@seller, @review), method: :delete if @review.persisted? %>
+      </div>
+      <%= simple_form_for [@seller, @review] do |f| %>
+        <%= f.input :value, input_html: { min: 1, max: 5, value: @review.value || 5 } %>
+        <%= f.input :comment %>
+
+        <%= f.button :submit %>
+      <% end %>
     </div>
   </div>

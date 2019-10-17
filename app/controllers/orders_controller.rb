@@ -13,12 +13,8 @@ class OrdersController < ApplicationController
     ops = order_products
 
     Order.transaction do
-      order = Order.create!(note: params[:order][:note], price: price(ops), status: 'not_seen')
-      OrderProduct.transaction do
-        ops.each do |op|
-          op.update!(order_id: order.id)
-        end
-      end
+      order = Order.create!(order_params(ops))
+      update_order_products(order, ops)
     end
 
     redirect_to orders_path
@@ -32,6 +28,22 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def order_params(ops)
+    {
+      note: params[:order][:note],
+      price: price(ops),
+      status: 'not_seen'
+    }
+  end
+
+  def update_order_products(order, ops)
+    OrderProduct.transaction do
+      ops.each do |op|
+        op.update!(order_id: order.id)
+      end
+    end
+  end
 
   def order_products
     current_user.order_products

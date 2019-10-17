@@ -14,7 +14,9 @@ class SellersController < ApplicationController
     @sellers = @sellers.page(params[:page]).per(8)
   end
 
-  def show; end
+  def show
+    @my_review = current_user.reviews.find_by(seller_id: params[:id])
+  end
 
   def new
     @seller = Seller.new
