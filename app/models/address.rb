@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   belongs_to :city
+  belongs_to :user
 
-  has_many :users, dependent: :destroy
   has_many :colleges, dependent: :destroy
 
   validates :street, presence: true

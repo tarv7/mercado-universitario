@@ -1,43 +1,74 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Editar <%= resource&.name %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <hr>
+
+  <div class="row">
+    <div class="col-4">
+      <%= f.input :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class="col-4">
+      <%= f.input :name %>
+    </div>
+    <div class="col-2">
+      <%= f.label :university_id, required: true %><br />
+      <%# binding.pry %>
+      <%= f.select :university_id, University.all.map{ |u| [u.name, u.id] }, { selected: resource&.course&.university&.id, include_blank: 'Select' }, { class: 'form-control is-valid select required' } %>
+    </div>
+    <div class="col-2">
+      <%= f.input :course_id, collection: resource&.university&.courses&.map{ |c| [c.name, c.id] }, selected: resource&.course&.id %>
+    </div>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <div class="row">
+    <div class="col-4">
+      <%= f.input :password, autocomplete: "new-password" %>
+      <i>(leave blank if you don't want to change it)</i>
+    </div>
+    <div class="col-4">
+      <%= f.input :password_confirmation, autocomplete: "new-password" %>
+    </div>
+    <div class="col-4">
+      <%= f.input :current_password, autocomplete: "current-password" %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+  <hr>
+
+  <h4>Endereços</h4>
+  <!-- COMENTÁRIO:
+    O cocoon exige que seu nested_form esteja dentro de uma div com id "nome_do_seu_nested_no_plural"
+    no nosso caso #addresses
+  -->
+  <div id="addresses">
+    <%= f.fields_for :addresses do |address| %>
+      <!-- COMENTÁRIO:
+        é uma exigencia também que os campos do seu nested esteja numa partial "nome_do_seu_nested_no_singular_fields"
+        no nosso caso _address_fields.html.erb
+      -->
+      <%= render 'address_fields', f: address %>
     <% end %>
+ 
+    <!-- COMENTÁRIO:
+      O link para adicionar dinamicamente os fields deve estar dentro de uma div .links
+    -->
+    <div class="links">
+      <!-- COMENTÁRIO: O link_to_add_association é um helper provido pela gem -->
+      <%= link_to_add_association 'add address', f, :addresses %>
+      <br><br>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <hr>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="actions row justify-content-between">
+    <div class="col-md-auto">
+      <%= f.button :submit, 'Atualizar', class: 'btn-success' %>
+    </div>
+    <div class="col-md-auto">
+        <%#= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
+    </div>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

@@ -1,0 +1,34 @@
+<!-- COMENTÁRIO:
+  Dentro da partial todo conteúdo deve estar dentro de uma div .nested-fields
+-->
+<div class="nested-fields nested-fields-address">
+  <div class="row">
+    <div class="col-4">
+      <%= f.input :neighborhood %>
+    </div>
+    <div class="col-4">
+      <%= f.input :street %>
+    </div>
+    <div class="col-4">
+      <%= f.input :number %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+        <%= f.input :complement %>
+    </div>
+    <div class="col-2">
+        <%= f.association :city %>
+    </div>
+    <div class="col-md-auto link_remove_address">
+      <!-- COMENTÁRIO:
+        link_to_remove_association é o helper que o cocoon nos fornece para deletar algum nested
+      -->
+      <%= link_to_remove_association "remove experience", f %>
+    </div>
+  </div>
+
+  <hr>
+
+</div>

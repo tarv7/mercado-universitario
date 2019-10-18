@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_132120) do
+ActiveRecord::Schema.define(version: 2019_10_18_013945) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "street", null: false
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2019_10_16_132120) do
     t.bigint "city_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["city_id"], name: "index_addresses_on_city_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -146,6 +148,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_132120) do
   end
 
   add_foreign_key "addresses", "cities"
+  add_foreign_key "addresses", "users"
   add_foreign_key "cities", "states"
   add_foreign_key "colleges", "addresses"
   add_foreign_key "colleges", "universities"
