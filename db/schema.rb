@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_013945) do
+ActiveRecord::Schema.define(version: 2019_10_18_042836) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "street", null: false
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 2019_10_18_013945) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "price", null: false
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_orders_on_address_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -156,6 +158,7 @@ ActiveRecord::Schema.define(version: 2019_10_18_013945) do
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "order_products", "users"
+  add_foreign_key "orders", "addresses"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "sellers"
   add_foreign_key "reviews", "sellers"

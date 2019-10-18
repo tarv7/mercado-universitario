@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  belongs_to :address, optional: true
+
   has_many :order_products, dependent: :destroy
 
   enum status: %i[not_seen preparing on_the_way delivered canceled]

@@ -19,6 +19,7 @@
 
   <div class="col-3">
     <%= simple_form_for Order.new do |f| %>
+      <%= f.input :address_id, collection: @addresses, label: false, include_blank: 'Retirar no vendedor' %>
       <%= f.input :note, label: false, placeholder: 'Escreva aqui algum recado para o vendedor' %>
       <%= f.hidden_field :seller_id, value: seller.id %>
 

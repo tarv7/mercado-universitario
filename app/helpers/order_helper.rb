@@ -10,4 +10,12 @@ module OrderHelper
   def info_total_order(order_products)
     order_products.map{ |o| o.quantity * o.product.price }.reduce(0, :+)
   end
+
+  def note_order(order)
+    if order.address.present?
+      "#{order.address.to_string}. #{order.note}"
+    else
+      "Retirar no vendedor. #{order.note}"
+    end
+  end
 end

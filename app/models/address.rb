@@ -3,10 +3,15 @@ class Address < ApplicationRecord
   belongs_to :user
 
   has_many :colleges, dependent: :destroy
+  has_many :orders, dependent: :nullify
 
   validates :street, presence: true
   validates :neighborhood, presence: true
   validates :number, allow_nil: true,
                      numericality: { only_integer: true,
                                      greater_than_or_equal_to: 1 }
+
+  def to_string
+    "#{street}, bairro #{neighborhood}, nº #{number}, #{complement}, #{city.name} - #{city.state.abbreviation}"
+  end
 end

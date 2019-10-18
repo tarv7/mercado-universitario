@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
       index_for_seller
       @statuses = Order.statuses.keys
     else
+      @addresses = current_user.addresses&.map { |a| [a.to_string, a.id] }
       index_for_user
     end
   end
@@ -33,7 +34,8 @@ class OrdersController < ApplicationController
     {
       note: params[:order][:note],
       price: price(ops),
-      status: 'not_seen'
+      status: 'not_seen',
+      address_id: params[:order][:address_id]
     }
   end
 
