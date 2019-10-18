@@ -8,6 +8,5 @@ FactoryBot.define do
     semester { rand(1..10) }
 
     association :course
-    association :address
   end
 end
