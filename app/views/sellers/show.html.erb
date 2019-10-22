@@ -7,7 +7,7 @@
     <div class="col title-seller"><h2><%= @seller.name %></h2></div>
     <div class="row">
       <div class="col info-seller">
-        <p><%= link_to 'Produtos', products_path %></p>
+        <p><%= link_to 'Produtos', seller_products_path(@seller.id) %></p>
       </div>
       <div class="col rating">
         <%= image_tag('star.svg', class: 'icon-star') %>

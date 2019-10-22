@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :order do
     note { FFaker::Lorem.paragraph }
+    price { 50.0 }
     status { Order.statuses.keys.sample }
   end
 end
