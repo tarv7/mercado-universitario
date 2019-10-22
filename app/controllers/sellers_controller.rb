@@ -8,7 +8,7 @@ class SellersController < ApplicationController
     @sellers = if params[:seller_id]
                  Seller.where(seller_id: params[:seller_id])
                else
-                 Seller.all
+                 Seller.per_university(current_user)
                end
 
     @sellers = @sellers.page(params[:page]).per(8)

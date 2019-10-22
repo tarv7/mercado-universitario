@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     @products = if restricted_area?
                   current_actor.products
                 else
-                  Product.all
+                  Product.per_university(current_user)
                 end
 
     if params[:category_id]
