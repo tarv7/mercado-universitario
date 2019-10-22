@@ -21,15 +21,17 @@
   </div>
 
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
+      <%= f.input :whatsapp, autocomplete: "whatsapp" %>
+    </div>
+    <div class="col-3">
+      <%= f.input :current_password, autocomplete: "current-password", required: true %>
+    </div>
+    <div class="col-3">
       <%= f.input :password, autocomplete: "new-password" %>
-      <i>(leave blank if you don't want to change it)</i>
     </div>
-    <div class="col-4">
+    <div class="col-3">
       <%= f.input :password_confirmation, autocomplete: "new-password" %>
-    </div>
-    <div class="col-4">
-      <%= f.input :current_password, autocomplete: "current-password" %>
     </div>
   </div>
 

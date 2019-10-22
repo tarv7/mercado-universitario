@@ -18,13 +18,13 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer
       .permit(:sign_up,
-              keys: [:name, :course_id, :semester,
+              keys: [:name, :course_id, :semester, :whatsapp,
                      addresses_attributes: %i[id street neighborhood complement
                                               number city_id _destroy]])
 
     devise_parameter_sanitizer
       .permit(:account_update,
-              keys: [:name, :university_id, :course_id, :semester,
+              keys: [:name, :university_id, :course_id, :semester, :whatsapp,
                      addresses_attributes: %i[id street neighborhood complement
                                               number city_id _destroy]])
   end
