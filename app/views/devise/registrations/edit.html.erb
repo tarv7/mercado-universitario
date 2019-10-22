@@ -13,9 +13,7 @@
       <%= f.input :name %>
     </div>
     <div class="col-2">
-      <%= f.label :university_id, required: true %><br />
-      <%# binding.pry %>
-      <%= f.select :university_id, University.all.map{ |u| [u.name, u.id] }, { selected: resource&.course&.university&.id, include_blank: 'Select' }, { class: 'form-control is-valid select required' } %>
+        <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: "university" %>
     </div>
     <div class="col-2">
       <%= f.input :course_id, collection: resource&.university&.courses&.map{ |c| [c.name, c.id] }, selected: resource&.course&.id %>

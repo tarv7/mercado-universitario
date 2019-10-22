@@ -19,8 +19,14 @@
     <%= f.input :name, autofocus: true, autocomplete: "name" %>
   </div>
 
-  <div class="field">
-    <%= f.association :course, autocomplete: "course" %>
+  <div class="row">
+    <div class="field col-6">
+      <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: "university" %>
+    </div>
+
+    <div class="field col-6">
+      <%= f.association :course, include_blank: false, autocomplete: "course" %>
+    </div>
   </div>
 
   <div class="field">
