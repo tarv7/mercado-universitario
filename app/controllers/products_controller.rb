@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :define_nav_active, only: %i[index show new edit]
   before_action :set_product, only: %i[show edit update destroy]
   before_action :policy_show, only: %i[show]
   before_action :policy_write, only: %i[new create edit update destroy]
@@ -40,7 +41,9 @@ class ProductsController < ApplicationController
 
     if @product.save
       redirect_to @product
+      flash[:notice] = 'Novo produto criado com sucesso!'
     else
+      flash[:alert] = 'Erro ao criar um novo produto'
       render 'new'
     end
   end
@@ -49,18 +52,26 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
+      flash[:notice] = 'Produto atualizado com sucesso!'
       redirect_to @product
     else
+      flash[:alert] = 'Erro ao atualizar o produto. Tente novamente'
       render 'edit'
     end
   end
 
   def destroy
     @product.destroy
+
+    flash[:notice] = 'Produto excluído com sucesso!'
     redirect_to products_path
   end
 
   private
+
+  def define_nav_active
+    params[:nav_active] = 'products'
+  end
 
   # Seta o produto de acordo com o id que veio na URL
   def set_product
@@ -79,20 +90,23 @@ class ProductsController < ApplicationController
     return if !restricted_area? ||
               @product.seller == current_actor
 
-    redirect_to root_path
+    flash[:alert] = 'Você não tem permissão para ver esse produto'
+    redirect_to products_path
   end
 
   # Só cria um novo produto se estiver logado como vendedor
   def policy_write
     return if restricted_area?
 
-    redirect_to root_path
+    flash[:alert] = 'Você precisa ser um vendedor e estar na área restrita para criar um produto'
+    redirect_to products_path
   end
 
   # Só pode atualizar o produto se for dono dele
   def policy_update_delete
     return if @product.seller == current_actor
 
-    redirect_to root_path
+    flash[:alert] = 'Você precisa ser o dono desse produto para atualiza-lo'
+    redirect_to @product
   end
 end

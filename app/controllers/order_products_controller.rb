@@ -5,18 +5,22 @@ class OrderProductsController < ApplicationController
                                         .merge(user_id: current_user.id))
 
     if @order_product.save
-      redirect_to @product
+      flash[:notice] = 'Produto incluído com sucesso no seu carrinho'
     else
-      redirect_to @product
+      flash[:alert] = 'Problema ao incluir o produto no seu carrinho'
     end
+
+    redirect_to @product
   end
 
   def update
     set_product
     set_order_product
     if @order_product.update(order_product_params)
+      flash[:notice] = 'Produto atualizado com sucesso no carrinho'
       redirect_to @product
     else
+      flash[:alert] = 'Problema ao atualizar o produto no carrinho'
       render 'products/show'
     end
   end

@@ -17,15 +17,21 @@
       <%= render 'layouts/nav/user' %>
     <% end %>
     <div class="container">
-      <% if alert.present? %>
+      <% if notice.present? %>
         <div class="alert alert-success" role="alert">
           <%= notice %>
         </div>
       <% end %>
 
       <% if alert.present? %>
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-warning" role="alert">
           <%= alert %>
+        </div>
+      <% end %>
+
+      <% if flash[:info].present? %>
+        <div class="alert alert-info" role="alert">
+          <%= flash[:info] %>
         </div>
       <% end %>
 

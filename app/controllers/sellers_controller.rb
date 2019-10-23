@@ -1,4 +1,5 @@
 class SellersController < ApplicationController
+  before_action :define_nav_active, only: %i[index show new edit]
   before_action :set_seller, only: %i[show edit update destroy]
   before_action :policy_index, only: %i[index]
   before_action :policy_create, only: %i[new create]
@@ -30,8 +31,10 @@ class SellersController < ApplicationController
 
     if @seller.save
       session[:restricted_area] = true
+      flash[:notice] = 'Legal. Agora você é um novo vendedor do Mercado Universitário! :)'
       redirect_to @seller
     else
+      flash[:alert] = 'Erro ao criar conta de vendedor. Tente novamente'
       render 'new'
     end
   end
@@ -40,8 +43,10 @@ class SellersController < ApplicationController
 
   def update
     if @seller.update(seller_params)
+      flash[:notice] = 'Conta de vendedor atualizada com sucesso!'
       redirect_to @seller
     else
+      flash[:alert] = 'Erro ao atualizar conta de vendedor. Tente novamente'
       render 'edit'
     end
   end
@@ -51,10 +56,16 @@ class SellersController < ApplicationController
 
     # Como o usuário não é mais um vendedor, sai da área restrita
     session[:restricted_area] = false
-    redirect_to root_path
+
+    flash[:notice] = 'Conta de vendedor excluída com sucesso'
+    redirect_to categories_path
   end
 
   private
+
+  def define_nav_active
+    params[:nav_active] = 'sellers'
+  end
 
   def set_seller
     @seller = Seller.find(params[:id])
@@ -71,14 +82,16 @@ class SellersController < ApplicationController
   def policy_index
     return unless restricted_area?
 
-    redirect_to root_path
+    flash[:alert] = 'Saia da área restrita para ver os outros vendedores'
+    redirect_to products_path
   end
 
   # Só pode criar uma conta de vendedor se o usuário ainda não for um vendedor
   def policy_create
     return unless current_user.seller?
 
-    redirect_to root_path
+    flash[:alert] = 'Você já é um vendedor'
+    redirect_to products_path
   end
 
   # Só pode atualizar o vendedor em questão se o vendedor em questão(setado
@@ -86,6 +99,7 @@ class SellersController < ApplicationController
   def policy_update_destroy
     return if current_user.seller == @seller && restricted_area?
 
-    redirect_to root_path
+    flash[:alert] = 'Você não tem autorização para isso'
+    redirect_to products_path
   end
 end

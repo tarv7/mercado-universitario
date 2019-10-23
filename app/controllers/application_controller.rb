@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || categories_path
+  end
+
   def layout_by_resource
     if devise_controller? && resource_name == :user && action_name == 'new'
       'login'
@@ -16,6 +20,7 @@ class ApplicationController < ActionController::Base
   # Permite que alguns parâmetros extras sejam enviados para o controller
   # do devise
   def configure_permitted_parameters
+    params[:nav_active] = 'users'
     devise_parameter_sanitizer
       .permit(:sign_up,
               keys: [:name, :course_id, :semester, :whatsapp,
