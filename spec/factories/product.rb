@@ -8,5 +8,9 @@ FactoryBot.define do
 
     association :seller
     association :category
+
+    after(:build) do |product|
+      product.image.attach(io: File.open(Rails.root.join('spec', 'factories', 'images', 'test.jpeg')), filename: 'test.jpeg')
+    end
   end
 end

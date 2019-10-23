@@ -1,10 +1,14 @@
+<% user = order.order_products.first.user %>
 <div class="row card_order">
     <div class="col-2">
-        <%= image_tag 'http://thalesaugusto.com.br/food.jpg', class: 'profile-pic-rounded' %>
+      <% if user.image.attached? %>
+        <%= image_tag user.image.variant(combine_options: {resize: '512x512^', extent: '512x512', gravity: 'Center'}), class: 'profile-pic-rounded' %>
+      <% else %>
+        <%= image_tag 'avatar1.png', class: 'profile-pic-rounded' %>
+      <% end %>
     </div>
   
     <div class="col-4" id="second">
-      <% user = order.order_products.first.user %>
       <h3><%= link_to user.name, user %></h3>
       <% order.order_products.each do |order_product| %>
         <p>

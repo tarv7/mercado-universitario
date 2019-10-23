@@ -5,5 +5,9 @@ FactoryBot.define do
     name { FFaker::Company.name }
 
     association :user
+
+    after(:build) do |seller|
+      seller.image.attach(io: File.open(Rails.root.join('spec', 'factories', 'images', 'test.jpeg')), filename: 'test.jpeg')
+    end
   end
 end

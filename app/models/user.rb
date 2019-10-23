@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one_attached :image
+
   attr_accessor :university_id
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -17,6 +19,16 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :semester, numericality: { greater_than_or_equal_to: 1,
                                        only_integer: true }
+  validate :image_type
+
+  def image_type
+    return unless image.attached?
+
+    errors.add(:image, 'needs to be a jpeg or png!') unless image
+                                                            .content_type
+                                                            .in?(%('image/jpeg
+                                                                    image/png'))
+  end
 
   accepts_nested_attributes_for :addresses, reject_if: :all_blank,
                                             allow_destroy: true

@@ -3,7 +3,7 @@
 <div class="row">
   <% @categories.each do |category| %>
     <div class="col-3">
-      <%= render 'layouts/shared/card', label: category.name, url_path: category_products_path(category) %>
+      <%= render 'layouts/shared/card', item: category, label: category.name, url_path: category_products_path(category) %>
     </div>
   <% end %>
 </div>

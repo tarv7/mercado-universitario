@@ -6,23 +6,8 @@
   <hr>
 
   <div class="row">
-    <div class="col-4">
-      <%= f.input :email, autofocus: true, autocomplete: "email" %>
-    </div>
-    <div class="col-4">
-      <%= f.input :name %>
-    </div>
-    <div class="col-2">
-        <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: "university" %>
-    </div>
-    <div class="col-2">
-      <%= f.input :course_id, collection: resource&.university&.courses&.map{ |c| [c.name, c.id] }, selected: resource&.course&.id %>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="col-3">
-      <%= f.input :whatsapp, autocomplete: "whatsapp" %>
+      <%= f.input :email, autofocus: true, autocomplete: "email" %>
     </div>
     <div class="col-3">
       <%= f.input :current_password, autocomplete: "current-password", required: true %>
@@ -32,6 +17,27 @@
     </div>
     <div class="col-3">
       <%= f.input :password_confirmation, autocomplete: "new-password" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <%= f.input :name %>
+    </div>
+    <div class="col-4">
+        <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: "university" %>
+    </div>
+    <div class="col-3">
+      <%= f.input :course_id, collection: resource&.university&.courses&.map{ |c| [c.name, c.id] }, selected: resource&.course&.id %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <%= f.input :whatsapp, autocomplete: "whatsapp" %>
+    </div>
+    <div class="col">
+      <%= f.input :image, as: :file, autocomplete: "image" %>
     </div>
   </div>
 

@@ -3,7 +3,7 @@
 <div class="row">
   <% @sellers.each do |seller| %>
     <div class="col-3">
-      <%= render 'layouts/shared/card', label: seller.name, url_path: seller_products_path(seller) %>
+      <%= render 'layouts/shared/card', item: seller, label: seller.name, url_path: seller_products_path(seller) %>
     </div>
   <% end %>
 </div>

@@ -1,17 +1,22 @@
 <div class="row">
   <div class="col-5 col-image">
-    <%= image_tag 'http://thalesaugusto.com.br/food.jpg' %>
-  </div>
+      <%= image_tag @seller.image.variant(combine_options: {resize: '512x512^', extent: '512x512', gravity: 'Center'}) %>
+    </div>
 
   <div class="col-7">
     <div class="col title-seller"><h2><%= @seller.name %></h2></div>
     <div class="row">
       <div class="col info-seller">
-        <p><%= link_to 'Produtos', seller_products_path(@seller.id) %></p>
+        <p>
+          <%= link_to 'Produtos', seller_products_path(@seller.id) %>
+          <% if current_actor == @seller %>
+             | <%= link_to 'Editar', edit_seller_path(@seller) %>
+          <% end %>
+        </p>
       </div>
       <div class="col rating">
         <%= image_tag('star.svg', class: 'icon-star') %>
-        <span>4.9 estrelas</span>
+        <span><%= "#{@rating} estrelas" %></span>
       </div>
     </div>
 

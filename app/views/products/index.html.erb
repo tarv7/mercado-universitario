@@ -5,7 +5,7 @@
 <div class="row">
   <% @products.each do |p| %>
     <div class="col-3">
-      <%= render 'layouts/shared/card', label: "R$#{p.price} - #{p.name}", url_path: product_path(p) %>
+      <%= render 'layouts/shared/card', item: p, label: "R$#{p.price} - #{p.name}", url_path: product_path(p) %>
     </div>
   <% end %>
 </div>

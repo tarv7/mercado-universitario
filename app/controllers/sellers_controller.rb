@@ -15,6 +15,7 @@ class SellersController < ApplicationController
   end
 
   def show
+    @rating = @seller.reviews.average(:value)
     @my_review = current_user.reviews.find_by(seller_id: params[:id])
   end
 
@@ -63,7 +64,7 @@ class SellersController < ApplicationController
 
   # Permite apenas os parâmetros de seller
   def seller_params
-    params.require(:seller).permit(:name, :category_id)
+    params.require(:seller).permit(:name, :whatsapp, :instagram, :image)
   end
 
   # Só pode ver todos os vendedores se não estiver na área restrita

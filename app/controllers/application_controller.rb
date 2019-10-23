@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer
       .permit(:account_update,
-              keys: [:name, :university_id, :course_id, :semester, :whatsapp,
+              keys: [:name, :university_id, :course_id, :semester, :whatsapp, :image,
                      addresses_attributes: %i[id street neighborhood complement
                                               number city_id _destroy]])
   end

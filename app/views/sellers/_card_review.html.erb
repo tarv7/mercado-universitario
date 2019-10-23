@@ -1,11 +1,15 @@
 <% reviews.each do |review| %>
   <div class="col-2">
-    <%= image_tag 'http://thalesaugusto.com.br/food.jpg', class: 'profile-pic-rounded' %>
+    <% if review.user.image.attached? %>
+      <%= image_tag review.user.image.variant(combine_options: {resize: '512x512^', extent: '512x512', gravity: 'Center'}), class: 'profile-pic-rounded' %>
+    <% else %>
+      <%= image_tag 'avatar1.png', class: 'profile-pic-rounded' %>
+    <% end %>
   </div>
 
   <div class="col-10">
     <div class="row header">
-      <h3><%= review.user.name %></h3>
+      <h3><%= link_to review.user.name, review.user %></h3>
       <span>
         <%= image_tag 'star.svg', class: 'icon-star' %>
         <%= review.value %>
