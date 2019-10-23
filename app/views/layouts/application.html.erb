@@ -17,8 +17,17 @@
       <%= render 'layouts/nav/user' %>
     <% end %>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if alert.present? %>
+        <div class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <% if alert.present? %>
+        <div class="alert alert-success" role="alert">
+          <%= alert %>
+        </div>
+      <% end %>
 
       <div class="main">
         <%= yield %>
