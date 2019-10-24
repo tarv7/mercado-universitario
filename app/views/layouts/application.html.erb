@@ -11,7 +11,9 @@
   </head>
 
   <body>
-    <% if restricted_area? %>
+    <% if !user_signed_in? %>
+      <%= render 'layouts/nav/public' %>
+    <% elsif restricted_area? %>
       <%= render 'layouts/nav/seller' %>
     <% else %>
       <%= render 'layouts/nav/user' %>

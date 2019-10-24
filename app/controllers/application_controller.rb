@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def layout_by_resource
-    if devise_controller? && resource_name == :user && action_name == 'new'
+    
+    # binding.pry
+    
+    if devise_controller? && resource_name == :user &&
+       %w[passwords sessions].include?(controller_name) && action_name == 'new'
       'login'
     else
       'application'
