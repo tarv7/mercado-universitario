@@ -21,6 +21,9 @@ class ProductsController < ApplicationController
       @products = @products.where(seller_id: params[:seller_id])
     end
 
+    @products = @products.where('products.name LIKE ?', "%#{params[:search][:word]}%") if params[:search].present?
+
+
     @products = @products.page(params[:page]).per(8)
   end
 

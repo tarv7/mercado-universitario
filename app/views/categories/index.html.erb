@@ -1,4 +1,6 @@
-<%= render 'layouts/shared/search', label: 'Categoria' %>
+<%= render 'layouts/shared/search', label: 'Categoria', url: categories_path %>
+
+<%= link_to "Todos produtos da #{current_user.university.abbreviation}", products_path %>
 
 <div class="row">
   <% @categories.each do |category| %>
