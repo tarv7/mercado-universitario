@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   def index
     if restricted_area?
       index_for_seller
-      @statuses = Order.statuses.keys
+      @statuses = Order.statuses_for_select
     else
       @addresses = current_user.addresses&.map { |a| [a.to_string, a.id] }
       index_for_user

@@ -51,6 +51,12 @@ en:
       new: Add new address
       remove: Remove address
 
+  course:
+    shifts:
+      morning: Morning
+      evening: Evening
+      integral: Integral
+
   user:
     title:
       forget_password: Forgot password?
@@ -133,6 +139,12 @@ en:
       alert:
         create: Error closing when sending order to seller
         update: Error updating purchase status of %{name}
+    statuses:
+      not_seen: Not seen
+      preparing: Preparing
+      on_the_way: On the way
+      delivered: Delivered
+      canceled: Canceled
 
   order_product:
     flash:

@@ -46,6 +46,12 @@ pt-BR:
       seller: Vendedor
       category: Categoria
 
+  course:
+    shifts:
+      morning: Matutino
+      evening: Vespertino
+      integral: Integral
+
   address:
     link:
       new: Add novo endereço
@@ -133,6 +139,12 @@ pt-BR:
       alert:
         create: Erro ao fechar ao enviar o pedido para o vendedor
         update: Erro ao atualizar o status da compra de %{name}
+    statuses:
+      not_seen: Não visto
+      preparing: Preparando
+      on_the_way: A caminho
+      delivered: Entregue
+      canceled: Cancelado
 
   order_product:
     flash:
