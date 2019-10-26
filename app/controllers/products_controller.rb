@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
 
     @products = @products.where('products.name LIKE ?', "%#{params[:search][:word]}%") if params[:search].present?
 
-
     @products = @products.page(params[:page]).per(8)
   end
 
@@ -44,9 +43,9 @@ class ProductsController < ApplicationController
 
     if @product.save
       redirect_to @product
-      flash[:notice] = 'Novo produto criado com sucesso!'
+      flash[:notice] = I18n.t('product.flash.notice.create')
     else
-      flash[:alert] = 'Erro ao criar um novo produto'
+      flash[:alert] = I18n.t('product.flash.alert.create')
       render 'new'
     end
   end
@@ -55,10 +54,10 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      flash[:notice] = 'Produto atualizado com sucesso!'
+      flash[:notice] = I18n.t('product.flash.notice.update')
       redirect_to @product
     else
-      flash[:alert] = 'Erro ao atualizar o produto. Tente novamente'
+      flash[:alert] = I18n.t('product.flash.alert.update')
       render 'edit'
     end
   end
@@ -66,7 +65,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
 
-    flash[:notice] = 'Produto excluído com sucesso!'
+    flash[:notice] = I18n.t('product.flash.notice.destroy')
     redirect_to products_path
   end
 
@@ -93,7 +92,7 @@ class ProductsController < ApplicationController
     return if !restricted_area? ||
               @product.seller == current_actor
 
-    flash[:alert] = 'Você não tem permissão para ver esse produto'
+    flash[:alert] = I18n.t('product.flash.policy.show')
     redirect_to products_path
   end
 
@@ -101,7 +100,7 @@ class ProductsController < ApplicationController
   def policy_write
     return if restricted_area?
 
-    flash[:alert] = 'Você precisa ser um vendedor e estar na área restrita para criar um produto'
+    flash[:alert] = I18n.t('product.flash.policy.write')
     redirect_to products_path
   end
 
@@ -109,7 +108,7 @@ class ProductsController < ApplicationController
   def policy_update_delete
     return if @product.seller == current_actor
 
-    flash[:alert] = 'Você precisa ser o dono desse produto para atualiza-lo'
+    flash[:alert] = I18n.t('product.flash.policy.update_delete')
     redirect_to @product
   end
 end

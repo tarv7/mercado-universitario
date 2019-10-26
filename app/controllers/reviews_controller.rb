@@ -14,10 +14,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params.merge(seller_user_params))
 
     if @review.save
-      flash[:notice] = 'Review cadastrado com sucesso!'
+      flash[:notice] = I18n.t('review.flash.notice.create')
       redirect_to @seller
     else
-      flash[:alert] = 'Erro ao cadastrar o review. Tente novamente'
+      flash[:alert] = I18n.t('review.flash.alert.create')
       render 'new'
     end
   end
@@ -26,10 +26,10 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      flash[:notice] = 'Review atualizado com sucesso!'
+      flash[:notice] = I18n.t('review.flash.notice.update')
       redirect_to @seller
     else
-      flash[:alert] = 'Erro ao atualizar o review. Tente novamente'
+      flash[:alert] = I18n.t('review.flash.alert.update')
       render 'edit'
     end
   end
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
 
-    flash[:notice] = 'Review excluído com sucesso!'
+    flash[:notice] = I18n.t('review.flash.notice.destroy')
     redirect_to @seller
   end
 

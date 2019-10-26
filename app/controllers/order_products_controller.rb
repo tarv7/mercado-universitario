@@ -5,9 +5,9 @@ class OrderProductsController < ApplicationController
                                         .merge(user_id: current_user.id))
 
     if @order_product.save
-      flash[:notice] = 'Produto incluído com sucesso no seu carrinho'
+      flash[:notice] = I18n.t('order_product.flash.notice.create')
     else
-      flash[:alert] = 'Problema ao incluir o produto no seu carrinho'
+      flash[:alert] = I18n.t('order_product.flash.alert.create')
     end
 
     redirect_to @product
@@ -17,10 +17,10 @@ class OrderProductsController < ApplicationController
     set_product
     set_order_product
     if @order_product.update(order_product_params)
-      flash[:notice] = 'Produto atualizado com sucesso no carrinho'
+      flash[:notice] = I18n.t('order_product.flash.notice.update')
       redirect_to @product
     else
-      flash[:alert] = 'Problema ao atualizar o produto no carrinho'
+      flash[:alert] = I18n.t('order_product.flash.alert.update')
       render 'products/show'
     end
   end

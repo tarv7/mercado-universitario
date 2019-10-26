@@ -28,10 +28,10 @@ class SellersController < ApplicationController
 
     if @seller.save
       session[:restricted_area] = true
-      flash[:notice] = 'Legal. Agora você é um novo vendedor do Mercado Universitário! :)'
+      flash[:notice] = I18n.t('seller.flash.notice.create')
       redirect_to @seller
     else
-      flash[:alert] = 'Erro ao criar conta de vendedor. Tente novamente'
+      flash[:alert] = I18n.t('seller.flash.alert.create')
       render 'new'
     end
   end
@@ -40,10 +40,10 @@ class SellersController < ApplicationController
 
   def update
     if @seller.update(seller_params)
-      flash[:notice] = 'Conta de vendedor atualizada com sucesso!'
+      flash[:notice] = I18n.t('seller.flash.notice.update')
       redirect_to @seller
     else
-      flash[:alert] = 'Erro ao atualizar conta de vendedor. Tente novamente'
+      flash[:alert] = I18n.t('seller.flash.alert.update')
       render 'edit'
     end
   end
@@ -54,7 +54,7 @@ class SellersController < ApplicationController
     # Como o usuário não é mais um vendedor, sai da área restrita
     session[:restricted_area] = false
 
-    flash[:notice] = 'Conta de vendedor excluída com sucesso'
+    flash[:notice] = I18n.t('seller.flash.notice.destroy')
     redirect_to categories_path
   end
 
@@ -79,7 +79,7 @@ class SellersController < ApplicationController
   def policy_index
     return unless restricted_area?
 
-    flash[:alert] = 'Saia da área restrita para ver os outros vendedores'
+    flash[:alert] = I18n.t('seller.flash.policy.index')
     redirect_to products_path
   end
 
@@ -87,7 +87,7 @@ class SellersController < ApplicationController
   def policy_create
     return unless current_user.seller?
 
-    flash[:alert] = 'Você já é um vendedor'
+    flash[:alert] = I18n.t('seller.flash.policy.create')
     redirect_to products_path
   end
 
@@ -96,7 +96,7 @@ class SellersController < ApplicationController
   def policy_update_destroy
     return if current_user.seller == @seller && restricted_area?
 
-    flash[:alert] = 'Você não tem autorização para isso'
+    flash[:alert] = I18n.t('seller.flash.policy.update_destroy')
     redirect_to products_path
   end
 end

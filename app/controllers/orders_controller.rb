@@ -8,8 +8,7 @@ class OrdersController < ApplicationController
     else
       @addresses = current_user.addresses&.map { |a| [a.to_string, a.id] }
       index_for_user
-      flash[:info] = 'Cadastre pelo menos um endereço
-       para ser possível o delivery' if @addresses.count.zero?
+      flash[:info] = I18n.t('order.flash.info.index') if @addresses.count.zero?
     end
   end
 
@@ -20,9 +19,9 @@ class OrdersController < ApplicationController
         order = Order.create!(order_params(ops))
         update_order_products(order, ops)
       end
-      flash[:notice] = 'Seu pedido foi enviado para o vendedor!'
+      flash[:notice] = I18n.t('order.flash.notice.create')
     rescue StandardError
-      flash[:alert] = 'Erro ao fechar ao enviar o pedido para o vendedor'
+      flash[:alert] = I18n.t('order.flash.alert.create')
     end
 
     redirect_to orders_path
@@ -32,9 +31,9 @@ class OrdersController < ApplicationController
     order = Order.find(params[:id])
 
     if order.update(status: params[:order][:status])
-      flash[:notice] = "Status da compra de #{order.user.name} atualizado"
+      flash[:notice] = I18n.t('order.flash.notice.update', name: order.user.name)
     else
-      flash[:alert] = "Erro ao atualizar o status da compra de #{order.user.name}"
+      flash[:alert] = I18n.t('order.flash.alert.update', name: order.user.name)
     end
 
     redirect_to orders_path
