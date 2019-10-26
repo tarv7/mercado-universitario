@@ -14,7 +14,7 @@ en:
 
   others:
     price: Price
-    Total: Total
+    total: Total
     status: Status
     hello: Hello
     welcome: Welcome

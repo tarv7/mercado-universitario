@@ -4,7 +4,7 @@ module OrderHelper
     quantity = order.quantity
     total = quantity * product.price
 
-    "R$#{total} - #{quantity}x #{product.name}"
+    "#{number_to_currency(total, locale: :'pt-BR')} - #{quantity}x #{product.name}"
   end
 
   def info_total_order(order_products)

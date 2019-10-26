@@ -15,7 +15,7 @@
 
     <div class="col-2" id="third">
       <h4><%= I18n.t('others.total') %></h4>
-      <h4><%= "R$#{order.price}" %></h4>
+      <h4><%= number_to_currency(order.price, locale: :'pt-BR') %></h4>
     </div>
 
     <div class="col-2" id="third">
