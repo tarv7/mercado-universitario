@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-5 col-image">
       <% if @user.image.attached? %>
-        <%= image_tag @user.image.variant(combine_options: {resize: '512x512^', extent: '512x512', gravity: 'Center'}) %>
+        <%= image_tag @user.image.variant(combine_options: { resize: '512x512^', extent: '512x512', gravity: 'Center' }) %>
       <% else %>
         <%= image_tag 'avatar1.png' %>
       <% end %>
     </div>
-  
+
     <div class="col-7">
       <div class="col title-user"><h2><%= @user.name %></h2></div>
       <div class="row">
@@ -17,7 +17,7 @@
               nº 73, Ilhéus-BA. Casa branca da esquina</p>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col-md-auto">
           <%= link_to image_tag('whatsapp.svg', class: 'icon-social'), url_whatsapp_path(@user) %>

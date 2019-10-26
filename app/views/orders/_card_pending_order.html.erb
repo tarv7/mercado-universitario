@@ -1,6 +1,6 @@
 <div class="row card_order">
   <div class="col-2">
-      <%= image_tag seller.image.variant(combine_options: {resize: '512x512^', extent: '512x512', gravity: 'Center'}), class: 'profile-pic-rounded' %>
+      <%= image_tag seller.image.variant(combine_options: { resize: '512x512^', extent: '512x512', gravity: 'Center' }), class: 'profile-pic-rounded' %>
   </div>
 
   <div class="col-5" id="second">
@@ -13,8 +13,8 @@
   </div>
 
   <div class="col-2" id="third">
-    <h4>Total</h4> 
-    <h4><%= "R$#{info_total_order(order_products)}" %></h4> 
+    <h4>Total</h4>
+    <h4><%= "R$#{info_total_order(order_products)}" %></h4>
   </div>
 
   <div class="col-3">

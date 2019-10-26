@@ -2,12 +2,12 @@
 <div class="row card_order">
     <div class="col-2">
       <% if user.image.attached? %>
-        <%= image_tag user.image.variant(combine_options: {resize: '512x512^', extent: '512x512', gravity: 'Center'}), class: 'profile-pic-rounded' %>
+        <%= image_tag user.image.variant(combine_options: { resize: '512x512^', extent: '512x512', gravity: 'Center' }), class: 'profile-pic-rounded' %>
       <% else %>
         <%= image_tag 'avatar1.png', class: 'profile-pic-rounded' %>
       <% end %>
     </div>
-  
+
     <div class="col-4" id="second">
       <h3><%= link_to user.name, user %></h3>
       <% order.order_products.each do |order_product| %>
@@ -16,20 +16,20 @@
         </p>
       <% end %>
     </div>
-  
+
     <div class="col-2" id="third">
-      <h4>Total</h4> 
-      <h4><%= "R$#{order.price}" %></h4> 
+      <h4>Total</h4>
+      <h4><%= "R$#{order.price}" %></h4>
     </div>
-  
+
     <div class="col-2" id="third">
       <h4>Status</h4>
       <%= simple_form_for order do |f| %>
-        <%= f.select :status, @statuses, {}, { value: order.status, class: 'form-control', onchange: 'this.form.submit();' } %>
+        <%= f.select :status, @statuses, {}, value: order.status, class: 'form-control', onchange: 'this.form.submit();' %>
       <% end %>
     </div>
-  
+
     <div class="col-2">
-      <p><%= note_order(order) %></p> 
+      <p><%= note_order(order) %></p>
     </div>
   </div>
