@@ -20,6 +20,20 @@
       </div>
     </div>
 
+    <div class="info-seller">
+      <div class="row">
+        <div class="col">
+          <%= "#{I18n.t('seller.it_is_open')} #{I18n.t(@seller.open.to_s)}" %>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <%= "#{I18n.t('seller.it_deliver')} #{I18n.t(@seller.delivery.to_s)}" %>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-auto">
         <%= link_to image_tag('whatsapp.svg', class: 'icon-social'), url_whatsapp_path(@seller) %>
@@ -31,9 +45,12 @@
   </div>
 </div>
 
-<hr>
 
 <div class="description-seller">
+  <p id="description">
+    <%= @seller.description %>
+  </p>
+  <hr>
   <div class="row">
     <div class="col align-self-end new_or_edit_link">
       <%= link_to_review unless restricted_area? %>

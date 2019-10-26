@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_134638) do
+ActiveRecord::Schema.define(version: 2019_10_26_175354) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -136,6 +136,9 @@ ActiveRecord::Schema.define(version: 2019_10_22_134638) do
     t.string "name", null: false
     t.string "whatsapp"
     t.string "instagram"
+    t.text "description"
+    t.boolean "open", default: true
+    t.boolean "delivery", default: true
     t.index ["name"], name: "index_sellers_on_name"
     t.index ["user_id"], name: "index_sellers_on_user_id"
   end

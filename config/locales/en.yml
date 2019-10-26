@@ -1,4 +1,7 @@
 en:
+  'true': 'Yes'
+  'false': 'No'
+
   application:
     name: Mercado Universitário
 
@@ -70,6 +73,8 @@ en:
       fourth: 'You can confirm your account email via the link below:'
 
   seller:
+    it_is_open: It is open?
+    it_deliver: Does it deliver?
     title:
       new: Become a seller!
       edit: Edit your seller account
@@ -127,6 +132,10 @@ en:
       forget_password: Forgot your password?
 
   order:
+    placeholder:
+      note: Write a message here for the seller
+    select:
+      address: Withdraw at seller
     title:
       orders_made: Purchases made
       pending_orders: Pending Purchases

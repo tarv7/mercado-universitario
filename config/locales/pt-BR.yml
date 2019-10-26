@@ -1,4 +1,7 @@
 pt-BR:
+  'true': Sim
+  'false': Não
+
   application:
     name: Mercado Universitário
 
@@ -70,6 +73,8 @@ pt-BR:
       fourth: 'Você pode confirmar o e-mail da sua conta através do link abaixo:'
 
   seller:
+    it_is_open: Está aberto?
+    it_deliver: Faz entrega?
     title:
       new: Torne-se um vendedor!
       edit: Edite sua conta de vendedor
@@ -127,6 +132,10 @@ pt-BR:
       forget_password: Esqueceu a senha?
 
   order:
+    placeholder:
+      note: Escreva aqui algum recado para o vendedor
+    select:
+      address: Retirar no vendedor
     title:
       orders_made: Compras realizadas
       pending_orders: Compras pendentes

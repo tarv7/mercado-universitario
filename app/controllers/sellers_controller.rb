@@ -72,7 +72,8 @@ class SellersController < ApplicationController
 
   # Permite apenas os parâmetros de seller
   def seller_params
-    params.require(:seller).permit(:name, :whatsapp, :instagram, :image)
+    params.require(:seller).permit(:name, :whatsapp, :instagram, :image,
+                                   :open, :delivery, :description)
   end
 
   # Só pode ver todos os vendedores se não estiver na área restrita
