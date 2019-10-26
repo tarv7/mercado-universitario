@@ -1,4 +1,4 @@
-<h2>Compras pendentes</h2>
+<h2><%= I18n.t('order.title.pending_orders') %></h2>
 <hr>
 <% @shopping_cart.each do |seller, order_products| %>
   <%= render 'card_pending_order', seller: seller, order_products: order_products %>

@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row footer">
     <div class="col-6" id="left">
-      <span>SOBRE NÓS</span>
-      <span>LICENÇAS</span>
-      <span>POLÍTICAS DE PRIVACIDADE</span>
+      <span><%= I18n.t('footer.about_us').upcase %></span>
+      <span><%= I18n.t('footer.licenses').upcase %></span>
+      <span><%= I18n.t('footer.privacy_policy').upcase %></span>
     </div>
 
     <div class="col-6" id="right">
-      <span>Copyright © <%= Date.today.year %> ♥ by Thales Augusto</span>
+      <span><%= "#{I18n.t('footer.copyright')} #{Date.today.year} #{I18n.t('footer.by_author')}" %></span>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<h2 class="title_orders">Compras realizadas</h2>
+<h2 class="title_orders"><%= I18n.t('order.title.orders_made') %></h2>
 <hr>
 <% @orders.each do |order| %>
   <%= render 'card_order', order: order %>

@@ -1,33 +1,93 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  application:
+    name: University Market
+
+  Login:
+    phrase: The university market came to improve the flow of merchant in Brazilian universities
+
+  footer:
+    about_us: About us
+    licenses: Licenses
+    privacy_policy: Privacy Policy
+    copyright: Copyright ©
+    by_author: ♥ by Thales Augusto
+
+  others:
+    price: Price
+    Total: Total
+    status: Status
+
+  model:
+    name:
+      university: University
+      course: Course
+      addresses: Addresses
+      seller: Seller
+      category: Category
+
+  seller:
+    title:
+      new: Become a seller!
+      edit: Edit your seller account
+    flash:
+      notice:
+        create: Cool. You are now a new University Market seller! :)
+        update: Seller account updated successfully!
+        destroy: Seller account successfully deleted
+      alert:
+        create: Error creating seller account. Try again
+        update: Error updating seller account. Try again
+      policy:
+        index: Leave restricted area to see other sellers
+        create: You are already a seller
+        update_destroy: You are not authorized for this
+
+  product:
+    title:
+      new: Create a new product
+      edit: Edit %{name}
+    flash:
+      notice:
+        create: New product created successfully!
+        update: Product successfully updated!
+        destroy: Product successfully deleted!
+      alert:
+        create: Error creating new product
+        update: Error updating the product. Try again
+      policy:
+        show: You do not have permission to view this product
+        write: You must be a seller and be in the restricted area to create a product.
+        update_delete: You must be the owner of this product to update it
+
+  order:
+    title:
+      orders_made: Purchases made
+      pending_orders: Pending Purchases
+    flash:
+      info:
+        index: Register at least one address for delivery
+      notice:
+        create: Your order has been shipped to the seller!
+        update: %{name} purchase status updated
+      alert:
+        create: Error closing when sending order to seller
+        update: Error updating purchase status of %{name}
+
+  order_product:
+    flash:
+      notice:
+        create: Product successfully added to your cart
+        update: Product successfully updated to cart
+      alert:
+        create: Problem adding product to your cart
+        update: Problem updating product in cart
+
+  review:
+    flash:
+      notice:
+        create: Review successfully registered!
+        update: Review successfully updated!
+        destroy: Review successfully deleted!
+      alert:
+        create: Error registering review. Try again
+        update: Error updating the review. Try again

@@ -7,9 +7,9 @@
     <div class="col title-product"><h2><%= @product.name %></h2></div>
     <div class="row">
       <div class="col info-product">
-        <p>Preço: R$<%= @product.price %></p>
-        <p>Categoria: <%= @product.category.name %></p>
-        <p>Vendedor: <%= link_to @product.seller.name, @product.seller %></p>
+        <p><%= "#{I18n.t('others.price')}: #{number_to_currency(@product.price, locale: :'pt-Br')}" %></p>
+        <p><%= "#{I18n.t('model.name.category')}: #{@product.category.name}" %></p>
+        <p><%= "#{I18n.t('model.name.seller')}: #{link_to @product.seller.name, @product.seller}" %></p>
       </div>
       <div class="col order-product">
         <% if restricted_area? %>

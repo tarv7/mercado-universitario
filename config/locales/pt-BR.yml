@@ -1,0 +1,93 @@
+pt-BR:
+  application:
+    name: Mercado Universitário
+
+  login:
+    phrase: O mercado universitário veio com o intuito de melhorar o fluxo de mercância nas universidades do Brasil
+
+  footer:
+    about_us: Sobre nós
+    licenses: Licenças
+    privacy_policy: Política de privacidade
+    copyright: Copyright ©
+    by_author: ♥ by Thales Augusto
+
+  others:
+    price: Preço
+    total: Total
+    status: Status
+
+  model:
+    name:
+      university: Universidade
+      course: Curso
+      addresses: Endereços
+      seller: Vendedor
+      category: Categoria
+
+  seller:
+    title:
+      new: Torne-se um vendedor!
+      edit: Edite sua conta de vendedor
+    flash:
+      notice:
+        create: Legal. Agora você é um novo vendedor do Mercado Universitário! :)
+        update: Conta de vendedor atualizada com sucesso!
+        destroy: Conta de vendedor excluída com sucesso
+      alert:
+        create: Erro ao criar conta de vendedor. Tente novamente
+        update: Erro ao atualizar conta de vendedor. Tente novamente
+      policy:
+        index: Saia da área restrita para ver os outros vendedores
+        create: Você já é um vendedor
+        update_destroy: Você não tem autorização para isso
+
+  product:
+    title:
+      new: Criar um novo produto
+      edit: Editar %{name}
+    flash:
+      notice:
+        create: Novo produto criado com sucesso!
+        update: Produto atualizado com sucesso!
+        destroy: Produto excluído com sucesso!
+      alert:
+        create: Erro ao criar um novo produto
+        update: Erro ao atualizar o produto. Tente novamente
+      policy:
+        show: Você não tem permissão para ver esse produto
+        write: Você precisa ser um vendedor e estar na área restrita para criar um produto
+        update_delete: Você precisa ser o dono desse produto para atualiza-lo
+
+  order:
+    title:
+      orders_made: Compras realizadas
+      pending_orders: Compras pendentes
+    flash:
+      info:
+        index: Cadastre pelo menos um endereço para ser possível o delivery
+      notice:
+        create: Seu pedido foi enviado para o vendedor!
+        update: Status da compra de %{name} atualizado
+      alert:
+        create: Erro ao fechar ao enviar o pedido para o vendedor
+        update: Erro ao atualizar o status da compra de %{name}
+
+  order_product:
+    flash:
+      notice:
+        create: Produto incluído com sucesso no seu carrinho
+        update: Produto atualizado com sucesso no carrinho
+      alert:
+        create: Problema ao incluir o produto no seu carrinho
+        update: Problema ao atualizar o produto no carrinho
+
+  review:
+    flash:
+      notice:
+        create: Review cadastrado com sucesso!
+        update: Review atualizado com sucesso!
+        destroy: Review excluído com sucesso!
+      alert:
+        create: Erro ao cadastrar o review. Tente novamente
+        update: Erro ao atualizar o review. Tente novamente

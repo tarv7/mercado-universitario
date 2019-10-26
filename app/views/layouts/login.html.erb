@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MercadoUniversitario</title>
+    <title><%= I18n.t('application.name') %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -28,13 +28,8 @@
       <div class="row main-login">
         <div class="col-6 welcome">
           <%= image_tag('logo-colorfull.svg') %>
-
-          <h3>Mercado Universitário</h3>
-
-          <p>
-            O mercado universitário veio com o intuito de melhorar o
-            fluxo de mercância nas universidades do Brasil
-          </p>
+          <h3><%= I18n.t('application.name') %></h3>
+          <p><%= I18n.t('login.phrase') %></p>
         </div>
         <div class="col-6">
           <div class="box-rounded">
