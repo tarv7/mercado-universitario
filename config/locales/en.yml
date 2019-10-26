@@ -16,6 +16,10 @@ en:
     price: Price
     Total: Total
     status: Status
+    hello: Hello
+    welcome: Welcome
+    actions:
+      edit: To edit
 
   model:
     name:
@@ -24,6 +28,18 @@ en:
       addresses: Addresses
       seller: Seller
       category: Category
+
+  user:
+    title:
+      forget_password: Forgot password?
+      change_password: Change your password
+      signup: Make your registration
+      signup: Login
+    info:
+      first: We are contacting you to notify you that your email is being changed to
+      second: We are contacting you to notify you that your email has been changed to
+      third: We are contacting you to notify you that your password has been changed.
+      fourth: 'You can confirm your account email via the link below:'
 
   seller:
     title:

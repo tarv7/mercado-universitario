@@ -13,7 +13,7 @@ module MercadoUniversitario
 
     I18n.available_locales = %w[en pt-BR]
 
-    I18n.default_locale = :'pt-BR'
+    I18n.default_locale = :'en'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

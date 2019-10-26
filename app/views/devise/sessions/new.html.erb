@@ -1,12 +1,12 @@
-<h3>Faça o login</h3>
+<h3><%= I18n.t('user.title.signin') %></h3>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.input :email, autofocus: true, autocomplete: "email" %>
+    <%= f.input :email, autofocus: true, autocomplete: 'email' %>
   </div>
 
   <div class="field">
-    <%= f.input :password, autocomplete: "current-password" %>
+    <%= f.input :password, autocomplete: 'current-password' %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -15,7 +15,7 @@
         <%= f.input :remember_me, label: 'lembre-me', as: :boolean %>
       </div>
       <div class="col-7 align-self-end">
-        <%= render "devise/shared/links" %>
+        <%= render 'devise/shared/links' %>
       </div>
     </div>
   <% end %>

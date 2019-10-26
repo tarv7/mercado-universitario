@@ -16,6 +16,10 @@ pt-BR:
     price: Preço
     total: Total
     status: Status
+    hello: Olá
+    welcome: Bem vindo
+    actions:
+      edit: Editar
 
   model:
     name:
@@ -24,6 +28,18 @@ pt-BR:
       addresses: Endereços
       seller: Vendedor
       category: Categoria
+
+  user:
+    title:
+      forget_password: Esqueceu a senhar?
+      change_password: Altere sua senha
+      signup: Faça seu cadastro
+      signup: Faça o login
+    info:
+      first: Estamos entrando em contato para notificar que seu email está sendo alterado para
+      second: Estamos entrando em contato para notificar que seu e-mail foi alterado para
+      third: Estamos entrando em contato para notificá-lo de que sua senha foi alterada.
+      fourth: 'Você pode confirmar o e-mail da sua conta através do link abaixo:'
 
   seller:
     title:

@@ -1,22 +1,22 @@
-<h2>Editar <%= resource&.name %></h2>
+<h2><%= "#{I18n.t('others.actions.edit')} #{resource&.name}" %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render 'devise/shared/error_messages', resource: resource %>
 
   <hr>
 
   <div class="row">
     <div class="col-3">
-      <%= f.input :email, autofocus: true, autocomplete: "email" %>
+      <%= f.input :email, autofocus: true, autocomplete: 'email' %>
     </div>
     <div class="col-3">
-      <%= f.input :current_password, autocomplete: "current-password", required: true %>
+      <%= f.input :current_password, autocomplete: 'current-password', required: true %>
     </div>
     <div class="col-3">
-      <%= f.input :password, autocomplete: "new-password" %>
+      <%= f.input :password, autocomplete: 'new-password' %>
     </div>
     <div class="col-3">
-      <%= f.input :password_confirmation, autocomplete: "new-password" %>
+      <%= f.input :password_confirmation, autocomplete: 'new-password' %>
     </div>
   </div>
 
@@ -25,25 +25,25 @@
       <%= f.input :name %>
     </div>
     <div class="col-4">
-        <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: "university" %>
+        <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: 'university' %>
     </div>
     <div class="col-3">
-      <%= f.input :course_id, collection: resource&.university&.courses&.map{ |c| [c.name, c.id] }, selected: resource&.course&.id %>
+      <%= f.input :course_id, collection: resource&.university&.courses&.map { |c| [c.name, c.id] }, selected: resource&.course&.id %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-3">
-      <%= f.input :whatsapp, autocomplete: "whatsapp" %>
+      <%= f.input :whatsapp, autocomplete: 'whatsapp' %>
     </div>
     <div class="col">
-      <%= f.input :image, as: :file, autocomplete: "image" %>
+      <%= f.input :image, as: :file, autocomplete: 'image' %>
     </div>
   </div>
 
   <hr>
 
-  <h4>Endereços</h4>
+  <h4><%= I18n.t('model.name.addresses') %></h4>
   <div id="addresses">
     <%= f.fields_for :addresses do |address| %>
       <%= render 'address_fields', f: address %>

@@ -1,47 +1,47 @@
-<h3>Faça seu cadastro</h3>
+<h3><%= I18n.t('user.title.signup') %></h3>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render 'devise/shared/error_messages', resource: resource %>
 
   <div class="field row">
     <div class="col-4">
-      <%= f.input :email, autocomplete: "email" %>
+      <%= f.input :email, autocomplete: 'email' %>
     </div>
     <div class="col-4">
-      <%= f.input :password, autocomplete: "new-password" %>
+      <%= f.input :password, autocomplete: 'new-password' %>
     </div>
     <div class="col-4">
-      <%= f.input :password_confirmation, autocomplete: "new-password" %>
+      <%= f.input :password_confirmation, autocomplete: 'new-password' %>
     </div>
   </div>
 
   <div class="field row">
     <div class="col-4">
-      <%= f.input :name, autofocus: true, autocomplete: "name" %>
+      <%= f.input :name, autofocus: true, autocomplete: 'name' %>
     </div>
     <div class="col-3">
-      <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: "university" %>
+      <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: 'university' %>
     </div>
     <div class="col-3">
-      <%= f.association :course, include_blank: false, autocomplete: "course" %>
+      <%= f.association :course, include_blank: false, autocomplete: 'course' %>
     </div>
     <div class="col-2">
-      <%= f.input :semester, autocomplete: "semester", input_html: { min: 1, max: 30, value: 1 } %>
+      <%= f.input :semester, autocomplete: 'semester', input_html: { min: 1, max: 30, value: 1 } %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-3">
-      <%= f.input :whatsapp, autocomplete: "whatsapp" %>
+      <%= f.input :whatsapp, autocomplete: 'whatsapp' %>
     </div>
     <div class="col">
-      <%= f.input :image, as: :file, autocomplete: "image" %>
+      <%= f.input :image, as: :file, autocomplete: 'image' %>
     </div>
   </div>
 
   <hr>
 
-  <h4>Endereços</h4>
+  <h4><%= I18n.t('model.name.addresses') %></h4>
   <div id="addresses">
     <%= f.fields_for :addresses do |address| %>
       <%= render 'address_fields', f: address %>
@@ -60,8 +60,7 @@
         <%= f.button :submit, 'Cadastrar', class: 'btn-success' %>
       </div>
       <div class="col-md-auto">
-        <%= render "devise/shared/links" %>
+        <%= render 'devise/shared/links' %>
       </div>
     </div>
 <% end %>
-

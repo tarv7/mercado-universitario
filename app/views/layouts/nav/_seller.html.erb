@@ -3,19 +3,19 @@
     <div class="logo">
       <%= image_tag('logo-white.svg', size: '100%') %>
     </div>
-    <a class="navbar-brand align-left" href="#">Mercado Universitário</a>
+    <a class="navbar-brand align-left" href="#"><%= I18n.t('application.name') %></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="textoNavbar">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item <%= "active" if active_nav_orders? %>">
+        <li class="nav-item <%= 'active' if active_nav_orders? %>">
           <%= link_to 'Minhas vendas', orders_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item <%= "active" if active_nav_products? %>">
+        <li class="nav-item <%= 'active' if active_nav_products? %>">
           <%= link_to 'Meus produtos', products_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item <%= "active" if active_nav_sellers? || active_nav_configs? %>">
+        <li class="nav-item <%= 'active' if active_nav_sellers? || active_nav_configs? %>">
           <%= link_to 'Meu perfil', current_actor, class: 'nav-link' %>
         </li>
       </ul>
