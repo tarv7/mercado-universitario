@@ -12,14 +12,24 @@ en:
     copyright: Copyright ©
     by_author: ♥ by Thales Augusto
 
+  nav:
+    products: Products
+    sellers: Sellers
+    my_orders: My orders
+    configs: settings
+    restricted_area: Restricted area
+    be_seller: Be a seller
+
   others:
     price: Price
     total: Total
     status: Status
     hello: Hello
     welcome: Welcome
+    left_restricted_area: Left restricted area
     actions:
       edit: To edit
+      delete: To delete
 
   model:
     name:
@@ -56,7 +66,10 @@ en:
       policy:
         index: Leave restricted area to see other sellers
         create: You are already a seller
-        update_destroy: You are not authorized for this
+        update_destroy: You are not authorized for this    link:
+      my_sales: My sales
+      my_products: My products
+      my_profile: My profile
 
   product:
     title:
@@ -74,6 +87,25 @@ en:
         show: You do not have permission to view this product
         write: You must be a seller and be in the restricted area to create a product.
         update_delete: You must be the owner of this product to update it
+      link:
+        register_product: Register a new product
+
+  category:
+    link:
+      all_products: All products of %{abbreviation}
+
+  devise:
+    link:
+      not_receive_conf: Didn't receive confirmation instructions?
+      not_receive_unlock: Didn't receive unlock instructions?
+      sign_in_with_oauth: Login with %{provider}
+      confirm_account: Confirm your account
+      change_password: Change your password
+      unlock_account: Unlock your account
+      signin: Log in
+      signup: sign up
+      signout: Sign out
+      forget_password: Forgot your password?
 
   order:
     title:
@@ -107,3 +139,7 @@ en:
       alert:
         create: Error registering review. Try again
         update: Error updating the review. Try again
+    link:
+      new: Leave your opinion too!
+      edit: Edit your opinion
+      delete: Delete my opinion

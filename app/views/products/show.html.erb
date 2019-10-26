@@ -13,8 +13,8 @@
       </div>
       <div class="col order-product">
         <% if restricted_area? %>
-          <%= link_to 'Deletar', @product, method: :delete %> |
-          <%= link_to 'Editar', edit_product_path(@product) %>
+          <%= link_to I18n.t('others.actions.delete'), @product, method: :delete %> |
+          <%= link_to I18n.t('others.actions.edit'), edit_product_path(@product) %>
         <% else %>
           <%= render 'order_product_form' %>
         <% end %>

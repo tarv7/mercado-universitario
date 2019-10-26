@@ -8,9 +8,9 @@
     <div class="row">
       <div class="col info-seller">
         <p>
-          <%= link_to 'Produtos', seller_products_path(@seller.id) %>
+          <%= link_to I18n.t('nav.products'), seller_products_path(@seller.id) %>
           <% if current_actor == @seller %>
-             | <%= link_to 'Editar', edit_seller_path(@seller) %>
+             | <%= link_to I18n.t('others.actions.edit'), edit_seller_path(@seller) %>
           <% end %>
         </p>
       </div>
@@ -44,6 +44,3 @@
     <%= render 'card_review', reviews: @seller.reviews %>
   </div>
 </div>
-
-<%#= link_to 'Deletar', seller_path(@seller), method: :delete %>
-<%#= link_to 'Editar', edit_seller_path(@seller) %>

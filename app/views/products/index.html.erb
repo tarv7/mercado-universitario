@@ -1,6 +1,6 @@
 <%= render 'layouts/shared/search', label: 'Produtos', url: relative_products_url %>
 
-<%= link_to 'Cadastrar novo produto', new_product_path if restricted_area? %>
+<%= link_to I18n.t('product.link.register_product'), new_product_path if restricted_area? %>
 
 <div class="row">
   <% @products.each do |p| %>

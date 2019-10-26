@@ -12,14 +12,24 @@ pt-BR:
     copyright: Copyright ©
     by_author: ♥ by Thales Augusto
 
+  nav:
+    products: Produtos
+    sellers: Vendedores
+    my_orders: Minhas compras
+    configs: Configurações
+    restricted_area: Área restrita
+    be_seller: Seja um vendedor
+
   others:
     price: Preço
     total: Total
     status: Status
     hello: Olá
     welcome: Bem vindo
+    left_restricted_area: Sair da área restrita
     actions:
       edit: Editar
+      delete: Deletar
 
   model:
     name:
@@ -57,6 +67,10 @@ pt-BR:
         index: Saia da área restrita para ver os outros vendedores
         create: Você já é um vendedor
         update_destroy: Você não tem autorização para isso
+    link:
+      my_sales: Minhas vendas
+      my_products: Meus produtos
+      my_profile: Meu perfil
 
   product:
     title:
@@ -74,6 +88,25 @@ pt-BR:
         show: Você não tem permissão para ver esse produto
         write: Você precisa ser um vendedor e estar na área restrita para criar um produto
         update_delete: Você precisa ser o dono desse produto para atualiza-lo
+      link:
+        register_product: Cadastrar novo produto
+
+  category:
+    link:
+      all_products: Todos produtos da %{abbreviation}
+
+  devise:
+    link:
+      not_receive_conf: Não recebeu instruções de confirmação?
+      not_receive_unlock: Não recebeu instruções de desbloqueio?
+      sign_in_with_oauth: Logue com %{provider}
+      confirm_account: Confirme sua conta
+      change_password: Altere sua senha
+      unlock_account: Desbloqueie sua conta
+      signin: Log in
+      signup: Cadastre-se
+      signout: Sign out
+      forget_password: Esqueceu a senha?
 
   order:
     title:
@@ -107,3 +140,7 @@ pt-BR:
       alert:
         create: Erro ao cadastrar o review. Tente novamente
         update: Erro ao atualizar o review. Tente novamente
+    link:
+      new: Deixe sua opinião também!
+      edit: Edite sua opinião
+      delete: Excluir minha opinião

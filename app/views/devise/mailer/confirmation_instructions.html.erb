@@ -2,4 +2,4 @@
 
 <p><%= I18n.t('user.info.fourth') %></p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to I18n.t('devise.link.confirm_account'), confirmation_url(@resource, confirmation_token: @token) %></p>
