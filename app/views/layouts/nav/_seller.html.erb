@@ -20,8 +20,8 @@
         </li>
       </ul>
 
-      <%= link_to I18n.t('seller.link.left_restricted_area'), restricted_area_path, class: 'navbar-text nav-link' %>
-      <%= link_to I18n.t('others.signnout'), destroy_user_session_path, method: :delete, class: 'navbar-text nav-link' %>
+      <%= link_to I18n.t('others.left_restricted_area'), restricted_area_path, class: 'navbar-text nav-link' %>
+      <%= link_to I18n.t('devise.link.signout'), destroy_user_session_path, method: :delete, class: 'navbar-text nav-link' %>
     </div>
   </div>
 </nav>

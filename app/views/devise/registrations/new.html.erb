@@ -48,7 +48,7 @@
     <% end %>
 
     <div class="links">
-      <%= link_to_add_association 'add address', f, :addresses %>
+      <%= link_to_add_association I18n.t('address.link.new'), f, :addresses %>
       <br><br>
     </div>
   </div>
@@ -57,7 +57,7 @@
 
   <div class="actions row">
       <div class="col-md-auto">
-        <%= f.button :submit, 'Cadastrar', class: 'btn-success' %>
+        <%= f.button :submit, I18n.t('others.actions.register'), class: 'btn-success' %>
       </div>
       <div class="col-md-auto">
         <%= render 'devise/shared/links' %>

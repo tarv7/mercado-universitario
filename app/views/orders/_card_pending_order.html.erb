@@ -23,7 +23,7 @@
       <%= f.input :note, label: false, placeholder: 'Escreva aqui algum recado para o vendedor' %>
       <%= f.hidden_field :seller_id, value: seller.id %>
 
-      <%= f.button :submit, 'Realizar pedido' %>
+      <%= f.button :submit, I18n.t('others.actions.place_order') %>
     <% end %>
   </div>
 </div>

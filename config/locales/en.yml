@@ -1,8 +1,8 @@
 en:
   application:
-    name: University Market
+    name: Mercado Universitário
 
-  Login:
+  login:
     phrase: The university market came to improve the flow of merchant in Brazilian universities
 
   footer:
@@ -30,6 +30,13 @@ en:
     actions:
       edit: To edit
       delete: To delete
+      buy: Comprar
+      place_order: Place order
+      search: Search
+      log_into: Log into
+      register: Register
+      update: Update
+      send: Submit
 
   model:
     name:
@@ -39,12 +46,17 @@ en:
       seller: Seller
       category: Category
 
+  address:
+    link:
+      new: Add new address
+      remove: Remove address
+
   user:
     title:
       forget_password: Forgot password?
       change_password: Change your password
       signup: Make your registration
-      signup: Login
+      signin: Login
     info:
       first: We are contacting you to notify you that your email is being changed to
       second: We are contacting you to notify you that your email has been changed to
@@ -66,7 +78,8 @@ en:
       policy:
         index: Leave restricted area to see other sellers
         create: You are already a seller
-        update_destroy: You are not authorized for this    link:
+        update_destroy: You are not authorized for this
+    link:
       my_sales: My sales
       my_products: My products
       my_profile: My profile
@@ -87,8 +100,8 @@ en:
         show: You do not have permission to view this product
         write: You must be a seller and be in the restricted area to create a product.
         update_delete: You must be the owner of this product to update it
-      link:
-        register_product: Register a new product
+    link:
+      register_product: Register a new product
 
   category:
     link:

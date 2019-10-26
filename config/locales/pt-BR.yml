@@ -30,6 +30,13 @@ pt-BR:
     actions:
       edit: Editar
       delete: Deletar
+      buy: Comprar
+      place_order: Realizar pedido
+      search: Buscar
+      log_into: Logar
+      register: Cadastrar
+      update: Atualizar
+      send: Enviar
 
   model:
     name:
@@ -39,12 +46,17 @@ pt-BR:
       seller: Vendedor
       category: Categoria
 
+  address:
+    link:
+      new: Add novo endereço
+      remove: Remover endereço
+
   user:
     title:
       forget_password: Esqueceu a senhar?
       change_password: Altere sua senha
       signup: Faça seu cadastro
-      signup: Faça o login
+      signin: Faça o login
     info:
       first: Estamos entrando em contato para notificar que seu email está sendo alterado para
       second: Estamos entrando em contato para notificar que seu e-mail foi alterado para
@@ -88,8 +100,8 @@ pt-BR:
         show: Você não tem permissão para ver esse produto
         write: Você precisa ser um vendedor e estar na área restrita para criar um produto
         update_delete: Você precisa ser o dono desse produto para atualiza-lo
-      link:
-        register_product: Cadastrar novo produto
+    link:
+      register_product: Cadastrar novo produto
 
   category:
     link:
