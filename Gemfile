@@ -58,6 +58,8 @@ gem 'cocoon'
 
 gem 'mini_magick'
 
+gem 'rails-i18n'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
@@ -73,6 +75,9 @@ group :development, :test do
   gem 'rubocop'
   # Factory Bot <3 Rails
   gem 'factory_bot_rails'
+
+  gem 'brakeman'
+  gem 'erb_lint'
 end
 
 group :development do
@@ -87,6 +92,7 @@ group :development do
 
   # A Ruby language server.
   gem 'solargraph'
+
 end
 
 group :test do
