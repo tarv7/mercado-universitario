@@ -1,0 +1,73 @@
+pt-BR:
+  simple_form:
+    "yes": 'Sim'
+    "no": 'Não'
+    required:
+      text: 'requerido'
+      mark: '*'
+
+    error_notification:
+      default_message: "Por favor, reveja os problemas abaixo:"
+
+    labels:
+      addresses:
+        street: Logradouro
+        neighborhood: Bairro
+        complement: Complemento
+        number: Número
+        city: Cidade
+        user: Usuário
+      category:
+        name: Nome
+      city:
+        name: Nome
+        state: Estado
+      college:
+        name: Nome
+        address: Endereço
+        university: Universidade
+      course:
+        name: Nome
+        shift: Turno
+        university: Universidade
+      order_product:
+        quantity: Quantidade
+        product: Produto
+        order: Encomenda
+        user: Usuário
+      order:
+        note: Nota
+        status: Status
+        price: Preço
+        address: Endereço
+      product:
+        name: Nome
+        price: Preço
+        description: Descrição
+        seller: Vendedor
+        category: Categoria
+        image: Imagem
+      review:
+        value: Valor
+        comment: Comentário
+        seller: Vendedor
+        user: Usuário
+      seller:
+        user: Usuário
+        name: Nome
+        whatsapp: WhatsApp
+        instagram: Instagram
+        image: Imagem
+      state:
+        name: Nome
+        abbreviation: Abreviação
+      university:
+        name: Nome
+        abbreviation: Abreviação
+      user:
+        email: Email
+        name: Nome
+        semester: Semestre
+        course: Curso
+        whatsapp: WhatsApp
+        image: Foto

@@ -5,27 +5,69 @@ en:
     required:
       text: 'required'
       mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
+
     error_notification:
       default_message: "Please review the problems below:"
-    # Examples
-    # labels:
-    #   defaults:
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
-    # include_blanks:
-    #   defaults:
-    #     age: 'Rather not say'
-    # prompts:
-    #   defaults:
-    #     age: 'Select your age'
+
+    labels:
+      addresses:
+        street: Street
+        neighborhood: Neighborhood
+        complement: Complement
+        number: Number
+        city: City
+        user: User
+      category:
+        name: Name
+      city:
+        name: Name
+        state: State
+      college:
+        name: Name
+        address: Address
+        university: University
+      course:
+        name: Name
+        shift: Shift
+        university: University
+      order_product:
+        quantity: Quantity
+        product: Product
+        order: Order
+        user: Order
+      order:
+        note: Note
+        status: Status
+        price: Price
+        address: Address
+      product:
+        name: Name
+        price: Price
+        description: Description
+        seller: Seller
+        category: Category
+        image: Image
+      review:
+        value: Value
+        comment: Comment
+        seller: Seller
+        user: User
+      seller:
+        user: User
+        name: Name
+        whatsapp: WhatsApp
+        instagram: Instagram
+        image: Image
+      state:
+        name: Name
+        abbreviation: Abbreviation
+      university:
+        name: Name
+        abbreviation: Abbreviation
+      user:
+        email: Email
+        name: Name
+        semester: Semester
+        course: Course
+        whatsapp: WhatsApp
+        image: Photo
