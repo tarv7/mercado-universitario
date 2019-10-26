@@ -67,6 +67,7 @@ group :development, :test do
 
   # Scripts that verify your application code.
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   # interactive Ruby
   gem 'irb'
   gem 'pry-rails'
