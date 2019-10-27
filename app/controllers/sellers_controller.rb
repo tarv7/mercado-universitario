@@ -2,6 +2,7 @@ class SellersController < ApplicationController
   before_action :define_nav_active, only: %i[index show new edit]
   before_action :set_seller, only: %i[show edit update destroy]
   before_action :policy_index, only: %i[index]
+  before_action :policy_show, only: %i[show]
   before_action :policy_create, only: %i[new create]
   before_action :policy_update_destroy, only: %i[edit update destroy]
 
@@ -81,6 +82,14 @@ class SellersController < ApplicationController
     return unless restricted_area?
 
     flash[:alert] = I18n.t('seller.flash.policy.index')
+    redirect_to products_path
+  end
+
+  # Só pode ver eu mesmo caso eu esteja na area restrita
+  def policy_show
+    return unless restricted_area?
+    return if @seller == current_actor
+
     redirect_to products_path
   end
 
