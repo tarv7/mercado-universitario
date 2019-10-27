@@ -71,6 +71,8 @@ pt-BR:
       second: Estamos entrando em contato para notificar que seu e-mail foi alterado para
       third: Estamos entrando em contato para notificá-lo de que sua senha foi alterada.
       fourth: 'Você pode confirmar o e-mail da sua conta através do link abaixo:'
+    flash:
+      show: Você não tem permissão para ver esse usuário
 
   seller:
     it_is_open: Está aberto?
