@@ -175,6 +175,9 @@ pt-BR:
       alert:
         create: Erro ao cadastrar o review. Tente novamente
         update: Erro ao atualizar o review. Tente novamente
+      policy:
+        create: Você não pode criar um novo review
+        update_destroy: Você não tem permissão para fazer isso
     link:
       new: Deixe sua opinião também!
       edit: Edite sua opinião

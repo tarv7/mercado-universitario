@@ -175,6 +175,9 @@ en:
       alert:
         create: Error registering review. Try again
         update: Error updating the review. Try again
+      policy:
+        create: You cannot create a new review
+        update_destroy: You are not allowed to do this
     link:
       new: Leave your opinion too!
       edit: Edit your opinion

@@ -3,8 +3,8 @@ class ReviewsController < ApplicationController
   before_action :set_seller, only: %i[new create edit update destroy]
   before_action :set_review, only: %i[edit update destroy]
   before_action :review_params, only: %i[create update]
-
-  def index; end
+  before_action :policy_create, only: %i[new create]
+  before_action :policy_update_destroy, only: %i[edit update destroy]
 
   def new
     @review = Review.new
@@ -64,5 +64,19 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = current_user.reviews.find_by(seller_id: params[:seller_id])
+  end
+
+  def policy_create
+    return if current_user.reviews.empty? && restricted_area? == false
+
+    flash[:alert] = I18n.t('review.flash.policy.create')
+    redirect_to products_path
+  end
+
+  def policy_update_destroy
+    return if current_user.reviews.any? && restricted_area? == false
+
+    flash[:alert] = I18n.t('review.flash.policy.update_destroy')
+    redirect_to products_path
   end
 end
