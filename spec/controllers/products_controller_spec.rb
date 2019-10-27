@@ -90,13 +90,13 @@ RSpec.describe ProductsController, type: :controller do
 
     it '#CREATE - should return success' do
       category = create :category
-      product_params = attributes_for :product, category_id: category.id
+      product_params = attributes_for :product, :with_image, category_id: category.id
 
-      # expect do
-      post :create, params: { product: product_params }
-      # end.to change(Product, :count).by 1
+      expect do
+        post :create, params: { product: product_params }
+      end.to change(Product, :count).by 1
 
-      assert_response :success
+      expect(response).to redirect_to Product.last
     end
 
     it '#EDIT - should return success' do

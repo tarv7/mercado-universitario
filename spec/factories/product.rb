@@ -12,5 +12,9 @@ FactoryBot.define do
     after(:build) do |product|
       product.image.attach(io: File.open(Rails.root.join('spec', 'factories', 'images', 'test.jpeg')), filename: 'test.jpeg')
     end
+
+    trait :with_image do
+      image { fixture_file_upload(Rails.root.join('spec', 'factories', 'images', 'test.jpeg'), 'image/jpeg') }
+    end
   end
 end
