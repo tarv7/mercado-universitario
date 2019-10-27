@@ -1,8 +1,10 @@
 module ControllerMacros
-  def login_admin
+  def login_seller
     before(:each) do
-      @request.env['devise.mapping'] = Devise.mappings[:admin]
-      sign_in FactoryBot.create(:admin) # Using factory bot as an example
+      @seller = FactoryBot.create(:seller)
+      @request.env['devise.mapping'] = Devise.mappings[:user]
+      session[:restricted_area] = true
+      sign_in @seller.user # Using factory bot as an example
     end
   end
 

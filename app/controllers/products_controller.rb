@@ -27,6 +27,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    return if restricted_area?
+
     @order_product = OrderProduct.find_or_initialize_by(product_id: params[:id],
                                                         order_id: nil,
                                                         user_id: current_user.id)
