@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark navbar-expand-lg navbar-light my-navbar">
   <div class="container">
     <div class="logo">
-      <%= image_tag('logo-white.svg', size: '100%') %>
+      <%= image_tag('logo-white.svg', alt: 'teste', size: '100%') %>
     </div>
     <a class="navbar-brand align-left" href="#"><%= I18n.t('application.name') %></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
@@ -30,5 +30,6 @@
       <% end %>
       <%= link_to I18n.t('devise.link.signout'), destroy_user_session_path, method: :delete, class: 'navbar-text nav-link' %>
     </div>
+    <%= link_to_change_locale %>
   </div>
 </nav>

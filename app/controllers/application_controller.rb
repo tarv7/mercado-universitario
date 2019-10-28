@@ -1,7 +1,24 @@
 class ApplicationController < ActionController::Base
   layout :layout_by_resource
+  before_action :change_locale
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def change_locale
+    if params[:locale]
+      cookies[:locale] = params[:locale]
+    end
+
+    if cookies[:locale]
+      if I18n.locale != cookies[:locale]
+        I18n.locale = cookies[:locale]
+      end
+    end
+
+    if request.env['REQUEST_PATH'] == change_locale_path
+      redirect_to products_path
+    end
+  end
 
   protected
 

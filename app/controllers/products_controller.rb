@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_action :change_locale
   before_action :define_nav_active, only: %i[index show new edit]
   before_action :set_product, only: %i[show edit update destroy]
   before_action :policy_show, only: %i[show]

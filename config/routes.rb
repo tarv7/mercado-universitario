@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show]
 
   get 'restricted_area', to: 'restricted_area#change'
+  get '/change_locale', to: 'application#change_locale'
 
   resources :categories, only: %i[index] do
     resources :products, only: %i[index show]
