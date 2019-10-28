@@ -5,19 +5,13 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def change_locale
-    if params[:locale]
-      cookies[:locale] = params[:locale]
-    end
+    cookies[:locale] = params[:locale] if params[:locale]
 
     if cookies[:locale]
-      if I18n.locale != cookies[:locale]
-        I18n.locale = cookies[:locale]
-      end
+      I18n.locale = cookies[:locale] if I18n.locale != cookies[:locale]
     end
 
-    if request.env['REQUEST_PATH'] == change_locale_path
-      redirect_to products_path
-    end
+    redirect_to products_path if request.env['REQUEST_PATH'] == change_locale_path
   end
 
   protected
@@ -27,9 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def layout_by_resource
-    
-    # binding.pry
-    
     if devise_controller? && resource_name == :user &&
        %w[passwords sessions].include?(controller_name) && action_name == 'new'
       'login'
