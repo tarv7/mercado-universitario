@@ -121,6 +121,7 @@ en:
       all_products: All products of %{abbreviation}
 
   devise:
+    hello: Hello
     link:
       not_receive_conf: Didn't receive confirmation instructions?
       not_receive_unlock: Didn't receive unlock instructions?
@@ -132,6 +133,16 @@ en:
       signup: sign up
       signout: Sign out
       forget_password: Forgot your password?
+    mailer:
+      first: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+      second: 'Click the link below to unlock your account:'
+      third: 'Someone has requested a link to change your password. You can do this through the link below.'
+      fourth: If you didn't request this, please ignore this email.
+      fifth: Your password won't change until you access the link above and create a new one.
+    unlock:
+      title: Resend unlock instructions
+    confirmation:
+      title: Resend confirmation instructions
 
   order:
     placeholder:

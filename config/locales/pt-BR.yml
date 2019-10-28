@@ -132,6 +132,16 @@ pt-BR:
       signup: Cadastre-se
       signout: Sign out
       forget_password: Esqueceu a senha?
+    mailer:
+      first: sua conta foi bloqueada devido a um número excessivo de tentativas malsucedidas de login.
+      second: 'Clique no link abaixo para desbloquear sua conta:'
+      third: Alguém solicitou um link para alterar sua senha. Você pode fazer isso através do link abaixo.
+      fourth: Se você não solicitou isso, ignore este e-mail.
+      fifth: sua senha não será alterada até você acessar o link acima e criar um novo.
+    unlock:
+      title: Reenviar instruções de desbloqueio
+    confirmation:
+      title: Reenviar instruções de confirmação
 
   order:
     placeholder:
