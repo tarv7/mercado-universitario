@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :review do
     value { rand(1..5) }
-    comment { FFaker::Lorem.paragraph }
+    comment { FFaker::Lorem.phrase }
 
     association :seller
     association :user

@@ -1,4 +1,6 @@
 class OrderProductsController < ApplicationController
+  before_action :policy, only: %i[create update]
+
   def create
     set_product
     @order_product = OrderProduct.new(order_product_params
@@ -16,7 +18,7 @@ class OrderProductsController < ApplicationController
   def update
     set_product
     set_order_product
-    if @order_product.update(order_product_params)
+    if @order_product&.update(order_product_params)
       flash[:notice] = I18n.t('order_product.flash.notice.update')
       redirect_to @product
     else
@@ -27,6 +29,13 @@ class OrderProductsController < ApplicationController
 
   private
 
+  def policy
+    return unless restricted_area?
+
+    flash[:alert] = I18n.t('order_product.flash.policy')
+    redirect_to products_path
+  end
+
   def set_order_product
     @order_product = OrderProduct.find_by(
       product_id: order_product_params[:product_id], user_id: current_user.id,
@@ -36,6 +45,8 @@ class OrderProductsController < ApplicationController
 
   def set_product
     @product = Product.find(order_product_params[:product_id])
+  rescue StandardError
+    nil
   end
 
   def order_product_params

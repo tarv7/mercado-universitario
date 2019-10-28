@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :product do
     name { FFaker::Product.product_name }
     price { rand(10.5..99.0).round(2) }
-    description { FFaker::Lorem.paragraph }
+    description { FFaker::Lorem.phrase }
 
     association :seller
     association :category
