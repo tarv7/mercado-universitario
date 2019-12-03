@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.describe OrderProductsController, type: :controller do
@@ -20,7 +22,7 @@ RSpec.describe OrderProductsController, type: :controller do
         op = create :order_product, order_id: nil, user_id: @user.id
 
         put :update, params: { id: op.id,
-                              order_product: { product_id: op.product.id,
+                               order_product: { product_id: op.product.id,
                                                 quantity: 2 } }
 
         op.reload
@@ -33,7 +35,7 @@ RSpec.describe OrderProductsController, type: :controller do
         op = create :order_product, order_id: nil, user_id: user.id
 
         put :update, params: { id: op.id,
-                              order_product: { product_id: op.product.id,
+                               order_product: { product_id: op.product.id,
                                                 quantity: 222 } }
 
         op.reload
@@ -68,3 +70,4 @@ RSpec.describe OrderProductsController, type: :controller do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

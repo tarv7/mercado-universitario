@@ -10,7 +10,8 @@ module SellerHelper
 
   def link_to_review
     if @my_review.present?
-      link_to I18n.t('review.link.edit'), edit_seller_review_path(@seller, @my_review)
+      link_to I18n.t('review.link.edit'), edit_seller_review_path(@seller,
+                                                                  @my_review)
     else
       link_to I18n.t('review.link.new'), new_seller_review_path(@seller)
     end

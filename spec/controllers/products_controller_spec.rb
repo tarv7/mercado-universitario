@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
@@ -90,7 +92,8 @@ RSpec.describe ProductsController, type: :controller do
 
     it '#CREATE - should return success' do
       category = create :category
-      product_params = attributes_for :product, :with_image, category_id: category.id
+      product_params = attributes_for :product,
+                                      :with_image, category_id: category.id
 
       expect do
         post :create, params: { product: product_params }
@@ -142,3 +145,4 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

@@ -8,7 +8,11 @@ class SellersController < ApplicationController
 
   def index
     @sellers = Seller.per_university(current_user)
-    @sellers = @sellers.where('sellers.name LIKE ?', "%#{params[:search][:word]}%") if params[:search].present?
+
+    if params[:search].present?
+      @sellers = @sellers.where('sellers.name LIKE ?',
+                                "%#{params[:search][:word]}%")
+    end
 
     @sellers = @sellers.page(params[:page]).per(8)
   end

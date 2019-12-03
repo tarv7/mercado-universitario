@@ -4,11 +4,13 @@ module OrderHelper
     quantity = order.quantity
     total = quantity * product.price
 
+    # rubocop:disable Metrics/LineLength
     "#{number_to_currency(total, locale: :'pt-BR')} - #{quantity}x #{product.name}"
+    # rubocop:enable Metrics/LineLength
   end
 
   def info_total_order(order_products)
-    order_products.map{ |o| o.quantity * o.product.price }.reduce(0, :+)
+    order_products.map { |o| o.quantity * o.product.price }.reduce(0, :+)
   end
 
   def note_order(order)

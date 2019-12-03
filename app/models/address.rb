@@ -11,7 +11,9 @@ class Address < ApplicationRecord
                      numericality: { only_integer: true,
                                      greater_than_or_equal_to: 1 }
 
+  # rubocop:disable Metrics/LineLength
   def to_string
     "#{street}, bairro #{neighborhood}, nº #{number}, #{complement}, #{city.name} - #{city.state.abbreviation}"
   end
+  # rubocop:enable Metrics/LineLength
 end

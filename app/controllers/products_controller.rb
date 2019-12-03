@@ -16,13 +16,8 @@ class ProductsController < ApplicationController
                   Product.per_university(current_user)
                 end
 
-    if params[:category_id]
-      @products = @products.where(category_id: params[:category_id])
-    elsif params[:seller_id]
-      @products = @products.where(seller_id: params[:seller_id])
-    end
-
-    @products = @products.where('products.name LIKE ?', "%#{params[:search][:word]}%") if params[:search].present?
+    set_for_category_or_seller
+    set_for_search
 
     @products = @products.page(params[:page]).per(8)
   end
@@ -30,9 +25,11 @@ class ProductsController < ApplicationController
   def show
     return if restricted_area?
 
-    @order_product = OrderProduct.find_or_initialize_by(product_id: params[:id],
-                                                        order_id: nil,
-                                                        user_id: current_user.id)
+    @order_product = OrderProduct.find_or_initialize_by(
+      product_id: params[:id],
+      order_id: nil,
+      user_id: current_user.id
+    )
   end
 
   def new
@@ -74,6 +71,21 @@ class ProductsController < ApplicationController
 
   private
 
+  def set_for_search
+    return unless params[:search].present?
+
+    @products = @products.where('products.name LIKE ?',
+                                "%#{params[:search][:word]}%")
+  end
+
+  def set_for_category_or_seller
+    if params[:category_id]
+      @products = @products.where(category_id: params[:category_id])
+    elsif params[:seller_id]
+      @products = @products.where(seller_id: params[:seller_id])
+    end
+  end
+
   def define_nav_active
     params[:nav_active] = 'products'
   end
@@ -87,7 +99,8 @@ class ProductsController < ApplicationController
 
   # Permite apenas os parâmetros necessários para produto
   def product_params
-    params.require(:product).permit(:name, :image, :price, :description, :category_id)
+    params.require(:product).permit(:name, :image, :price,
+                                    :description, :category_id)
   end
 
   # Só visualiza o produto se for dono dele ou se for um usuário comum

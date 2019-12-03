@@ -66,8 +66,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   # Scripts that verify your application code.
-  gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'rspec-rails'
   # interactive Ruby
   gem 'irb'
   gem 'pry-rails'
@@ -93,7 +93,6 @@ group :development do
 
   # A Ruby language server.
   gem 'solargraph'
-
 end
 
 group :test do

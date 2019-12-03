@@ -5,16 +5,24 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def change_locale
-    cookies[:locale] = params[:locale] if params[:locale]
+    set_cookie
 
-    if cookies[:locale]
-      I18n.locale = cookies[:locale] if I18n.locale != cookies[:locale]
-    end
+    set_locale
 
-    redirect_to products_path if request.env['REQUEST_PATH'] == change_locale_path
+    redirect_to products_path if request.env['REQUEST_PATH'] ==
+                                 change_locale_path
   end
 
   protected
+
+  def set_cookie
+    cookies[:locale] = params[:locale] if params[:locale]
+  end
+
+  def set_locale
+    I18n.locale = cookies[:locale] if cookies[:locale] &&
+                                      I18n.locale != cookies[:locale]
+  end
 
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || categories_path
@@ -31,6 +39,7 @@ class ApplicationController < ActionController::Base
 
   # Permite que alguns parâmetros extras sejam enviados para o controller
   # do devise
+  # rubocop:disable Metrics/MethodLength
   def configure_permitted_parameters
     params[:nav_active] = 'users'
     devise_parameter_sanitizer
@@ -41,10 +50,12 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer
       .permit(:account_update,
-              keys: [:name, :university_id, :course_id, :semester, :whatsapp, :image,
+              keys: [:name, :university_id, :course_id,
+                     :semester, :whatsapp, :image,
                      addresses_attributes: %i[id street neighborhood complement
                                               number city_id _destroy]])
   end
+  # rubocop:enable Metrics/MethodLength
 
   # Define o ator em questão de acordo com a área restrita
   def current_actor

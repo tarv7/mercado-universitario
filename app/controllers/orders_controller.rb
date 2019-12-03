@@ -15,10 +15,7 @@ class OrdersController < ApplicationController
   def create
     ops = order_products
     begin
-      Order.transaction do
-        order = Order.create!(order_params(ops))
-        update_order_products(order, ops)
-      end
+      transaction_create(ops)
       flash[:notice] = I18n.t('order.flash.notice.create')
     rescue StandardError
       flash[:alert] = I18n.t('order.flash.alert.create')
@@ -30,16 +27,29 @@ class OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
 
-    if order.update(status: params[:order][:status])
-      flash[:notice] = I18n.t('order.flash.notice.update', name: order.user.name)
+    name = order.user.name
+
+    if order.update(status: status_params)
+      flash[:notice] = I18n.t('order.flash.notice.update', name: name)
     else
-      flash[:alert] = I18n.t('order.flash.alert.update', name: order.user.name)
+      flash[:alert] = I18n.t('order.flash.alert.update', name: name)
     end
 
     redirect_to orders_path
   end
 
   private
+
+  def transaction_create(ops)
+    Order.transaction do
+      order = Order.create!(order_params(ops))
+      update_order_products(order, ops)
+    end
+  end
+
+  def status_params
+    params[:order][:status]
+  end
 
   def define_nav_active
     params[:nav_active] = 'orders'

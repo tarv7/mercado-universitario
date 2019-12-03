@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.describe SellersController, type: :controller do
@@ -172,7 +174,7 @@ RSpec.describe SellersController, type: :controller do
       expect do
         post :create, params: { seller: seller_params }
       end.to change(Seller, :count).by(0)
-      
+
       expect(response).to redirect_to products_path
     end
 
@@ -240,3 +242,4 @@ RSpec.describe SellersController, type: :controller do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
