@@ -93,6 +93,8 @@ group :development do
 
   # A Ruby language server.
   gem 'solargraph'
+
+  gem 'bundler-audit'
 end
 
 group :test do
