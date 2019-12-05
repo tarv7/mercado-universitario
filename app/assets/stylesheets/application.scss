@@ -33,3 +33,14 @@ body{
 hr{
   border-top: 1px solid rgba(0, 0, 0, 0.35);
 }
+
+@media screen and (max-width: 992px){
+  .container{
+    margin: 0px;
+  }
+}
+
+.btn-purple{
+  background-color: #81259D;
+  color: white;
+}

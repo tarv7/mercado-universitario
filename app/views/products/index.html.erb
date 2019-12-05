@@ -4,7 +4,7 @@
 
 <div class="row">
   <% @products.each do |p| %>
-    <div class="col-3">
+    <div class="col-6 col-md-6 col-lg-3">
       <%= render 'layouts/shared/card', item: p, label: "#{number_to_currency(p.price, locale: :'pt-BR')} - #{p.name}", url_path: product_path(p) %>
     </div>
   <% end %>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark navbar-expand-lg navbar-light my-navbar">
-  <div class="container">
+  <div class="container col-12">
     <div class="logo">
       <%= image_tag('logo-white.svg', alt: 'teste', size: '100%') %>
     </div>
@@ -29,7 +29,7 @@
         <%= link_to I18n.t('nav.be_seller'), restricted_area_path, class: 'navbar-text nav-link' %>
       <% end %>
       <%= link_to I18n.t('devise.link.signout'), destroy_user_session_path, method: :delete, class: 'navbar-text nav-link' %>
+      <%= link_to_change_locale %>
     </div>
-    <%= link_to_change_locale %>
   </div>
 </nav>

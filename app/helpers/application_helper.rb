@@ -18,10 +18,10 @@ module ApplicationHelper
   def link_to_change_locale
     if I18n.locale.to_s == 'pt-BR'
       link_to image_tag('eua.svg', width: '25px'),
-              change_locale_path(locale: 'en'), class: 'nav-link'
+              change_locale_path(locale: 'en'), class: 'nav-link link_flag'
     elsif I18n.locale.to_s == 'en'
       link_to image_tag('brazil.svg', width: '25px'),
-              change_locale_path(locale: 'pt-BR'), class: 'nav-link'
+              change_locale_path(locale: 'pt-BR'), class: 'nav-link link_flag'
     end
   end
 end

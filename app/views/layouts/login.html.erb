@@ -12,7 +12,7 @@
 
   <body>
     <%= render 'layouts/nav/public' %>
-    <div class="container">
+    <div class="container col-12">
       <% if notice.present? %>
         <div class="alert alert-success" role="alert">
           <%= notice %>
@@ -26,12 +26,12 @@
       <% end %>
 
       <div class="row main-login">
-        <div class="col-6 welcome">
+        <div class="col-lg-6 col-12 welcome">
           <%= image_tag('logo-colorfull.svg') %>
           <h3><%= I18n.t('application.name') %></h3>
           <p><%= I18n.t('login.phrase') %></p>
         </div>
-        <div class="col-6">
+        <div class="col-lg-6 col-12">
           <div class="box-rounded">
             <%= yield %>
           </div>
