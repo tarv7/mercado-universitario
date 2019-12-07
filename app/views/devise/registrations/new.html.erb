@@ -19,11 +19,14 @@
     <div class="col-4">
       <%= f.input :name, autofocus: true, autocomplete: 'name' %>
     </div>
-    <div class="col-3">
-      <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: 'university' %>
+    <div class="col-2">
+      <%= f.input :university_id, collection: University.all, select: :blank, input_html: { id: 'university_select' } %>
     </div>
-    <div class="col-3">
-      <%= f.association :course, include_blank: false, autocomplete: 'course' %>
+    <div class="col-2">
+      <%= f.input :college_id, collection: [], input_html: { id: 'college_select' } %>
+    </div>
+    <div class="col-2">
+      <%= f.input :course_id, collection: [], input_html: { id: 'course_select' }, include_blank: false %>
     </div>
     <div class="col-2">
       <%= f.input :semester, autocomplete: 'semester', input_html: { min: 1, max: 30, value: 1 } %>

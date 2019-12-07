@@ -5,6 +5,6 @@ FactoryBot.define do
     name { FFaker::Education.major }
     shift { %w[morning evening integral].sample }
 
-    association :university
+    association :college
   end
 end

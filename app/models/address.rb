@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
   belongs_to :city
-  belongs_to :user
+  belongs_to :user, optional: :true
 
   has_many :colleges, dependent: :destroy
   has_many :orders, dependent: :nullify

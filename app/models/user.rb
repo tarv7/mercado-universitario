@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_one_attached :image
 
   attr_accessor :university_id
+  attr_accessor :college_id
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,7 +15,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one :seller, dependent: :destroy
 
-  delegate :university, to: :course
+  delegate :college, to: :course
 
   validates :name, presence: true
   validates :semester, numericality: { greater_than_or_equal_to: 1,

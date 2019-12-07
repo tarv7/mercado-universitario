@@ -1,5 +1,5 @@
 class Course < ApplicationRecord
-  belongs_to :university
+  belongs_to :college
 
   has_many :users, dependent: :destroy
 
@@ -7,7 +7,7 @@ class Course < ApplicationRecord
 
   validates :name, presence: true
   validates :shift, presence: true
-  validates :university, uniqueness: { scope: %i[name shift] }
+  validates :college, uniqueness: { scope: %i[name shift] }
 
   def self.shifts_for_select
     shifts.map do |shift, _|

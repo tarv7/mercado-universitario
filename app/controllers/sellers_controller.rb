@@ -7,7 +7,7 @@ class SellersController < ApplicationController
   before_action :policy_update_destroy, only: %i[edit update destroy]
 
   def index
-    @sellers = Seller.per_university(current_user)
+    @sellers = Seller.per_college(current_user)
 
     if params[:search].present?
       @sellers = @sellers.where('sellers.name LIKE ?',

@@ -24,11 +24,14 @@
     <div class="col-5">
       <%= f.input :name %>
     </div>
-    <div class="col-4">
-        <%= f.input :university_id, collection: University.all, include_blank: false, autocomplete: 'university' %>
-    </div>
     <div class="col-3">
-      <%= f.input :course_id, collection: resource&.university&.courses&.map { |c| [c.name, c.id] }, selected: resource&.course&.id %>
+        <%= f.input :university_id, collection: @universities, selected: @university_id, input_html: { id: 'university_select' }, include_blank: true %>
+    </div>
+    <div class="col-2">
+        <%= f.input :college_id, collection: @colleges, selected: @college_id, input_html: { id: 'college_select' } %>
+    </div>
+    <div class="col-2">
+      <%= f.input :course_id, collection: @courses, selected: @course_id, input_html: { id: 'course_select' } %> <!-- , collection: resource&.college&.courses&.map { |c| [c.name, c.id] }, selected: resource&.course&.id %> -->
     </div>
   </div>
 

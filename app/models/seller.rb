@@ -6,9 +6,9 @@ class Seller < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :products, dependent: :destroy
 
-  scope :per_university, ->(user) do
-    joins(user: [course: [:university]])
-      .where("universities.id = #{user.course.university.id}")
+  scope :per_college, ->(user) do
+    joins(user: [course: [:college]])
+      .where("colleges.id = #{user.college.id}")
   end
 
   validates :name, presence: true

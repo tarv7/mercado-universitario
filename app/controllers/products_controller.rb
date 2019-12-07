@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     @products = if restricted_area?
                   current_actor.products
                 else
-                  Product.per_university(current_user)
+                  Product.per_college(current_user)
                 end
 
     set_for_category_or_seller

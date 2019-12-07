@@ -75,7 +75,7 @@ en:
       show: You do not have permission to view this user
 
   seller:
-    it_is_open: It is open?
+    it_is_open: Working?
     it_deliver: Does it deliver?
     title:
       new: Become a seller!
@@ -118,7 +118,7 @@ en:
 
   category:
     link:
-      all_products: All products of %{abbreviation}
+      all_products: All products of %{abbreviation} - %{name}
 
   devise:
     hello: Hello

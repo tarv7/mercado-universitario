@@ -6,9 +6,9 @@ class Product < ApplicationRecord
 
   has_many :order_products, dependent: :destroy
 
-  scope :per_university, ->(user) do
-    joins(seller: [user: [course: [:university]]])
-      .where("universities.id = #{user.course.university.id}")
+  scope :per_college, ->(user) do
+    joins(seller: [user: [course: [:college]]])
+      .where("colleges.id = #{user.college.id}")
   end
 
   validates :name, presence: true

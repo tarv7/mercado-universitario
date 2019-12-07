@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_175354) do
+ActiveRecord::Schema.define(version: 2019_12_06_232118) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -76,11 +76,11 @@ ActiveRecord::Schema.define(version: 2019_10_26_175354) do
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "shift", null: false
-    t.bigint "university_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "shift", "university_id"], name: "index_courses_on_name_and_shift_and_university_id", unique: true
-    t.index ["university_id"], name: "index_courses_on_university_id"
+    t.bigint "college_id"
+    t.index ["college_id"], name: "index_courses_on_college_id"
+    t.index ["name", "shift", "college_id"], name: "index_courses_on_name_and_shift_and_college_id", unique: true
   end
 
   create_table "order_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -180,7 +180,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_175354) do
   add_foreign_key "cities", "states"
   add_foreign_key "colleges", "addresses"
   add_foreign_key "colleges", "universities"
-  add_foreign_key "courses", "universities"
+  add_foreign_key "courses", "colleges"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "order_products", "users"

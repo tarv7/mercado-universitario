@@ -75,7 +75,7 @@ pt-BR:
       show: Você não tem permissão para ver esse usuário
 
   seller:
-    it_is_open: Está aberto?
+    it_is_open: Funcionamento?
     it_deliver: Faz entrega?
     title:
       new: Torne-se um vendedor!
@@ -118,7 +118,7 @@ pt-BR:
 
   category:
     link:
-      all_products: Todos produtos da %{abbreviation}
+      all_products: Todos produtos da %{abbreviation} - %{name}
 
   devise:
     link:
