@@ -30,6 +30,7 @@ en:
     hello: Hello
     welcome: Welcome
     left_restricted_area: Left restricted area
+    remember_me: remember
     actions:
       edit: To edit
       delete: To delete
@@ -47,7 +48,9 @@ en:
       course: Course
       addresses: Addresses
       seller: Seller
+      sellers: Sellers
       category: Category
+      product: Product
 
   address:
     link:
@@ -178,6 +181,9 @@ en:
         update: Problem updating product in cart
 
   review:
+    others:
+      with_review: "%{stars} starts"
+      without_review: No rating
     flash:
       notice:
         create: Review successfully registered!
@@ -190,6 +196,6 @@ en:
         create: You cannot create a new review
         update_destroy: You are not allowed to do this
     link:
-      new: Leave your opinion too!
+      new: Leave your opinion!
       edit: Edit your opinion
       delete: Delete my opinion

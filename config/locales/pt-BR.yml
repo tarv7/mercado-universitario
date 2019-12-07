@@ -30,6 +30,7 @@ pt-BR:
     hello: Olá
     welcome: Bem vindo
     left_restricted_area: Sair da área restrita
+    remember_me: lembre-me
     actions:
       edit: Editar
       delete: Deletar
@@ -47,7 +48,9 @@ pt-BR:
       course: Curso
       addresses: Endereços
       seller: Vendedor
+      sellers: Vendedores
       category: Categoria
+      product: Produto
 
   course:
     shifts:
@@ -57,7 +60,7 @@ pt-BR:
 
   address:
     link:
-      new: Add novo endereço
+      new: Adicionar novo endereço
       remove: Remover endereço
 
   user:
@@ -177,6 +180,9 @@ pt-BR:
         update: Problema ao atualizar o produto no carrinho
 
   review:
+    others:
+      with_review: "%{stars} estrelas"
+      without_review: Nenhuma avaliação
     flash:
       notice:
         create: Review cadastrado com sucesso!
@@ -189,6 +195,6 @@ pt-BR:
         create: Você não pode criar um novo review
         update_destroy: Você não tem permissão para fazer isso
     link:
-      new: Deixe sua opinião também!
+      new: Deixe sua opinião!
       edit: Edite sua opinião
       delete: Excluir minha opinião

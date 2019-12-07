@@ -1,9 +1,9 @@
-<%= render 'layouts/shared/search', label: 'Vendedores', url: sellers_path %>
+<%= render 'layouts/shared/search', label: I18n.t('model.name.sellers'), url: sellers_path %>
 
 <div class="row">
   <% @sellers.each do |seller| %>
     <div class="col-6 col-md-6 col-lg-3">
-      <%= render 'layouts/shared/card', item: seller, label: seller.name, url_path: seller_products_path(seller) %>
+      <%= render 'layouts/shared/card', item: seller, label: seller.name, url_path: seller %>
     </div>
   <% end %>
 </div>

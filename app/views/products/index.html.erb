@@ -1,4 +1,4 @@
-<%= render 'layouts/shared/search', label: 'Produtos', url: relative_products_url %>
+<%= render 'layouts/shared/search', label: I18n.t('model.name.product').pluralize, url: relative_products_url %>
 
 <%= link_to I18n.t('product.link.register_product'), new_product_path if restricted_area? %>
 

@@ -1,4 +1,4 @@
-<%= render 'layouts/shared/search', label: 'Categoria', url: categories_path %>
+<%= render 'layouts/shared/search', label: I18n.t('model.name.category').pluralize, url: categories_path %>
 
 <%= link_to I18n.t('category.link.all_products', abbreviation: current_user.college.university.abbreviation, name: current_user.college.name), products_path %>
 

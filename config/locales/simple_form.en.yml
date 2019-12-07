@@ -71,3 +71,6 @@ en:
         course: Course
         whatsapp: WhatsApp
         image: Photo
+        university_id: University
+        college_id: College
+        college_has_course_id: Course

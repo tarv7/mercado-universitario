@@ -19,7 +19,11 @@
 
   <div class="col-3">
     <%= simple_form_for Order.new do |f| %>
-      <%= f.input :address_id, collection: addresses, label: false, include_blank: I18n.t('order.select.address') %>
+      <% if seller.delivery === false || current_user.addresses.empty? %>
+        <ul><li>Retirar no vendedor</li></ul>
+      <% else %>
+        <%= f.input :address_id, collection: addresses, label: false, include_blank: I18n.t('order.select.address') %>
+      <% end %>
       <%= f.input :note, label: false, placeholder: I18n.t('order.placeholder.note') %>
       <%= f.hidden_field :seller_id, value: seller.id %>
 

@@ -71,3 +71,6 @@ pt-BR:
         course: Curso
         whatsapp: WhatsApp
         image: Foto
+        university_id: Universidade
+        college_id: Campus
+        college_has_course_id: Curso
