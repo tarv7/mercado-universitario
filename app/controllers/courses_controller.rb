@@ -7,9 +7,11 @@ class CoursesController < ApplicationController
       format.json do
         college = College.find(params[:college_id])
 
-        render json: college.college_has_courses.map do |cc|
+        response = college.college_has_courses.map do |cc|
           { id: cc.id, name: cc.course.name }
         end
+
+        render json: response
       end
     end
   end
