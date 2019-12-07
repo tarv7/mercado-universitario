@@ -7,7 +7,7 @@ RSpec.describe SellersController, type: :controller do
     login_user
 
     it '#INDEX - return success' do
-      course = create :course, university_id: @user.college.university.id
+      course = create :course, college_id: @user.college.id
       users = create_list :user, 10, course_id: course.id
       users.map { |user| create :seller, user_id: user.id }
 

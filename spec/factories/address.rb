@@ -8,6 +8,5 @@ FactoryBot.define do
     number { rand(1..99) }
 
     association :city
-    association :user
   end
 end

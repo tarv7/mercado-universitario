@@ -19,14 +19,14 @@ RSpec.describe Course, type: :model do
     expect(course).to be_invalid
   end
 
-  it 'is invalid if there is already a set university,name,shift in database' do
-    university = create(:university)
+  it 'is invalid if there is already a set college,name,shift in database' do
+    college = create(:college)
     name = FFaker::Education.major
     shift = %w[morning evening integral].sample
 
-    create(:course, name: name, university: university, shift: shift)
+    create(:course, name: name, college: college, shift: shift)
 
-    course = build(:course, name: name, university: university, shift: shift)
+    course = build(:course, name: name, college: college, shift: shift)
     expect(course).to be_invalid
   end
 end
