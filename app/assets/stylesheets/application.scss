@@ -40,6 +40,18 @@ hr{
   }
 }
 
+@media screen and (min-width: 991px){
+  .container{
+    width: 900px;
+  }
+}
+
+@media screen and (min-width: 1351px){
+  .container{
+    width: 1140px;
+  }
+}
+
 .btn-purple{
   background-color: #81259D;
   color: white;
