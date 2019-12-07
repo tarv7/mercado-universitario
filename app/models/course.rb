@@ -1,13 +1,11 @@
 class Course < ApplicationRecord
-  belongs_to :college
-
-  has_many :users, dependent: :destroy
+  has_many :college_has_courses, dependent: :destroy
+  has_many :colleges, -> { distinct }, through: :college_has_courses
 
   enum shift: %i[morning evening integral]
 
   validates :name, presence: true
   validates :shift, presence: true
-  validates :college, uniqueness: { scope: %i[name shift] }
 
   def self.shifts_for_select
     shifts.map do |shift, _|

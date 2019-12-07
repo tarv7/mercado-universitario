@@ -7,6 +7,6 @@ FactoryBot.define do
     password { FFaker::Lorem.characters(8) }
     semester { rand(1..10) }
 
-    association :course
+    association :college_has_course
   end
 end

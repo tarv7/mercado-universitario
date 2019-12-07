@@ -44,14 +44,14 @@ class ApplicationController < ActionController::Base
     params[:nav_active] = 'users'
     devise_parameter_sanitizer
       .permit(:sign_up,
-              keys: [:name, :university_id, :college_id, :course_id,
+              keys: [:name, :college_has_course_id,
                      :semester, :whatsapp, :image,
                      addresses_attributes: %i[id street neighborhood complement
                                               number city_id _destroy]])
 
     devise_parameter_sanitizer
       .permit(:account_update,
-              keys: [:name, :university_id, :college_id, :course_id,
+              keys: [:name, :college_has_course_id,
                      :semester, :whatsapp, :image,
                      addresses_attributes: %i[id street neighborhood complement
                                               number city_id _destroy]])

@@ -7,7 +7,7 @@ class Seller < ApplicationRecord
   has_many :products, dependent: :destroy
 
   scope :per_college, ->(user) do
-    joins(user: [course: [:college]])
+    joins(user: [college_has_course: [:college]])
       .where("colleges.id = #{user.college.id}")
   end
 

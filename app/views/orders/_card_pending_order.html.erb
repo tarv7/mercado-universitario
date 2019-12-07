@@ -23,7 +23,7 @@
       <%= f.input :note, label: false, placeholder: I18n.t('order.placeholder.note') %>
       <%= f.hidden_field :seller_id, value: seller.id %>
 
-      <%= f.button :submit, I18n.t('others.actions.place_order') %>
+      <%= f.button :submit, I18n.t('others.actions.place_order'), class: 'btn-purple' %>
     <% end %>
   </div>
 </div>

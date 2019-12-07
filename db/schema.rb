@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_232118) do
+ActiveRecord::Schema.define(version: 2019_12_07_051616) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 2019_12_06_232118) do
     t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
+  create_table "college_has_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "college_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["college_id"], name: "index_college_has_courses_on_college_id"
+    t.index ["course_id", "college_id"], name: "index_courses_id_and_college_id_and_unique", unique: true
+    t.index ["course_id"], name: "index_college_has_courses_on_course_id"
+  end
+
   create_table "colleges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "address_id", null: false
@@ -78,9 +88,6 @@ ActiveRecord::Schema.define(version: 2019_12_06_232118) do
     t.integer "shift", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "college_id"
-    t.index ["college_id"], name: "index_courses_on_college_id"
-    t.index ["name", "shift", "college_id"], name: "index_courses_on_name_and_shift_and_college_id", unique: true
   end
 
   create_table "order_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -165,11 +172,11 @@ ActiveRecord::Schema.define(version: 2019_12_06_232118) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.integer "semester"
-    t.bigint "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "whatsapp"
-    t.index ["course_id"], name: "index_users_on_course_id"
+    t.bigint "college_has_course_id"
+    t.index ["college_has_course_id"], name: "index_users_on_college_has_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -178,9 +185,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_232118) do
   add_foreign_key "addresses", "cities"
   add_foreign_key "addresses", "users"
   add_foreign_key "cities", "states"
+  add_foreign_key "college_has_courses", "colleges"
+  add_foreign_key "college_has_courses", "courses"
   add_foreign_key "colleges", "addresses"
   add_foreign_key "colleges", "universities"
-  add_foreign_key "courses", "colleges"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "order_products", "users"
@@ -190,5 +198,5 @@ ActiveRecord::Schema.define(version: 2019_12_06_232118) do
   add_foreign_key "reviews", "sellers"
   add_foreign_key "reviews", "users"
   add_foreign_key "sellers", "users"
-  add_foreign_key "users", "courses"
+  add_foreign_key "users", "college_has_courses"
 end
