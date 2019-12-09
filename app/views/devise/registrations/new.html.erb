@@ -20,10 +20,10 @@
       <%= f.input :name, autofocus: true, autocomplete: 'name' %>
     </div>
     <div class="col-3">
-      <%= f.input :university_id, collection: University.all, select: :blank, input_html: { id: 'university_select' } %>
+      <%= f.input :university_id, collection: University.all, select: :blank, input_html: { id: 'university_select', onclick: 'request_data("/colleges.json", "#university_select", "#college_select");' } %>
     </div>
     <div class="col-2">
-      <%= f.input :college_id, collection: [], input_html: { id: 'college_select' } %>
+      <%= f.input :college_id, collection: [], input_html: { id: 'college_select', onclick: 'request_data("/courses.json", "#college_select", "#course_select");' } %>
     </div>
     <div class="col-2">
       <%= f.input :college_has_course_id, collection: [], input_html: { id: 'course_select' }, include_blank: false %>
