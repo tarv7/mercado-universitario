@@ -45,4 +45,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.active_job.queue_adapter = :inline
+
+  Rails.application.routes.default_url_options[:host]= 'localhost:3000' 
 end

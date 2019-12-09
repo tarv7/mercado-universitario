@@ -6,6 +6,7 @@ FactoryBot.define do
     email { FFaker::Internet.email }
     password { FFaker::Lorem.characters(8) }
     semester { rand(1..10) }
+    confirmed_at { DateTime.now }
 
     association :college_has_course
   end
