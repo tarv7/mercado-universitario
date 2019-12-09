@@ -1,0 +1,14 @@
+<h1>Novo pedido recebido</h1>
+
+<p><%= @seller.name %>, você recebeu um novo pedido!
+Acesse a plataforma online para ter controle sobre o status da compra
+e acesso ao contato do cliente.</p>
+
+<h3>Detalhes do pedido</h3>
+<p><b>Total:</b><%= number_to_currency(@order.price, locale: :'pt-BR') %></p>
+<p><b>Nota:</b><%= @order.note %></p>
+
+<p>Acesse a plataforma para ver cada item em específico</p>
+<p>Lembre-se de mudar o status da compra sempre quando necessário</p>
+
+<a href="http://www.mercadouniversitario.com.br" target="_blank">Mercado Universitário</a>

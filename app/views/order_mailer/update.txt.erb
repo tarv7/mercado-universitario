@@ -1,0 +1,12 @@
+Status de compra atualizado
+
+Sua compra realizada com Thales Company teve o status de compra
+atualizado para A caminho!
+
+Detalhes do pedido
+Total:</b><%= number_to_currency(@order.price, locale: :'pt-BR') %>
+Nota:</b><%= @order.note %>
+Itens:</b>
+<%= @details %>
+
+Acesse a plataforma para fazer o review do vendedor!

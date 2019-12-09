@@ -16,4 +16,8 @@ class Order < ApplicationRecord
   def user
     order_products.first.user
   end
+
+  def seller
+    order_products&.first&.product&.seller
+  end
 end

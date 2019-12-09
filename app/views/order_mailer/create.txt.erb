@@ -1,0 +1,11 @@
+Novo pedido recebido
+
+<%= @seller.name %>, você recebeu um novo pedido!
+Acesse a plataforma online para ter controle sobre o status da compra e acesso ao contato do cliente.
+
+Detalhes do pedido
+Total:<%= number_to_currency(@order.price, locale: :'pt-BR') %>
+Nota:<%= @order.note %>
+
+Acesse a plataforma para ver cada item em específico
+Lembre-se de mudar o status da compra sempre quando necessário

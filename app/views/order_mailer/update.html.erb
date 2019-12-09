@@ -1,0 +1,14 @@
+<h1>Status de compra atualizado</h1>
+
+<p>Sua compra realizada com Thales Company teve o status de compra
+atualizado para A caminho!</p>
+
+<h3>Detalhes do pedido</h3>
+<p><b>Total:</b><%= number_to_currency(@order.price, locale: :'pt-BR') %></p>
+<p><b>Nota:</b><%= @order.note %></p>
+<p><b>Itens:</b></p>
+<%= @details %>
+
+<p>Acesse a plataforma para fazer o review do vendedor!</p>
+
+<a href="http://www.mercadouniversitario.com.br" target="_blank">Mercado Universitário</a>

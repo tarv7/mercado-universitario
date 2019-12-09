@@ -15,7 +15,10 @@ class OrdersController < ApplicationController
   def create
     ops = order_products
     begin
-      transaction_create(ops)
+      order = transaction_create(ops)
+
+      OrderMailer.with(order: order, user: current_user).create.deliver_later
+
       flash[:notice] = I18n.t('order.flash.notice.create')
     rescue StandardError
       flash[:alert] = I18n.t('order.flash.alert.create')
@@ -30,6 +33,7 @@ class OrdersController < ApplicationController
     name = order.user.name
 
     if order.update(status: status_params)
+      OrderMailer.with(order: order).update.deliver_later
       flash[:notice] = I18n.t('order.flash.notice.update', name: name)
     else
       flash[:alert] = I18n.t('order.flash.alert.update', name: name)
@@ -44,6 +48,8 @@ class OrdersController < ApplicationController
     Order.transaction do
       order = Order.create!(order_params(ops))
       update_order_products(order, ops)
+
+      order
     end
   end
 
