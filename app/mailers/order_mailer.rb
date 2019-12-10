@@ -17,7 +17,20 @@ class OrderMailer < ApplicationMailer
                      .map { |op| "* #{op.quantity}x - #{op.product.name}" }
                      .join("\n")
 
-    mail to: @seller.user.email,
+    mail to: @user.email,
          subject: '[Mercado Universitário] Status de compra atualizado'
+  end
+
+  def confirmed
+    @order = params[:order]
+    @seller = @order.seller
+    @user = @order.user
+
+    @details = @order.order_products
+                     .map { |op| "* #{op.quantity}x - #{op.product.name}" }
+                     .join("\n")
+
+    mail to: @seller.user.email,
+         subject: '[Mercado Universitário] Entrega confirmada'
   end
 end

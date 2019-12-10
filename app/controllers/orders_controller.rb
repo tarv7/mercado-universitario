@@ -32,8 +32,8 @@ class OrdersController < ApplicationController
 
     name = order.user.name
 
-    if order.update(status: status_params)
-      OrderMailer.with(order: order).update.deliver_later
+    if order.update(params_update)
+      send_mail(order)
       flash[:notice] = I18n.t('order.flash.notice.update', name: name)
     else
       flash[:alert] = I18n.t('order.flash.alert.update', name: name)
@@ -44,6 +44,14 @@ class OrdersController < ApplicationController
 
   private
 
+  def send_mail(order)
+    if params[:confirmed].present?
+      OrderMailer.with(order: order).confirmed.deliver_later
+    else
+      OrderMailer.with(order: order).update.deliver_later
+    end
+  end
+
   def transaction_create(ops)
     Order.transaction do
       order = Order.create!(order_params(ops))
@@ -53,8 +61,10 @@ class OrdersController < ApplicationController
     end
   end
 
-  def status_params
-    params[:order][:status]
+  def params_update
+    return { confirmed: params[:confirmed] } if params[:confirmed].present?
+
+    { status: params[:order][:status] }
   end
 
   def define_nav_active
@@ -92,16 +102,25 @@ class OrdersController < ApplicationController
   end
 
   def index_for_user
-    @shopping_cart = current_user.order_products
-                                 .includes(:product).where(order: nil)
-                                 .group_by { |o| o.product.seller }
-    @orders = current_user.order_products.includes(:order).where.not(order: nil)
-                          .map(&:order).uniq
+    @shopping_cart = orders_pendings
+    @orders = orders_confirmeds
+  end
+
+  def orders_pendings
+    current_user.order_products
+                .includes(:product).where(order: nil)
+                .group_by { |o| o.product.seller }
+  end
+
+  def orders_confirmeds
+    current_user.order_products.includes(:order).where.not(order: nil)
+                .order('id DESC').map(&:order).uniq
   end
 
   def index_for_seller
     @orders = Order.joins(order_products: [product: [:seller]])
                    .includes(:order_products, order_products: [:product])
-                   .where("sellers.id = #{current_actor.id}").uniq
+                   .where("sellers.id = #{current_actor.id}")
+                   .order('id DESC').uniq
   end
 end

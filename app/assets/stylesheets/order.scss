@@ -26,3 +26,9 @@
 .col-note-order{
   word-break: break-all;
 }
+
+.col-status-order{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

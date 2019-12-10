@@ -1,0 +1,10 @@
+<h1>Entrega confirmada</h1>
+
+<p><%= @seller.name %>, o cliente <%= @user.name %> confirmou a entrega do pedido.</p>
+
+<h3>Detalhes do pedido</h3>
+<p><b>Preço total:</b><%= number_to_currency(@order.price, locale: :'pt-BR') %></p>
+<p><b>Itens:</b></p>
+<p><%= @details %></p>
+
+<a href="http://www.mercadouniversitario.com.br" target="_blank">Mercado Universitário</a>

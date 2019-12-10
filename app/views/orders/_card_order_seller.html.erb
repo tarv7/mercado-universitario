@@ -22,10 +22,14 @@
       <h4><%= number_to_currency(order.price, locale: :'pt-BR') %></h4>
     </div>
 
-    <div class="col-2" id="third">
+    <div class="col-2 col-status-order" id="third">
       <h4><%= I18n.t('others.status') %></h4>
-      <%= simple_form_for order do |f| %>
-        <%= f.select :status, @statuses, {}, value: order.status, class: 'form-control', onchange: 'this.form.submit();' %>
+      <% if order.confirmed %>
+        <button type="button" class="btn btn-success" disabled>Confirmado</button>
+      <% else %>
+        <%= simple_form_for order do |f| %>
+          <%= f.select :status, @statuses, {}, value: order.status, class: 'form-control', onchange: 'this.form.submit();' %>
+        <% end %>
       <% end %>
     </div>
 
