@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_235710) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id", "order_id", "user_id"], name: "index_order_products_on_product_id_and_order_id_and_user_id", unique: true
     t.index ["product_id"], name: "index_order_products_on_product_id"
     t.index ["user_id"], name: "index_order_products_on_user_id"
   end
