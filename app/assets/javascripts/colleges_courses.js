@@ -12,7 +12,7 @@ function request_data(url, dad_id, children_id) {
       success: function(data){
         // here we iterate the json result
         $(children_id + ' option').remove();
-        $(`#course_select option`).remove();
+        $('#course_select option').remove();
         $(children_id).append(new Option("", null));
 
         for(var i in data)
