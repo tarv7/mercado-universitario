@@ -59,3 +59,12 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+set :branch, 'master'
+set :server_address, '178.128.156.172'
+ 
+ask(:password, nil, echo: false)
+server fetch(:server_address), user: "uescmu", roles: %w{app db web}
+ 
+set :nginx_server_name, fetch(:server_address)
+set :puma_preload_app, true
