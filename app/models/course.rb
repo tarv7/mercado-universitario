@@ -12,4 +12,8 @@ class Course < ApplicationRecord
       [I18n.t("order.shifts.#{shift}"), shift]
     end
   end
+
+  def name_shift
+    I18n.t("course.shifts.#{shift}")
+  end
 end
