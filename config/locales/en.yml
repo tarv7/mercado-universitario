@@ -31,6 +31,10 @@ en:
     welcome: Welcome
     left_restricted_area: Left restricted area
     remember_me: remember
+    title:
+      all_products: All products
+      products_of_category: All products in category %{category}
+      products_of_seller: All seller is products %{seller}
     actions:
       edit: To edit
       delete: To delete

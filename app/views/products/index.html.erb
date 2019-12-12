@@ -1,3 +1,10 @@
+<% if @title.present? %>
+  <div class="title_for_products">
+    <h2><%= @title %></h2>
+  </div>
+  <hr>
+<% end %>
+
 <%= render 'layouts/shared/search', label: I18n.t('model.name.product').pluralize, url: relative_products_url %>
 
 <%= link_to I18n.t('product.link.register_product'), new_product_path if restricted_area? %>

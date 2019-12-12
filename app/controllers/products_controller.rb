@@ -80,10 +80,22 @@ class ProductsController < ApplicationController
 
   def set_for_category_or_seller
     if params[:category_id]
-      @products = @products.where(category_id: params[:category_id])
+      set_for_category
     elsif params[:seller_id]
-      @products = @products.where(seller_id: params[:seller_id])
+      set_for_seller
     end
+  end
+
+  def set_for_category
+    cat = Category.find(params[:category_id])
+    @title = I18n.t('others.title.products_of_category', category: cat.name)
+    @products = @products.where(category_id: params[:category_id])
+  end
+
+  def set_for_seller
+    seller = Seller.find(params[:seller_id])
+    @title = I18n.t('others.title.products_of_seller', seller: seller.name)
+    @products = @products.where(seller_id: params[:seller_id])
   end
 
   def define_nav_active

@@ -31,6 +31,10 @@ pt-BR:
     welcome: Bem vindo
     left_restricted_area: Sair da área restrita
     remember_me: lembre-me
+    title:
+      all_products: Todos os produtos
+      products_of_category: Todos os produtos da categoria %{category}
+      products_of_seller: Todos os produtos do vendedor %{seller}
     actions:
       edit: Editar
       delete: Deletar
