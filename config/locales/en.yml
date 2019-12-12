@@ -61,6 +61,7 @@ en:
     shifts:
       morning: Morning
       evening: Evening
+      nocturnal: Nocturnal
       integral: Integral
 
   user:
