@@ -42,12 +42,12 @@ namespace :puma do
   after :start, :nginx_restart
 end
 
-desc 'Runs rake db:seed'
+desc 'Runs rake db:seed:production'
 task :seed do
   on primary fetch(:migration_role) do
     within release_path do
       with rails_env: 'production' do
-        execute :rails, "db:seed"
+        execute :rails, "db:seed:production"
       end
     end
   end
