@@ -127,8 +127,8 @@ en:
   devise:
     hello: Hello
     link:
-      not_receive_conf: Didn't receive confirmation instructions?
-      not_receive_unlock: Didn't receive unlock instructions?
+      not_receive_conf: Didn't receive confirmation?
+      not_receive_unlock: Didn't receive unlock?
       sign_in_with_oauth: Login with %{provider}
       confirm_account: Confirm your account
       change_password: Change your password

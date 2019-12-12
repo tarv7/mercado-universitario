@@ -6,15 +6,15 @@
   </div>
 
   <div class="field">
-    <%= f.input :password, autocomplete: 'current-password' %>
+    <%= f.input :password, autocomplete: 'current-password', input_html: { class: 'no-margin-bottom' } %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field row">
-      <div class="col-5">
+      <div class="col-5 col-lg-12">
         <%= f.input :remember_me, label: I18n.t('others.remember_me'), as: :boolean %>
       </div>
-      <div class="col-7 align-self-end">
+      <div class="col-7 col-lg-12">
         <%= render 'devise/shared/links' %>
       </div>
     </div>

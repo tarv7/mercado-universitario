@@ -16,30 +16,28 @@
   </div>
 
   <div class="field row">
-    <div class="col-4">
+    <div class="col-5">
       <%= f.input :name, autofocus: true, autocomplete: 'name' %>
     </div>
-    <div class="col-3">
-      <%= f.input :university_id, collection: University.all, select: :blank, input_html: { id: 'university_select', onclick: 'request_data("/colleges.json", "#university_select", "#college_select");' } %>
-    </div>
-    <div class="col-2">
-      <%= f.input :college_id, collection: [], input_html: { id: 'college_select', onclick: 'request_data("/courses.json", "#college_select", "#course_select");' } %>
-    </div>
-    <div class="col-2">
-      <%= f.input :college_has_course_id, collection: [], input_html: { id: 'course_select' }, include_blank: false %>
-    </div>
-    <div class="col-1">
-      <%= f.input :semester, autocomplete: 'semester', input_html: { min: 1, max: 30, value: 1 } %>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="col-3">
       <%= f.input :whatsapp, autocomplete: 'whatsapp' %>
     </div>
     <div class="col">
       <%= f.input :image, as: :file, autocomplete: 'image' %>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <%= f.input :university_id, collection: University.all, select: :blank, input_html: { id: 'university_select', onclick: 'request_data("/colleges.json", "#university_select", "#college_select");' } %>
+    </div>
+    <div class="col-3">
+      <%= f.input :college_id, collection: [], input_html: { id: 'college_select', onclick: 'request_data("/courses.json", "#college_select", "#course_select");' } %>
+    </div>
+    <div class="col-4">
+      <%= f.input :college_has_course_id, collection: [], input_html: { id: 'course_select' }, include_blank: false %>
+    </div>
+    <%= f.hidden_field :semester, value: 1 %>
   </div>
 
   <hr>

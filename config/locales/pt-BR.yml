@@ -126,8 +126,8 @@ pt-BR:
 
   devise:
     link:
-      not_receive_conf: Não recebeu instruções de confirmação?
-      not_receive_unlock: Não recebeu instruções de desbloqueio?
+      not_receive_conf: Não recebeu a confirmação?
+      not_receive_unlock: Não recebeu o desbloqueio?
       sign_in_with_oauth: Logue com %{provider}
       confirm_account: Confirme sua conta
       change_password: Altere sua senha
