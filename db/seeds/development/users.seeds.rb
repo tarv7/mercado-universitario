@@ -1,4 +1,4 @@
-after :college_has_courses do
+after 'development:college_has_courses' do
   User.find_or_create_by(name: 'Thales Augusto', email: 'thales@gmail.com',
                          semester: 8, college_has_course: CollegeHasCourse.first) do |user|
     user.password = '123456'

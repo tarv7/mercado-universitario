@@ -1,19 +1,7 @@
-# c = Category.build(name: 'Comida')
-# c.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'categories', 'comida.jpeg')), filename: 'comida.jpeg')
-# c.save
-
-Category.find_or_create_by(name: 'Comida') do |c|
-  c.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'categories', 'comida.jpeg')), filename: 'comida.jpeg')
-end
-
-Category.find_or_create_by(name: 'Artes') do |c|
-  c.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'categories', 'artes.jpeg')), filename: 'artes.jpeg')
-end
-
-Category.find_or_create_by(name: 'Vestimentas') do |c|
-  c.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'categories', 'vestimentas.jpeg')), filename: 'vestimentas.jpeg')
-end
-
-Category.find_or_create_by(name: 'Outros') do |c|
-  c.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'categories', 'outros.jpeg')), filename: 'outros.jpeg')
-end
+Category.find_or_create_by(name: 'Comidas', image: 'categories/comidas.jpg')
+Category.find_or_create_by(name: 'Vestimentas', image: 'categories/vestimentas.jpg')
+Category.find_or_create_by(name: 'Livros', image: 'categories/livros.jpeg')
+Category.find_or_create_by(name: 'Moradias', image: 'categories/moradias.jpeg')
+Category.find_or_create_by(name: 'Serviços', image: 'categories/servicos.jpg')
+Category.find_or_create_by(name: 'Artes', image: 'categories/artes.jpg')
+Category.find_or_create_by(name: 'Outros', image: 'categories/outros.png')

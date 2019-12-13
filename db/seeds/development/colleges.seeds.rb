@@ -1,4 +1,4 @@
-after :universities, :addresses do
+after 'development:universities', 'development:addresses' do
   College.find_or_create_by!(name: 'Soares Nazaré', address: Address.first,
                             university: University.first)
   College.find_or_create_by!(name: 'Campus A', address: Address.second,

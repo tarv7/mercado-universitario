@@ -1,6 +1,10 @@
 <div class="card-large">
   <%= link_to url_path do %>
-    <%= image_tag item.image.variant(combine_options: { resize: '512x512^', extent: '512x512', gravity: 'Center' }), id: 'image' %>
+    <% if item.is_a?(Category) %>
+      <%= image_tag item.image, id: 'image' %>
+    <% else %>
+      <%= image_tag item.image.variant(combine_options: { resize: '512x512^', extent: '512x512', gravity: 'Center' }), id: 'image' %>
+    <% end %>
 
     <div id="footer">
       <span><%= label %></span>

@@ -1,4 +1,4 @@
-after :sellers, :categories do
+after 'development:sellers', 'development:categories' do
   Product.find_or_create_by(name: 'Pizza grande de frango', price: 22.5,
                             category: Category.first, seller: Seller.first,
                             description: FFaker::Lorem.phrase) do |p|

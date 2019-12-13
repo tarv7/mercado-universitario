@@ -1,4 +1,4 @@
-after :orders, :products, :users do
+after 'development:orders', 'development:products', 'development:users' do
   OrderProduct.find_or_create_by(quantity: 12, product: Product.last,
                                  order: Order.first, user: User.first)
   OrderProduct.find_or_create_by(quantity: 1, product: Product.all[5],

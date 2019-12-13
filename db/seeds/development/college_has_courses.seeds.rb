@@ -1,4 +1,4 @@
-after :colleges, :courses do
+after 'development:colleges', 'development:courses' do
   CollegeHasCourse.find_or_create_by!(college: College.first , course: Course.second)
   CollegeHasCourse.find_or_create_by!(college: College.first , course: Course.third)
   CollegeHasCourse.find_or_create_by!(college: College.second , course: Course.first)

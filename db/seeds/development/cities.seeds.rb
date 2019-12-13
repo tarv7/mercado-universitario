@@ -1,4 +1,4 @@
-after :states do
+after 'development:states' do
     City.find_or_create_by(name: 'Barra do Rocha', state: State.first)
     City.find_or_create_by(name: 'Ipiaú', state: State.first)
     City.find_or_create_by(name: 'Ilhéus', state: State.first)

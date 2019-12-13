@@ -1,4 +1,4 @@
-after :cities do
+after 'development:cities' do
   Address.find_or_create_by(street: 'Rua A', neighborhood: 'Centro',
                             city: City.first, number: 123)
   Address.find_or_create_by(street: 'Rua B', neighborhood: 'Pontal',
