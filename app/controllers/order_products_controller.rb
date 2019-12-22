@@ -1,8 +1,8 @@
 class OrderProductsController < ApplicationController
+  before_action :set_product
   before_action :policy, only: %i[create update]
 
   def create
-    set_product
     @order_product = OrderProduct.new(order_product_params
                                         .merge(user_id: current_user.id))
 
@@ -12,15 +12,14 @@ class OrderProductsController < ApplicationController
       flash[:alert] = I18n.t('order_product.flash.alert.create')
     end
 
-    redirect_to @product
+    redirect_to orders_path
   end
 
   def update
-    set_product
     set_order_product
     if @order_product&.update(order_product_params)
       flash[:notice] = I18n.t('order_product.flash.notice.update')
-      redirect_to @product
+      redirect_to orders_path
     else
       flash[:alert] = I18n.t('order_product.flash.alert.update')
       render 'products/show'
@@ -30,7 +29,7 @@ class OrderProductsController < ApplicationController
   private
 
   def policy
-    return unless restricted_area?
+    return if @product.seller != current_user.seller && !restricted_area?
 
     flash[:alert] = I18n.t('order_product.flash.policy')
     redirect_to products_path

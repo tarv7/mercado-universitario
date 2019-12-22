@@ -14,7 +14,7 @@ RSpec.describe OrderProductsController, type: :controller do
         post :create, params: { order_product: op_params }
       end.to change(OrderProduct, :count).by(1)
 
-      expect(response).to redirect_to OrderProduct.last.product
+      expect(response).to redirect_to orders_path
     end
 
     describe '#PUT' do
@@ -26,7 +26,7 @@ RSpec.describe OrderProductsController, type: :controller do
                                                 quantity: 2 } }
 
         op.reload
-        expect(response).to redirect_to op.product
+        expect(response).to redirect_to orders_path
         expect(op.quantity).to eq(2)
       end
 

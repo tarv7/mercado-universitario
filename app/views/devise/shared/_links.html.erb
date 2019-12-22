@@ -10,7 +10,7 @@
   <%= link_to I18n.t('devise.link.signup'), new_registration_path(resource_name) %><br>
 <% end %>
 
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' && false %>
   <%= link_to I18n.t('devise.link.not_receive_conf'), new_user_confirmation_path(resource_name) %><br>
 <% end %>
 

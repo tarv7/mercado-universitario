@@ -15,7 +15,7 @@
         <% if restricted_area? %>
           <%= link_to I18n.t('others.actions.delete'), @product, method: :delete %> |
           <%= link_to I18n.t('others.actions.edit'), edit_product_path(@product) %>
-        <% else %>
+        <% elsif @product.seller != current_user.seller %>
           <%= render 'order_product_form' %>
         <% end %>
       </div>

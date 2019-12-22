@@ -13,12 +13,12 @@ pt-BR:
     licenses: Licenças
     privacy_policy: Política de privacidade
     copyright: Copyright ©
-    by_author: ♥ by Thales Augusto
+    by_author: "- Thales Augusto"
 
   nav:
     products: Produtos
     sellers: Vendedores
-    my_orders: Minhas compras
+    my_orders: Meus pedidos
     configs: Configurações
     restricted_area: Área restrita
     be_seller: Seja um vendedor
@@ -158,6 +158,7 @@ pt-BR:
       address: Retirar no vendedor
     title:
       orders_made: Compras realizadas
+      sales_made: Vendas realizadas
       pending_orders: Compras pendentes
     flash:
       info:
@@ -177,6 +178,7 @@ pt-BR:
 
   order_product:
     flash:
+      policy: "Você não tem autorização para isso"
       notice:
         create: Produto incluído com sucesso no seu carrinho
         update: Produto atualizado com sucesso no carrinho

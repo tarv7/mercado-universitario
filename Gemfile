@@ -94,10 +94,10 @@ group :development do
 
   gem 'bundler-audit'
 
-  gem "capistrano", "~> 3.10", require: false
-  gem "capistrano-rails", "~> 1.3", require: false
-  gem 'capistrano3-puma', require: false
+  gem 'capistrano', '~> 3.10', require: false
+  gem 'capistrano-rails', '~> 1.3', require: false
   gem 'capistrano-rbenv', require: false
+  gem 'capistrano3-puma', require: false
 end
 
 group :test do

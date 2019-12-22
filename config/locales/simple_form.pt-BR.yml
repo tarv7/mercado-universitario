@@ -66,6 +66,8 @@ pt-BR:
         abbreviation: Abreviação
       user:
         email: Email
+        password: Senha
+        password_confirmation: Confirmação de senha
         name: Nome
         semester: Semestre
         course: Curso

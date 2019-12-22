@@ -3,14 +3,17 @@ class ApplicationController < ActionController::Base
   before_action :change_locale
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :badge_seller, if: :restricted_area?
+  before_action :badge_user, unless: :restricted_area?
 
   def change_locale
     set_cookie
 
     set_locale
 
-    redirect_to products_path if request.env['REQUEST_PATH'] ==
-                                 change_locale_path
+    return unless request.env['REQUEST_PATH'] == change_locale_path
+
+    redirect_to user_signed_in? ? products_path : root_path
   end
 
   protected
@@ -57,6 +60,20 @@ class ApplicationController < ActionController::Base
                                               number city_id _destroy]])
   end
   # rubocop:enable Metrics/MethodLength
+
+  def badge_user
+    @badge_user ||= current_user.order_products.includes(product: [:seller])
+                                .where(order: nil).map(&:product).map(&:seller)
+                                .uniq.count
+  end
+
+  def badge_seller
+    @badge_seller ||=
+      Order.joins(order_products: [product: [:seller]])
+           .includes(:order_products, order_products: [:product])
+           .where("sellers.id = #{current_actor.id}")
+           .where.not(status: 'delivered').count
+  end
 
   # Define o ator em questão de acordo com a área restrita
   def current_actor

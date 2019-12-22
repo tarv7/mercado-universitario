@@ -16,7 +16,9 @@
           <%= link_to I18n.t('nav.sellers'), sellers_path, class: 'nav-link' %>
         </li>
         <li class="nav-item <%= 'active' if active_nav_orders? %>">
-          <%= link_to I18n.t('nav.my_orders'), orders_path, class: 'nav-link' %>
+          <%= link_to orders_path, class: 'nav-link' do %>
+            <%= I18n.t('nav.my_orders') %> <span class="badge badge-light"><%= @badge_user if @badge_user.positive? %></span>
+          <% end %>
         </li>
         <li class="nav-item <%= 'active' if active_nav_configs? %>">
           <%= link_to I18n.t('nav.configs'), edit_user_registration_path(current_actor), class: 'nav-link' %>

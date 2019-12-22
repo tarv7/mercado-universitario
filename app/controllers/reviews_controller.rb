@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   before_action :review_params, only: %i[create update]
   before_action :policy_create, only: %i[new create]
   before_action :policy_update_destroy, only: %i[edit update destroy]
+  before_action :policy_self
 
   def new
     @review = Review.new
@@ -42,6 +43,10 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def policy_self
+    redirect_to @seller if @seller == current_user.seller
+  end
 
   def define_nav_active
     params[:nav_active] = 'sellers'

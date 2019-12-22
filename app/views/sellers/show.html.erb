@@ -36,10 +36,10 @@
 
     <div class="row">
       <div class="col-md-auto">
-        <%= link_to image_tag('whatsapp.svg', class: 'icon-social'), url_whatsapp_path(@seller), target: '_blank' %>
+        <%= link_to image_tag('whatsapp.svg', class: 'icon-social'), url_whatsapp_path(@seller), target: '_blank' if @seller.whatsapp.present? %>
       </div>
       <div class="col-md-auto">
-        <%= link_to image_tag('instagram.svg', class: 'icon-social'), url_instagram_path(@seller), target: '_blank' %>
+        <%= link_to image_tag('instagram.svg', class: 'icon-social'), url_instagram_path(@seller), target: '_blank' if @seller.instagram.present? %>
       </div>
     </div>
   </div>
@@ -52,7 +52,7 @@
   <hr>
   <div class="row">
     <div class="col align-self-end new_or_edit_link">
-      <%= link_to_review unless restricted_area? %>
+      <%= link_to_review if @seller != current_user.seller && !restricted_area? %>
     </div>
   </div>
 

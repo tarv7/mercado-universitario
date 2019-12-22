@@ -13,7 +13,7 @@ en:
     licenses: Licenses
     privacy_policy: Privacy Policy
     copyright: Copyright ©
-    by_author: ♥ by Thales Augusto
+    by_author: "- Thales Augusto"
 
   nav:
     products: Products
@@ -159,6 +159,7 @@ en:
       address: Withdraw at seller
     title:
       orders_made: Purchases made
+      sales_made: Sales made
       pending_orders: Pending Purchases
     flash:
       info:
@@ -178,6 +179,7 @@ en:
 
   order_product:
     flash:
+      policy: "You are not authorized for this"
       notice:
         create: Product successfully added to your cart
         update: Product successfully updated to cart
