@@ -1,22 +1,26 @@
 <%= simple_form_for @product do |f| %>
-  <div class="field">
-    <%= f.input :name, autocomplete: 'name' %>
+  <div class="row">
+    <div class="field col-6">
+      <%= f.input :name, autocomplete: 'name' %>
+    </div>
+
+    <div class="field col-3">
+      <%= f.input :price, autocomplete: 'price' %>
+    </div>
+    
+    <div class="field col-3">
+      <%= f.association :category, include_blank: false, autocomplete: 'category' %>
+    </div>
   </div>
 
-  <div class="custom-file">
-    <%= f.input :image, as: :file, autocomplete: 'image' %>
-  </div>
-
-  <div class="field">
-    <%= f.input :price, autocomplete: 'price' %>
-  </div>
-
-  <div class="field">
-    <%= f.association :category, include_blank: false, autocomplete: 'category' %>
-  </div>
-
-  <div class="field">
-    <%= f.input :description, autocomplete: 'description' %>
+  <div class="row">
+    <div class="field col-8">
+      <%= f.input :description, autocomplete: 'description' %>
+    </div>
+    
+    <div class="custom-file col-4">
+      <%= f.input :image, as: :file, autocomplete: 'image' %>
+    </div>
   </div>
 
   <div class="actions">
