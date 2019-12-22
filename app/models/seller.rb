@@ -18,8 +18,8 @@ class Seller < ApplicationRecord
   validate :image_type
 
   def format_fields
-    self.whatsapp = self.whatsapp.scan(/\d/).join
-    self.instagram = self.instagram.delete('@')
+    self.whatsapp = self.whatsapp&.scan(/\d/)&.join
+    self.instagram = self.instagram&.delete('@')
   end
 
   def image_type

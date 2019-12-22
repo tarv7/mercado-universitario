@@ -27,7 +27,7 @@ class User < ApplicationRecord
   validate :image_type
 
   def format_fields
-    self.whatsapp = self.whatsapp.scan(/\d/).join
+    self.whatsapp = self.whatsapp&.scan(/\d/)&.join
   end
 
   def image_type
