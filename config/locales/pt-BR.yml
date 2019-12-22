@@ -85,6 +85,7 @@ pt-BR:
   seller:
     it_is_open: Funcionamento?
     it_deliver: Faz entrega?
+    confirm_delete: Tem certeza que você deseja excluir sua conta de vendedor?
     title:
       new: Torne-se um vendedor!
       edit: Edite sua conta de vendedor

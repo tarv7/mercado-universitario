@@ -11,6 +11,7 @@
           <%= link_to I18n.t('nav.products'), seller_products_path(@seller.id) %>
           <% if current_actor == @seller %>
              | <%= link_to I18n.t('others.actions.edit'), edit_seller_path(@seller) %>
+             | <%= link_to I18n.t('others.actions.delete'), @seller, method: :delete, data: { confirm: I18n.t('seller.confirm_delete') } if @seller == current_actor %>
           <% end %>
         </p>
       </div>
