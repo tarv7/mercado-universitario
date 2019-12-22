@@ -62,12 +62,16 @@ class ApplicationController < ActionController::Base
   # rubocop:enable Metrics/MethodLength
 
   def badge_user
+    return unless user_signed_in?
+
     @badge_user ||= current_user.order_products.includes(product: [:seller])
                                 .where(order: nil).map(&:product).map(&:seller)
                                 .uniq.count
   end
 
   def badge_seller
+    return unless user_signed_in?
+
     @badge_seller ||=
       Order.joins(order_products: [product: [:seller]])
            .includes(:order_products, order_products: [:product])
