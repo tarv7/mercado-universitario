@@ -58,6 +58,8 @@ en:
         whatsapp: WhatsApp
         instagram: Instagram
         image: Image
+        open: Answering now?
+        delivery: Makes delivery?
       state:
         name: Name
         abbreviation: Abbreviation

@@ -58,6 +58,8 @@ pt-BR:
         whatsapp: WhatsApp
         instagram: Instagram
         image: Imagem
+        open: Atendendo agora?
+        delivery: Faz entrega?
       state:
         name: Nome
         abbreviation: Abreviação

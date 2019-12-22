@@ -18,10 +18,17 @@ class User < ApplicationRecord
   delegate :course, to: :college_has_course
   delegate :college, to: :college_has_course
 
+  before_create :format_fields
+
   validates :name, presence: true
+  validates :college_has_course, presence: true
   validates :semester, numericality: { greater_than_or_equal_to: 1,
                                        only_integer: true }
   validate :image_type
+
+  def format_fields
+    self.whatsapp = self.whatsapp.scan(/\d/).join
+  end
 
   def image_type
     return unless image.attached?
