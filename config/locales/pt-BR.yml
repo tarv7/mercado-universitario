@@ -40,6 +40,7 @@ pt-BR:
       delete: Deletar
       buy: Comprar
       place_order: Realizar pedido
+      cancel_order: Cancelar pedido
       search: Buscar
       log_into: Logar
       register: Cadastrar

@@ -40,6 +40,7 @@ en:
       delete: To delete
       buy: Comprar
       place_order: Place order
+      cancel_order: Cancel order
       search: Search
       log_into: Log into
       register: Register

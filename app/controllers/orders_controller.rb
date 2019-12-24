@@ -42,6 +42,17 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
+  def destroy
+    pending_orders =
+      current_user.order_products.joins(product: [:seller])
+                  .where(products: { sellers: { id: params[:seller_id] } },
+                         order: nil)
+
+    pending_orders.destroy_all
+
+    redirect_to orders_path
+  end
+
   private
 
   def send_mail(order)

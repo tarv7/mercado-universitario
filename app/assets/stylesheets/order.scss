@@ -12,6 +12,9 @@
     }
   }
   #third{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     h4{
       font-weight: bold;
       text-align: center;
