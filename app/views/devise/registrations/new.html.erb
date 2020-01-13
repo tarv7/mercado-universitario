@@ -29,13 +29,13 @@
 
   <div class="row">
     <div class="col-4">
-      <%= f.input :university_id, collection: University.all, select: :blank, input_html: { id: 'university_select', onclick: 'request_data("/colleges.json", "#university_select", "#college_select");' } %>
+      <%= f.input :university_id, collection: University.all, input_html: { id: 'university_select' }, include_blank: false %>
     </div>
     <div class="col-3">
-      <%= f.input :college_id, collection: [], input_html: { id: 'college_select', onclick: 'request_data("/courses.json", "#college_select", "#course_select");' } %>
+      <%= f.input :college_id, collection: College.all, input_html: { id: 'college_select' }, include_blank: false %>
     </div>
     <div class="col-4">
-      <%= f.input :college_has_course_id, collection: [], input_html: { id: 'course_select' }, include_blank: false %>
+      <%= f.input :college_has_course_id, collection: Course.all, input_html: { id: 'course_select' } %>
     </div>
     <%= f.hidden_field :semester, value: 1 %>
   </div>
