@@ -1,0 +1,22 @@
+<h3>Contato</h3>
+
+<%= simple_form_for :contact, method: :post, url: contact_path do |f| %>
+  <div class="row no-gutters">
+    <div class="field col-6">
+      <%= f.input :email %>
+    </div>
+    <div class="field col-1"></div>
+
+    <div class="field col-5">
+      <%= f.input :subject %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.input :body, cols: 30, rows: 20, as: :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, 'Enviar', class: 'btn btn-success' %>
+  </div>
+<% end %>

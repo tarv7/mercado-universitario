@@ -1,8 +1,8 @@
 <div class="container col-12">
   <div class="row footer">
     <div class="col-lg-6 col-8" id="left">
-      <span><%#= I18n.t('footer.about_us').upcase %></span>
-      <span><%#= I18n.t('footer.licenses').upcase %></span>
+      <span><%= link_to I18n.t('footer.about_us').upcase, about_path %></span>
+      <span><%= link_to I18n.t('footer.contact').upcase, contact_path %></span>
       <span><%#= I18n.t('footer.privacy_policy').upcase %></span>
     </div>
 

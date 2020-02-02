@@ -27,4 +27,8 @@ Rails.application.routes.draw do
 
   resources :colleges, only: [:index]
   resources :courses, only: [:index]
+
+  get '/about', to: 'public#about'
+  get '/contact', to: 'public#contact'
+  post '/contact', to: 'public#send_contact'
 end
