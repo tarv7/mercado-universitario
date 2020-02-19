@@ -9,6 +9,8 @@
 
 <%= link_to I18n.t('product.link.register_product'), new_product_path if restricted_area? %>
 
+<%= link_to I18n.t('category.link.all_sellers', abbreviation: @college.university.abbreviation, name: @college.name), college_sellers_path(@college) if @college.present? %>
+
 <div class="row">
   <% @products.each do |p| %>
     <div class="col-6 col-md-6 col-lg-3">

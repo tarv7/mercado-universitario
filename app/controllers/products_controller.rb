@@ -98,6 +98,7 @@ class ProductsController < ApplicationController
     @products = Product.all
 
     if params[:college_id]
+      @college = College.find(params[:college_id])
       set_for_college
     elsif params[:seller_id]
       set_for_seller

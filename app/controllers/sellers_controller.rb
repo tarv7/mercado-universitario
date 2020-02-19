@@ -8,7 +8,7 @@ class SellersController < ApplicationController
   before_action :policy_update_destroy, only: %i[edit update destroy]
 
   def index
-    @sellers = Seller.per_college(current_user)
+    @sellers = base_sellers
 
     if params[:search].present?
       @sellers = @sellers.where('sellers.name LIKE ?',
@@ -66,8 +66,16 @@ class SellersController < ApplicationController
 
   private
 
+  def base_sellers
+    if current_user.present?
+      Seller.per_college(current_user)
+    else
+      Seller.per_college_params(params[:college_id])
+    end
+  end
+
   def skip_policy_view
-    params[:action] == 'show'
+    params[:action] == 'index' || params[:action] == 'show'
   end
 
   def define_nav_active

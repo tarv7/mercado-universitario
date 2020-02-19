@@ -134,6 +134,7 @@ pt-BR:
   category:
     link:
       all_products: Todos produtos da %{abbreviation} - %{name}
+      all_sellers: Todos vendedores %{abbreviation} - %{name}
 
   devise:
     link:

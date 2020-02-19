@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   resources :colleges, only: [:index] do
     resources :products
+    resources :sellers
   end
   resources :courses, only: [:index]
 

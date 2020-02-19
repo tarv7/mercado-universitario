@@ -13,6 +13,11 @@ class Seller < ApplicationRecord
       .where("colleges.id = #{user.college.id}")
   end
 
+  scope :per_college_params, ->(college_id) do
+    joins(user: [college_has_course: [:college]])
+      .where("colleges.id = #{college_id}")
+  end
+
   validates :name, presence: true
   validates :user, uniqueness: true
   validate :image_type

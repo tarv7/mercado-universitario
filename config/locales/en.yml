@@ -134,6 +134,7 @@ en:
   category:
     link:
       all_products: All products of %{abbreviation} - %{name}
+      all_sellers: All sellers %{abbreviation} - %{name}
 
   devise:
     hello: Hello
