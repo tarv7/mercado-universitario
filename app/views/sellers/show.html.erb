@@ -35,14 +35,20 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-auto">
-        <%= link_to image_tag('whatsapp.svg', class: 'icon-social'), url_whatsapp_path(@seller), target: '_blank' if @seller.whatsapp.present? %>
+    <% if current_user.present? %>
+      <div class="row">
+        <div class="col-md-auto">
+          <%= link_to image_tag('whatsapp.svg', class: 'icon-social'), url_whatsapp_path(@seller), target: '_blank' if @seller.whatsapp.present? %>
+        </div>
+        <div class="col-md-auto">
+          <%= link_to image_tag('instagram.svg', class: 'icon-social'), url_instagram_path(@seller), target: '_blank' if @seller.instagram.present? %>
+        </div>
       </div>
-      <div class="col-md-auto">
-        <%= link_to image_tag('instagram.svg', class: 'icon-social'), url_instagram_path(@seller), target: '_blank' if @seller.instagram.present? %>
+    <% else %>
+      <div class="info-seller">
+        <%= I18n.t('seller.login_for_contact') %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
 
@@ -53,7 +59,7 @@
   <hr>
   <div class="row">
     <div class="col align-self-end new_or_edit_link">
-      <%= link_to_review if @seller != current_user.seller && !restricted_area? %>
+      <%= link_to_review if current_user.present? && @seller != current_user.seller && !restricted_area? %>
     </div>
   </div>
 

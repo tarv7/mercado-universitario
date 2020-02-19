@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   resources :reviews, only: %i[index show]
   resources :categories
 
-  resources :colleges, only: [:index]
+  resources :colleges, only: [:index] do
+    resources :products
+  end
   resources :courses, only: [:index]
 
   get '/about', to: 'public#about'

@@ -1,4 +1,5 @@
 class SellersController < ApplicationController
+  skip_before_action :authenticate_user!, if: :skip_policy_view
   before_action :define_nav_active, only: %i[index show new edit]
   before_action :set_seller, only: %i[show edit update destroy]
   before_action :policy_index, only: %i[index]
@@ -19,7 +20,7 @@ class SellersController < ApplicationController
 
   def show
     @rating = @seller.reviews.average(:value)
-    @my_review = current_user.reviews.find_by(seller_id: params[:id])
+    @my_review = current_user&.reviews&.find_by(seller_id: params[:id])
   end
 
   def new
@@ -64,6 +65,10 @@ class SellersController < ApplicationController
   end
 
   private
+
+  def skip_policy_view
+    params[:action] == 'show'
+  end
 
   def define_nav_active
     params[:nav_active] = 'sellers'

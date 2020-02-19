@@ -4,8 +4,15 @@
       <%= link_to image_tag('logo-white.svg', size: '100%'), root_path %>
     </div>
     <%= link_to I18n.t('application.name'), root_path, class: 'navbar-brand align-left' %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="textoNavbar">
-    </div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item <%= 'active' if active_nav_products? %>">
+          <%= link_to I18n.t('nav.universities'), colleges_path, class: 'nav-link' %>
+        </li>
+      </ul>
 
     <%= link_to_change_locale %>
   </div>

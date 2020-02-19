@@ -18,6 +18,7 @@ pt-BR:
   nav:
     products: Produtos
     sellers: Vendedores
+    universities: Universidades
     my_orders: Meus pedidos
     configs: Configurações
     restricted_area: Área restrita
@@ -35,6 +36,7 @@ pt-BR:
       all_products: Todos os produtos
       products_of_category: Todos os produtos da categoria %{category}
       products_of_seller: Todos os produtos do vendedor %{seller}
+      products_of_college: Todos os produtos - %{college}
     actions:
       edit: Editar
       delete: Deletar
@@ -51,6 +53,8 @@ pt-BR:
     name:
       university: Universidade
       course: Curso
+      college: Campus
+      colleges: Campi
       addresses: Endereços
       seller: Vendedor
       sellers: Vendedores
@@ -86,6 +90,7 @@ pt-BR:
   seller:
     it_is_open: Funcionamento?
     it_deliver: Faz entrega?
+    login_for_contact: Faça o login para ter acesso ao Whatsapp e Instagram do vendedor :)
     confirm_delete: Tem certeza que você deseja excluir sua conta de vendedor?
     title:
       new: Torne-se um vendedor!

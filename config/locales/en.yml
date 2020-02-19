@@ -18,6 +18,7 @@ en:
   nav:
     products: Products
     sellers: Sellers
+    universities: Universities
     my_orders: My orders
     configs: settings
     restricted_area: Restricted area
@@ -34,7 +35,8 @@ en:
     title:
       all_products: All products
       products_of_category: All products in category %{category}
-      products_of_seller: All seller is products %{seller}
+      products_of_seller: All seller in products %{seller}
+      products_of_college: All products - %{college}
     actions:
       edit: To edit
       delete: To delete
@@ -51,6 +53,8 @@ en:
     name:
       university: University
       course: Course
+      college: College
+      colleges: Colleges
       addresses: Addresses
       seller: Seller
       sellers: Sellers
@@ -86,6 +90,7 @@ en:
   seller:
     it_is_open: Working?
     it_deliver: Does it deliver?
+    login_for_contact: Log in to access the seller's Whatsapp and Instagram :)
     confirm_delete: Are you sure you want to delete your seller account?
     title:
       new: Become a seller!

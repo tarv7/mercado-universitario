@@ -2,6 +2,8 @@
   <%= link_to url_path do %>
     <% if item.is_a?(Category) %>
       <%= image_tag item.image, id: 'image' %>
+    <% elsif item.is_a?(College) %>
+      <%= image_tag 'avatar_college.png', id: 'image' %>
     <% else %>
       <%= image_tag item.image.variant(combine_options: { resize: '512x512^', extent: '512x512', gravity: 'Center' }), id: 'image' %>
     <% end %>

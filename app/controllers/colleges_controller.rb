@@ -3,7 +3,7 @@ class CollegesController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html
+      format.html { @colleges = College.page(params[:page]).per(6) }
       format.json do
         render json: College.where(university_id: params[:university_id])
       end
