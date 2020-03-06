@@ -46,7 +46,7 @@ gem 'seedbank'
 # FFaker
 gem 'ffaker'
 # Bootstrap 4 rubygem for Rails
-gem 'bootstrap', '~> 4.0'
+gem 'bootstrap', '~> 4.4'
 # A gem to automate using jQuery with Rails
 gem 'jquery-rails'
 # Clean, powerful, customizable and sophisticated paginator
